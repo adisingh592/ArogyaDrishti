@@ -1,0 +1,2962 @@
+{
+  "diseases": {
+    "Diabetes": {
+      "category": "Endocrine / Metabolic",
+      "description": "Diabetes is a chronic metabolic condition characterized by elevated levels of blood glucose over a prolonged period due to insufficient insulin production or ineffective insulin utilization.",
+      "common_types": [
+        "Type 1 Diabetes",
+        "Type 2 Diabetes",
+        "Gestational Diabetes",
+        "Prediabetes"
+      ],
+      "symptoms": [
+        "Frequent urination (polyuria)",
+        "Excessive thirst (polydipsia)",
+        "Unexplained weight loss",
+        "Increased hunger",
+        "Fatigue and weakness",
+        "Blurred vision",
+        "Slow-healing cuts or sores"
+      ],
+      "risk_factors": [
+        "Physical inactivity and sedentary lifestyle",
+        "Family history of diabetes",
+        "Overweight or obesity",
+        "High blood pressure or abnormal cholesterol levels",
+        "Age (45 years or older for Type 2)"
+      ],
+      "food": {
+        "prefer": [
+          "Non-starchy vegetables (spinach, broccoli, peppers)",
+          "Whole grains (brown rice, oats, quinoa)",
+          "Legumes (beans, lentils, chickpeas)",
+          "Lean proteins (poultry, tofu, fish)",
+          "Healthy fats (nuts, seeds, olive oil)"
+        ],
+        "limit": [
+          "Sugar-sweetened beverages and sodas",
+          "Refined carbohydrates and white bread",
+          "Ultra-processed snack foods and pastries",
+          "High saturated and trans fat foods"
+        ],
+        "general_tip": "Focus on consistent carbohydrate intake, high-fiber foods, and balanced portion sizes throughout the day."
+      },
+      "exercise": {
+        "recommended": [
+          "Brisk walking (at least 150 minutes per week)",
+          "Cycling or stationary biking",
+          "Swimming or water aerobics",
+          "Moderate resistance and strength training (2-3 days per week)",
+          "Gentle stretching and yoga"
+        ],
+        "precautions": [
+          "Monitor blood sugar levels before and after intense physical activity if advised by a doctor.",
+          "Stay well hydrated and carry a fast-acting glucose source if prone to low blood sugar.",
+          "Wear supportive footwear to prevent foot injuries and inspect feet regularly."
+        ]
+      },
+      "lifestyle": [
+        "Maintain consistent sleep schedule (7-8 hours per night)",
+        "Avoid smoking and tobacco products",
+        "Manage psychological stress through relaxation techniques",
+        "Maintain a healthy body weight"
+      ],
+      "monitoring": [
+        "Regular self-monitoring of blood glucose levels as recommended by a doctor",
+        "Periodic HbA1c testing (typically every 3 to 6 months)",
+        "Annual dilated eye examinations and comprehensive foot exams",
+        "Routine kidney function (eGFR, microalbumin) and lipid profile checks"
+      ],
+      "medical_guidance": [
+        "Work closely with an endocrinologist, certified diabetes educator, or primary care provider.",
+        "Attend regular diabetes self-management education sessions.",
+        "Never adjust prescribed insulin or medications without direct clinician consultation."
+      ],
+      "warning_signs": [
+        "Extreme dizziness, confusion, or shakiness (severe hypoglycemia)",
+        "Fruity-smelling breath, nausea, vomiting, or rapid breathing (possible diabetic ketoacidosis)",
+        "Sudden vision loss or dark floating spots",
+        "Non-healing ulcers or loss of sensation in the feet"
+      ],
+      "when_to_seek_help": [
+        "Blood glucose readings are persistently very high or dangerously low",
+        "Signs of severe dehydration, vomiting, or confusion occur",
+        "Presence of foot redness, warmth, or open sores that do not heal"
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Diabetes Fact Sheet",
+        "American Diabetes Association (ADA) Standards of Medical Care",
+        "Centers for Disease Control and Prevention (CDC) - Diabetes"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Diabetes Health Indicator & Diabetes 130-US Hospitals (1999-2008)",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Endocrine_Metabolic/Diabetes"
+      }
+    },
+    "Heart Disease": {
+      "category": "Cardiovascular",
+      "description": "Heart disease refers to several types of heart conditions, most commonly coronary artery disease, which affects blood flow to the heart and can lead to heart attacks or other complications.",
+      "common_types": [
+        "Coronary Artery Disease (CAD)",
+        "Arrhythmia (irregular heartbeat)",
+        "Valvular Heart Disease",
+        "Cardiomyopathy"
+      ],
+      "symptoms": [
+        "Chest discomfort, pressure, or fullness (angina)",
+        "Shortness of breath during exertion or rest",
+        "Pain or discomfort in the neck, jaw, throat, back, or arms",
+        "Dizziness, lightheadedness, or fainting",
+        "Unexplained fatigue and coldness in extremities"
+      ],
+      "risk_factors": [
+        "High blood pressure (hypertension)",
+        "Elevated LDL cholesterol and triglycerides",
+        "Tobacco use and smoking",
+        "Diabetes and insulin resistance",
+        "Family history of early cardiovascular disease"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh fruits and leafy green vegetables",
+          "Fatty fish rich in Omega-3 (salmon, mackerel, sardines)",
+          "Whole grain cereals, oats, and brown rice",
+          "Nuts (walnuts, almonds) and seeds",
+          "Monounsaturated fats like extra virgin olive oil"
+        ],
+        "limit": [
+          "High-sodium foods, canned soups, and salty snacks",
+          "Processed meats (bacon, sausages, hot dogs)",
+          "Fried and commercially baked goods with trans fats",
+          "Excessive alcohol consumption"
+        ],
+        "general_tip": "Follow a heart-healthy dietary pattern (such as Mediterranean or DASH style) low in sodium and saturated fat."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate-intensity walking",
+          "Low-impact cycling or stationary riding",
+          "Supervised cardiac rehabilitation exercise programs if prescribed",
+          "Light resistance band training"
+        ],
+        "precautions": [
+          "Always warm up and cool down gradually.",
+          "Stop immediately if you feel chest pain, severe dizziness, or palpitations.",
+          "Consult a cardiologist before starting any new or vigorous exercise routine."
+        ]
+      },
+      "lifestyle": [
+        "Completely quit smoking and avoid secondhand smoke",
+        "Practice daily stress reduction and deep breathing exercises",
+        "Maintain a healthy waist circumference and body mass index",
+        "Limit caffeine and stimulant intake if experiencing palpitations"
+      ],
+      "monitoring": [
+        "Regular home and clinical blood pressure monitoring",
+        "Periodic lipid panel tests (cholesterol and triglycerides)",
+        "Periodic electrocardiograms (ECG) and echocardiograms as advised",
+        "Tracking resting heart rate and daily symptoms"
+      ],
+      "medical_guidance": [
+        "Maintain regular appointments with a qualified cardiologist or physician.",
+        "Take all prescribed cardiovascular therapies strictly as directed.",
+        "Understand your target numbers for blood pressure, LDL cholesterol, and blood sugar."
+      ],
+      "warning_signs": [
+        "Crushing chest pain radiating to the left arm, jaw, or back",
+        "Sudden, unexplained shortness of breath with cold sweats",
+        "Loss of consciousness or severe sudden dizziness",
+        "Rapid or irregular heartbeat accompanied by weakness"
+      ],
+      "when_to_seek_help": [
+        "Any sudden or worsening chest pain or tightness occurs (call emergency services immediately)",
+        "Increasing shortness of breath while lying flat or during light tasks",
+        "Sudden unexplained swelling in legs, ankles, or feet"
+      ],
+      "sources": [
+        "American Heart Association (AHA) Guidelines",
+        "World Health Organization (WHO) - Cardiovascular Diseases",
+        "National Health Service (NHS) - Coronary Heart Disease"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Heart Disease (Cleveland/Hungarian), Heart Failure Clinical Records, Statlog Heart",
+        "data_type": "Tabular (.data, .csv, .dat)",
+        "folder_path": "organized_datasets/Cardiovascular/Heart_Disease"
+      }
+    },
+    "Heart Failure": {
+      "category": "Cardiovascular",
+      "description": "Heart failure is a progressive condition where the heart muscle is unable to pump blood efficiently enough to meet the body's normal needs for blood and oxygen.",
+      "common_types": [
+        "Heart Failure with Reduced Ejection Fraction (HFrEF)",
+        "Heart Failure with Preserved Ejection Fraction (HFpEF)",
+        "Left-sided Heart Failure",
+        "Right-sided Heart Failure"
+      ],
+      "symptoms": [
+        "Shortness of breath (dyspnea) during activity or when lying flat",
+        "Persistent coughing or wheezing with white or pink blood-tinged phlegm",
+        "Swelling (edema) in feet, ankles, legs, or abdomen",
+        "Rapid or irregular heartbeat",
+        "Sudden unexplained weight gain from fluid retention",
+        "Persistent fatigue and weakness"
+      ],
+      "risk_factors": [
+        "Coronary artery disease and past heart attack",
+        "Chronic high blood pressure",
+        "Diabetes and metabolic syndrome",
+        "Valvular heart disease or congenital defects",
+        "Severe sleep apnea"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh vegetables and fruits naturally low in sodium",
+          "Skinless poultry, beans, and lentils",
+          "Whole grain bread and cereals",
+          "Herbs and spices for seasoning instead of table salt"
+        ],
+        "limit": [
+          "Excess sodium (typically keep below 1,500 - 2,000 mg/day as advised by doctor)",
+          "Processed foods, deli meats, and frozen dinners",
+          "Excessive fluid intake if fluid restriction has been ordered",
+          "Alcohol and caffeinated energy drinks"
+        ],
+        "general_tip": "Strictly monitor daily sodium and fluid intake to prevent fluid retention."
+      },
+      "exercise": {
+        "recommended": [
+          "Gradual, low-intensity walking on flat surfaces",
+          "Seated stretching and mobility exercises",
+          "Structured cardiac rehabilitation program under medical supervision"
+        ],
+        "precautions": [
+          "Avoid heavy weightlifting or isometric straining.",
+          "Do not exercise if you feel breathless, dizzy, or notice sudden swelling.",
+          "Always rest whenever fatigue sets in."
+        ]
+      },
+      "lifestyle": [
+        "Daily morning weight recording after urinating and before eating",
+        "Elevate legs when resting to reduce lower limb swelling",
+        "Get vaccinated against influenza and pneumococcal disease",
+        "Strictly avoid smoking and alcohol"
+      ],
+      "monitoring": [
+        "Daily body weight log (report gains of >2-3 lbs in a day or >5 lbs in a week)",
+        "Blood pressure and resting pulse monitoring",
+        "Routine kidney function (creatinine, BUN) and electrolyte blood tests",
+        "Periodic echocardiograms to evaluate ejection fraction"
+      ],
+      "medical_guidance": [
+        "Follow an individualized heart failure action plan developed with your cardiology team.",
+        "Take all medications regularly and never skip doses.",
+        "Know your target weight and notify your doctor when weight fluctuates rapidly."
+      ],
+      "warning_signs": [
+        "Severe shortness of breath that prevents talking or sleeping",
+        "Coughing up pink, foamy mucus",
+        "Rapid weight gain of more than 3 pounds in 24 hours",
+        "New or worsening confusion, dizziness, or fainting"
+      ],
+      "when_to_seek_help": [
+        "Sudden worsening of breathing difficulty or chest pain",
+        "Marked swelling spreading rapidly to knees, thighs, or abdomen",
+        "Frequent episodes of lightheadedness upon standing"
+      ],
+      "sources": [
+        "Heart Failure Society of America (HFSA)",
+        "American College of Cardiology (ACC) / AHA Heart Failure Guidelines",
+        "European Society of Cardiology (ESC) Guidelines"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Heart Failure Clinical Records Dataset",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Cardiovascular/Heart_Disease/heart+failure+clinical+records (1)"
+      }
+    },
+    "Stroke": {
+      "category": "Neurological",
+      "description": "A stroke occurs when blood flow to part of the brain is interrupted or reduced, preventing brain tissue from getting oxygen and nutrients, which can cause brain cells to begin dying within minutes.",
+      "common_types": [
+        "Ischemic Stroke (blood clot blocking artery)",
+        "Hemorrhagic Stroke (ruptured blood vessel in brain)",
+        "Transient Ischemic Attack (TIA or mini-stroke)"
+      ],
+      "symptoms": [
+        "Sudden numbness or weakness of the face, arm, or leg (especially on one side)",
+        "Sudden confusion, trouble speaking, or difficulty understanding speech",
+        "Sudden trouble seeing in one or both eyes",
+        "Sudden trouble walking, loss of balance, dizziness, or lack of coordination",
+        "Sudden severe headache with no known cause"
+      ],
+      "risk_factors": [
+        "High blood pressure (hypertension)",
+        "Smoking and tobacco use",
+        "Atrial fibrillation or heart conditions",
+        "Diabetes and high cholesterol",
+        "Previous stroke or Transient Ischemic Attack (TIA)"
+      ],
+      "food": {
+        "prefer": [
+          "Vegetables, leafy greens, and colorful fruits",
+          "Fish, legumes, and lean poultry",
+          "Whole grain bread, oats, and barley",
+          "Healthy cooking oils like olive oil"
+        ],
+        "limit": [
+          "Salty and sodium-rich preserved foods",
+          "High saturated fat foods and deep-fried dishes",
+          "Processed meats and sugary snacks",
+          "Heavy alcohol intake"
+        ],
+        "general_tip": "Adopt a low-sodium, potassium-rich, antioxidant-dense diet to protect vascular health."
+      },
+      "exercise": {
+        "recommended": [
+          "Post-stroke physical therapy and rehabilitation exercises",
+          "Gentle daily walking with supportive assistance if needed",
+          "Balance, coordination, and range-of-motion routines",
+          "Stationary recumbent cycling"
+        ],
+        "precautions": [
+          "Exercise only under guidance of a physical or occupational therapist if mobility is impaired.",
+          "Use assistive devices (canes, walkers) to prevent falls.",
+          "Avoid sudden, high-intensity exertion that spikes blood pressure."
+        ]
+      },
+      "lifestyle": [
+        "Keep blood pressure in the recommended target range",
+        "Manage sleep apnea if diagnosed",
+        "Maintain cognitive stimulation through puzzles and reading",
+        "Avoid all tobacco products"
+      ],
+      "monitoring": [
+        "Frequent blood pressure checks",
+        "Periodic carotid ultrasound or neuroimaging follow-ups as advised",
+        "Blood glucose and lipid profile surveillance",
+        "Monitoring for heart rhythm irregularities (such as atrial fibrillation)"
+      ],
+      "medical_guidance": [
+        "Remember the F.A.S.T. signs: Face drooping, Arm weakness, Speech difficulty, Time to call emergency.",
+        "Attend regular neurological follow-ups and complete prescribed rehabilitation therapies.",
+        "Take prescribed antiplatelet, anticoagulant, or blood pressure therapies faithfully."
+      ],
+      "warning_signs": [
+        "Sudden facial asymmetry or drooping corner of mouth",
+        "Inability to lift or hold up one arm",
+        "Slurred speech, garbled words, or inability to speak",
+        "Sudden vision blackout or double vision"
+      ],
+      "when_to_seek_help": [
+        "ANY sudden sign of stroke (FAST) requires IMMEDIATE emergency response (call 911 / 112 / local emergency).",
+        "Even if symptoms resolve after a few minutes (suspected TIA), immediate emergency evaluation is essential."
+      ],
+      "sources": [
+        "American Stroke Association (ASA)",
+        "World Stroke Organization (WSO)",
+        "Centers for Disease Control and Prevention (CDC) - Stroke"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Healthcare Dataset Stroke Data",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Cardiovascular/Stroke/heart stroke"
+      }
+    },
+    "Alzheimers_Disease": {
+      "category": "Neurological",
+      "description": "Alzheimer's disease is a progressive neurodegenerative disorder that slowly destroys memory, thinking skills, and eventually the ability to carry out simple daily tasks.",
+      "common_types": [
+        "Early-onset Alzheimer's Disease",
+        "Late-onset Alzheimer's Disease (most common)",
+        "Familial Alzheimer's Disease"
+      ],
+      "symptoms": [
+        "Memory loss that disrupts daily life",
+        "Challenges in planning or solving problems",
+        "Difficulty completing familiar tasks",
+        "Confusion with time or place",
+        "Trouble understanding visual images and spatial relationships",
+        "New problems with words in speaking or writing",
+        "Changes in mood, personality, and social withdrawal"
+      ],
+      "risk_factors": [
+        "Advancing age (65 years and older)",
+        "Family history and genetics (APOE-e4 allele)",
+        "Cardiovascular risk factors (high BP, diabetes, high cholesterol)",
+        "History of severe head trauma or brain injury",
+        "Chronic lack of mental and social engagement"
+      ],
+      "food": {
+        "prefer": [
+          "MIND / Mediterranean diet foods (leafy greens, berries, olive oil)",
+          "Fatty fish (salmon, tuna) containing DHA and EPA",
+          "Nuts, seeds, and legumes",
+          "Whole grains and colorful vegetables"
+        ],
+        "limit": [
+          "Saturated fats, butter, and stick margarine",
+          "Pastries, sweets, and refined sugars",
+          "High-sodium processed meats",
+          "Heavy alcohol consumption"
+        ],
+        "general_tip": "Follow a MIND or Mediterranean-style dietary pattern rich in brain-protective antioxidants and omega-3 fatty acids."
+      },
+      "exercise": {
+        "recommended": [
+          "Daily supervised walking in safe, familiar environments",
+          "Simple chair yoga, balance, and stretching exercises",
+          "Light aerobic activities and gentle dancing",
+          "Gardening and household movement"
+        ],
+        "precautions": [
+          "Provide supervision to prevent wandering and fall injuries.",
+          "Ensure clutter-free walking paths with adequate lighting.",
+          "Keep physical routines simple, calm, and familiar."
+        ]
+      },
+      "lifestyle": [
+        "Establish consistent, predictable daily routines",
+        "Engage in mentally stimulating activities (reading, music, simple games)",
+        "Maintain active social interactions with family and friends",
+        "Ensure home safety (remove trip hazards, install handrails)"
+      ],
+      "monitoring": [
+        "Periodic cognitive assessments (such as MMSE, MoCA) by a neurologist",
+        "Monitoring behavioral changes, sleep patterns, and appetite",
+        "Regular medication safety reviews and fall risk evaluations"
+      ],
+      "medical_guidance": [
+        "Work in close partnership with a neurologist, geriatrician, and memory care team.",
+        "Engage caregiver support resources and community support groups.",
+        "Plan legal, financial, and healthcare advance directives early."
+      ],
+      "warning_signs": [
+        "Getting lost in familiar neighborhood environments",
+        "Inability to recognize close family members",
+        "Severe agitation, paranoia, hallucinations, or aggression",
+        "Difficulty swallowing, choking, or extreme weight loss"
+      ],
+      "when_to_seek_help": [
+        "Sudden, acute worsening of confusion or delirium (may indicate infection like UTI)",
+        "Frequent falls or unsteadiness",
+        "Severe sleep disturbances or wandering behaviors"
+      ],
+      "sources": [
+        "Alzheimer's Association",
+        "National Institute on Aging (NIA / NIH)",
+        "World Health Organization (WHO) - Dementia Fact Sheet"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Alzheimer Features (ML_transform_alz.csv) & Alzheimer Dataset Archive (alhezhimer.zip)",
+        "data_type": "Tabular (.csv) & Image/Archive (.zip)",
+        "folder_path": "organized_datasets/Neurological/Alzheimers_Disease"
+      }
+    },
+    "Parkinsons_Disease": {
+      "category": "Neurological",
+      "description": "Parkinson's disease is a progressive movement disorder of the central nervous system caused by the degeneration of dopamine-producing neurons in the brain.",
+      "common_types": [
+        "Idiopathic Parkinson's Disease (most common)",
+        "Vascular Parkinsonism",
+        "Drug-induced Parkinsonism"
+      ],
+      "symptoms": [
+        "Tremor at rest (especially in hands, arms, legs, or jaw)",
+        "Slowness of movement (bradykinesia)",
+        "Muscle stiffness and rigidity",
+        "Impaired balance, posture, and coordination",
+        "Softened speech (hypophonia) and smaller handwriting (micrographia)",
+        "Sleep disturbances, loss of smell, and constipation"
+      ],
+      "risk_factors": [
+        "Age (typically develops around age 60 or older)",
+        "Genetic predisposition and specific gene mutations",
+        "Male gender (slightly higher incidence)",
+        "Prolonged exposure to certain pesticides and industrial toxins"
+      ],
+      "food": {
+        "prefer": [
+          "High-fiber foods (beans, oats, prunes, vegetables) to prevent constipation",
+          "Hydrating fluids and water throughout the day",
+          "Antioxidant-rich foods (berries, spinach, green tea)",
+          "Small, balanced, easy-to-chew meals"
+        ],
+        "limit": [
+          "Heavy protein meals taken at the exact same time as levodopa medication (as protein can compete with absorption)",
+          "High-fat, hard-to-digest processed foods",
+          "Excessive intake of refined sugars and caffeine"
+        ],
+        "general_tip": "Maintain high fiber and adequate hydration; discuss timing of dietary protein relative to medication schedule with your doctor."
+      },
+      "exercise": {
+        "recommended": [
+          "Targeted physical therapy and gait training",
+          "Tai Chi and yoga for balance and flexibility",
+          "Tandem cycling or stationary cycling",
+          "Speech and voice exercises (e.g., LSVT LOUD)"
+        ],
+        "precautions": [
+          "Take precautions to prevent falls; use walking poles or handrails if balance is compromised.",
+          "Avoid exercising during 'off' medication periods when stiffness is highest.",
+          "Perform movements on non-slip surfaces."
+        ]
+      },
+      "lifestyle": [
+        "Modify home environment for fall prevention (remove rugs, install grab bars)",
+        "Wear non-skid, supportive shoes without rubber grips that catch on carpets",
+        "Prioritize restful sleep hygiene and manage daytime fatigue",
+        "Practice daily vocal and facial muscle exercises"
+      ],
+      "monitoring": [
+        "Regular neurological evaluations using movement rating scales (UPDRS)",
+        "Tracking motor fluctuations ('on' vs 'off' medication times)",
+        "Monitoring blood pressure when standing (to detect orthostatic hypotension)",
+        "Swallowing and speech assessments by speech-language therapists"
+      ],
+      "medical_guidance": [
+        "Consult a movement disorder specialist or neurologist regularly.",
+        "Take Parkinson's medications strictly on time according to the prescribed schedule.",
+        "Include physical, occupational, and speech therapists in ongoing care."
+      ],
+      "warning_signs": [
+        "Sudden freezing of gait leading to falls",
+        "Severe difficulty swallowing or recurrent coughing while eating",
+        "Visual hallucinations or sudden confusion",
+        "Severe drop in blood pressure with dizziness when standing up"
+      ],
+      "when_to_seek_help": [
+        "Frequent falls or inability to walk safely",
+        "Signs of aspiration or severe choking episodes",
+        "Sudden emergence of hallucinations or medication side effects"
+      ],
+      "sources": [
+        "Parkinson's Foundation",
+        "National Institute of Neurological Disorders and Stroke (NINDS)",
+        "Movement Disorder Society (MDS)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Epilepsy": {
+      "category": "Neurological",
+      "description": "Epilepsy is a chronic neurological disorder characterized by recurrent, unprovoked seizures caused by sudden surges of abnormal electrical activity in the brain.",
+      "common_types": [
+        "Focal (Partial) Onset Seizures",
+        "Generalized Onset Seizures (Absence, Tonic-Clonic)",
+        "Unknown Onset Seizures"
+      ],
+      "symptoms": [
+        "Temporary confusion or staring spells",
+        "Uncontrollable jerking movements of arms and legs",
+        "Loss of consciousness or awareness",
+        "Unusual sensations, emotions, or smells (auras)",
+        "Stiffening of muscles followed by rhythmic twitching"
+      ],
+      "risk_factors": [
+        "Past head trauma or brain injury",
+        "Stroke or vascular brain conditions",
+        "Brain infections (meningitis, encephalitis)",
+        "Genetic predisposition",
+        "Complications during fetal development or birth"
+      ],
+      "food": {
+        "prefer": [
+          "Balanced meals with steady nutrient release",
+          "Magnesium-rich foods (leafy greens, pumpkin seeds, whole grains)",
+          "Adequate water and electrolyte hydration",
+          "Medically supervised ketogenic/modified Atkins diet if specifically prescribed for refractory epilepsy"
+        ],
+        "limit": [
+          "Excessive caffeine and energy drinks",
+          "Alcohol and recreational substances",
+          "Skipping meals or extreme fasting (which can trigger seizures)"
+        ],
+        "general_tip": "Maintain regular, balanced meals and consistent hydration to prevent metabolic triggers."
+      },
+      "exercise": {
+        "recommended": [
+          "Regular moderate aerobic exercise (walking, jogging)",
+          "Strength training with machines rather than free heavy weights",
+          "Pilates and yoga for stress reduction"
+        ],
+        "precautions": [
+          "Never swim alone; always have a companion who knows seizure first-aid.",
+          "Avoid unsupervised high-altitude climbing or solo water sports.",
+          "Wear protective headgear during cycling or contact sports."
+        ]
+      },
+      "lifestyle": [
+        "Ensure consistent, adequate sleep (sleep deprivation is a major seizure trigger)",
+        "Avoid known individual seizure triggers (e.g., flashing lights, extreme fatigue)",
+        "Wear medical alert identification detailing the epilepsy diagnosis",
+        "Manage emotional stress through mindfulness and relaxation"
+      ],
+      "monitoring": [
+        "Maintain a detailed seizure diary (date, time, duration, triggers, symptoms)",
+        "Periodic electroencephalogram (EEG) and brain MRI evaluations",
+        "Routine therapeutic drug monitoring for antiepileptic medication levels"
+      ],
+      "medical_guidance": [
+        "Consult an epileptologist or neurologist regularly.",
+        "Take antiepileptic medications strictly as prescribed without missing doses.",
+        "Ensure family, friends, and coworkers know basic seizure first aid (turn person to side, do not put anything in mouth)."
+      ],
+      "warning_signs": [
+        "Seizure lasting longer than 5 minutes (status epilepticus)",
+        "Repeated seizures occurring without regaining consciousness between them",
+        "Difficulty breathing or remaining unconscious after seizure ends",
+        "Seizure occurring in water or resulting in serious injury"
+      ],
+      "when_to_seek_help": [
+        "Call emergency services immediately if a seizure lasts >5 minutes, repeats rapidly, or happens for the first time.",
+        "Seek medical review if seizure frequency increases or new seizure types appear."
+      ],
+      "sources": [
+        "Epilepsy Foundation",
+        "World Health Organization (WHO) - Epilepsy Fact Sheet",
+        "Centers for Disease Control and Prevention (CDC) - Epilepsy"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Brain_Tumor": {
+      "category": "Neurological",
+      "description": "A brain tumor is an abnormal mass or growth of cells in the brain or surrounding tissues, which can be benign (non-cancerous) or malignant (cancerous).",
+      "common_types": [
+        "Glioma (Glioblastoma, Astrocytoma, Oligodendroglioma)",
+        "Meningioma",
+        "Pituitary Adenoma",
+        "Schwannoma (Acoustic Neuroma)",
+        "Brain Metastases (secondary tumors)"
+      ],
+      "symptoms": [
+        "New onset or change in pattern of severe headaches (often worse in the morning)",
+        "Unexplained nausea or vomiting",
+        "Vision problems (blurred vision, double vision, loss of peripheral vision)",
+        "Gradual loss of sensation or movement in an arm or leg",
+        "Difficulty with balance and coordination",
+        "Speech difficulties and personality/behavioral changes",
+        "New onset seizures"
+      ],
+      "risk_factors": [
+        "Exposure to ionizing radiation",
+        "Family history of rare genetic syndromes (e.g., Neurofibromatosis, Li-Fraumeni)",
+        "Advanced age (risk varies by specific tumor type)"
+      ],
+      "food": {
+        "prefer": [
+          "Nutrient-dense, antioxidant-rich fruits and vegetables",
+          "Adequate lean protein (poultry, eggs, legumes, fish) to support recovery",
+          "Small, frequent meals if nausea is present",
+          "Plenty of fluids to stay well hydrated"
+        ],
+        "limit": [
+          "Excessive refined sugars and highly processed foods",
+          "Heavy, greasy, or spicy foods that aggravate nausea",
+          "Alcohol and tobacco"
+        ],
+        "general_tip": "Focus on high-protein, calorie-sufficient, easy-to-digest meals to support neurological health and treatment recovery."
+      },
+      "exercise": {
+        "recommended": [
+          "Gentle walking and light stretching as tolerated",
+          "Physical and occupational therapy rehabilitation",
+          "Seated mobility exercises"
+        ],
+        "precautions": [
+          "Avoid activities with fall risks if balance or vision is impaired.",
+          "Do not perform heavy straining or inverted poses that increase intracranial pressure.",
+          "Rest whenever fatigued; avoid pushing through exhaustion."
+        ]
+      },
+      "lifestyle": [
+        "Ensure a quiet, restful sleeping environment",
+        "Use assistive devices and remove household fall hazards",
+        "Seek emotional and psychological counseling support",
+        "Keep a symptom log to share with the neuro-oncology team"
+      ],
+      "monitoring": [
+        "Serial brain MRI or CT imaging to monitor tumor dimensions",
+        "Regular neurological examinations, visual field testing, and cognitive assessments",
+        "Monitoring for seizures and medication side effects"
+      ],
+      "medical_guidance": [
+        "Work with a multidisciplinary team (neurosurgeon, neuro-oncologist, radiation oncologist).",
+        "Follow surgical, radiation, or chemotherapy treatment plans closely.",
+        "Report any new or worsening neurological deficits promptly."
+      ],
+      "warning_signs": [
+        "Sudden, excruciating headache unlike any previous headache",
+        "Sudden loss of consciousness or onset of seizures",
+        "Rapid weakness, paralysis, or inability to speak",
+        "Persistent, projectile vomiting"
+      ],
+      "when_to_seek_help": [
+        "Immediate emergency care for new seizures, sudden paralysis, or loss of responsiveness.",
+        "Prompt medical evaluation for persistent, unexplained morning headaches with nausea."
+      ],
+      "sources": [
+        "American Brain Tumor Association (ABTA)",
+        "National Cancer Institute (NCI) - Brain Tumors",
+        "Mayo Clinic - Brain Tumor Overview"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Brain Tumour MRI Dataset (Testing & Training)",
+        "data_type": "Image (3,264 MRI .jpg images)",
+        "folder_path": "organized_datasets/Neurological/Brain_Tumor/brain tumour"
+      }
+    },
+    "Multiple_Sclerosis": {
+      "category": "Neurological",
+      "description": "Multiple Sclerosis (MS) is a chronic autoimmune disorder of the central nervous system in which the immune system attacks the protective myelin sheath covering nerve fibers.",
+      "common_types": [
+        "Relapsing-Remitting MS (RRMS)",
+        "Secondary Progressive MS (SPMS)",
+        "Primary Progressive MS (PPMS)",
+        "Clinically Isolated Syndrome (CIS)"
+      ],
+      "symptoms": [
+        "Numbness, tingling, or weakness in one or more limbs",
+        "Vision loss, double vision, or pain during eye movement (optic neuritis)",
+        "Electric-shock sensations occurring with certain neck movements (Lhermitte sign)",
+        "Severe fatigue and brain fog",
+        "Unsteady gait, lack of coordination, or tremors",
+        "Bladder and bowel dysfunction"
+      ],
+      "risk_factors": [
+        "Age (typically diagnosed between 20 and 40 years)",
+        "Female gender (more common in women)",
+        "Low Vitamin D levels and low sunlight exposure",
+        "Smoking",
+        "Family history of MS",
+        "Past Epstein-Barr virus (EBV) infection"
+      ],
+      "food": {
+        "prefer": [
+          "Anti-inflammatory foods (fatty fish, walnuts, flaxseeds)",
+          "Vitamin D-rich foods (fortified dairy/plant milk, egg yolks, mushrooms)",
+          "High-fiber vegetables and whole grains to support gut health",
+          "Adequate water intake"
+        ],
+        "limit": [
+          "Saturated fats and trans fats",
+          "Ultra-processed packaged foods",
+          "Excess sodium and refined sugars"
+        ],
+        "general_tip": "Emphasize an anti-inflammatory, nutrient-dense diet rich in Vitamin D and Omega-3 fatty acids."
+      },
+      "exercise": {
+        "recommended": [
+          "Water aerobics and swimming (cool water prevents heat-induced fatigue)",
+          "Stationary cycling and elliptical training",
+          "Stretching, Pilates, and adapted yoga for spasticity",
+          "Supervised physical therapy"
+        ],
+        "precautions": [
+          "Avoid overheating (Uhthoff phenomenon can temporarily worsen symptoms).",
+          "Use cooling vests, fans, and cold drinks during workouts.",
+          "Rest frequently and avoid exercising to the point of exhaustion."
+        ]
+      },
+      "lifestyle": [
+        "Avoid heat exposure (hot tubs, saunas, direct midday sun)",
+        "Strictly quit smoking (smoking accelerates MS progression)",
+        "Prioritize energy conservation techniques and daytime pacing",
+        "Engage in stress management and mindfulness"
+      ],
+      "monitoring": [
+        "Periodic brain and spinal cord MRI scans to evaluate lesion activity",
+        "Routine neurological functional assessments (EDSS)",
+        "Monitoring Vitamin D blood levels",
+        "Tracking flare-ups, relapses, and recovery patterns"
+      ],
+      "medical_guidance": [
+        "Collaborate regularly with an MS specialist neurologist.",
+        "Discuss disease-modifying therapies (DMTs) to reduce relapse frequency and slow progression.",
+        "Never discontinue DMTs without consulting your healthcare provider."
+      ],
+      "warning_signs": [
+        "Sudden new neurological deficit or severe relapse lasting >24 hours",
+        "Rapid loss of vision in one eye",
+        "Severe loss of bladder or bowel control",
+        "Signs of severe infection or fever during immunosuppressive therapy"
+      ],
+      "when_to_seek_help": [
+        "Contact your MS care team promptly upon onset of a new relapse or acute symptom worsening.",
+        "Seek urgent medical evaluation for sudden vision impairment or acute severe weakness."
+      ],
+      "sources": [
+        "National Multiple Sclerosis Society (NMSS)",
+        "Multiple Sclerosis International Federation (MSIF)",
+        "Mayo Clinic - Multiple Sclerosis"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Anemia": {
+      "category": "Blood / Hematological",
+      "description": "Anemia is a condition in which the blood has a lower than normal number of healthy red blood cells or hemoglobin, leading to reduced oxygen flow to the body's organs.",
+      "common_types": [
+        "Iron Deficiency Anemia (most common)",
+        "Vitamin Deficiency Anemia (B12, Folate)",
+        "Aplastic Anemia",
+        "Hemolytic Anemia",
+        "Sickle Cell Anemia"
+      ],
+      "symptoms": [
+        "Persistent fatigue, weakness, and low energy",
+        "Pale, yellowish skin and pale inner eyelids",
+        "Shortness of breath and dizziness, especially on standing",
+        "Cold hands and feet",
+        "Headaches and lightheadedness",
+        "Brittle nails or unusual cravings for non-food items like ice (pica)"
+      ],
+      "risk_factors": [
+        "Diet low in iron, vitamin B12, or folate",
+        "Heavy menstrual bleeding",
+        "Pregnancy",
+        "Chronic blood loss (e.g., gastrointestinal ulcers, polyps)",
+        "Intestinal absorption disorders (e.g., celiac disease, Crohn's)"
+      ],
+      "food": {
+        "prefer": [
+          "Iron-rich foods (spinach, lentils, beans, fortified cereals, lean red meat)",
+          "Vitamin C foods (oranges, bell peppers, tomatoes) to enhance iron absorption",
+          "Vitamin B12 sources (eggs, dairy, fish, fortified nutritional yeast)",
+          "Folate-rich leafy greens, asparagus, and citrus fruits"
+        ],
+        "limit": [
+          "Drinking tea or coffee directly with iron-rich meals (tannins inhibit absorption)",
+          "Excessive calcium supplements taken at the exact same time as iron foods",
+          "Excessive alcohol intake"
+        ],
+        "general_tip": "Combine plant-based iron sources with Vitamin C-rich foods to maximize dietary iron absorption."
+      },
+      "exercise": {
+        "recommended": [
+          "Low-intensity walking and gentle mobility exercises",
+          "Light stretching and breathing routines",
+          "Gradual progression of activity as hemoglobin levels improve"
+        ],
+        "precautions": [
+          "Avoid high-intensity or strenuous workouts until hemoglobin levels stabilize.",
+          "Rest immediately if feeling dizzy, lightheaded, or short of breath.",
+          "Change positions slowly to avoid postural dizziness."
+        ]
+      },
+      "lifestyle": [
+        "Prioritize restful sleep and plan rest breaks during the day",
+        "Avoid intense overexertion",
+        "Maintain routine health checks to identify underlying causes of blood loss"
+      ],
+      "monitoring": [
+        "Periodic Complete Blood Count (CBC) and hemoglobin checks",
+        "Serum ferritin, iron saturation, and total iron-binding capacity (TIBC)",
+        "Vitamin B12 and serum folate levels"
+      ],
+      "medical_guidance": [
+        "Always investigate the underlying root cause of anemia with a physician.",
+        "Take iron or vitamin supplements only in the dosage recommended by your clinician.",
+        "Avoid self-treating severe fatigue without proper lab confirmation."
+      ],
+      "warning_signs": [
+        "Severe shortness of breath at rest",
+        "Chest pain or rapid, pounding heartbeat (palpitations)",
+        "Fainting spells (syncope) or extreme pallor",
+        "Black, tarry stools or visible blood in vomit or stool"
+      ],
+      "when_to_seek_help": [
+        "Immediate emergency evaluation for chest pain, severe breathlessness, or black tarry stools.",
+        "Schedule a doctor visit if persistent fatigue and pale skin do not improve."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Anaemia",
+        "National Heart, Lung, and Blood Institute (NHLBI / NIH)",
+        "Centers for Disease Control and Prevention (CDC) - Iron and Iron Deficiency"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Anemia Dataset",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Hematology/Anemia/anemia"
+      }
+    },
+    "Leukemia": {
+      "category": "Blood / Hematological",
+      "description": "Leukemia is a cancer of the blood-forming tissues, including bone marrow and lymphatic system, which results in the rapid overproduction of abnormal, non-functioning white blood cells.",
+      "common_types": [
+        "Acute Lymphoblastic Leukemia (ALL)",
+        "Acute Myeloid Leukemia (AML)",
+        "Chronic Lymphocytic Leukemia (CLL)",
+        "Chronic Myeloid Leukemia (CML)"
+      ],
+      "symptoms": [
+        "Fever, chills, and frequent or persistent infections",
+        "Persistent fatigue, weakness, and pale complexion",
+        "Easy bruising and frequent bleeding (nosebleeds, bleeding gums)",
+        "Tiny red spots on skin (petechiae)",
+        "Swollen lymph nodes, enlarged liver or spleen",
+        "Unexplained weight loss and drenching night sweats",
+        "Bone pain or tenderness"
+      ],
+      "risk_factors": [
+        "Previous cancer chemotherapy or radiation treatment",
+        "Exposure to high levels of radiation or industrial chemicals (e.g., benzene)",
+        "Certain genetic disorders (e.g., Down syndrome)",
+        "Smoking (for AML)"
+      ],
+      "food": {
+        "prefer": [
+          "Well-cooked, hygienically prepared meals to avoid foodborne infections",
+          "High-protein foods (eggs, well-cooked poultry, legumes, pasteurized dairy)",
+          "Thoroughly washed, peeled fruits and cooked vegetables",
+          "Calorie-dense, nutritious smoothies or soups when appetite is low"
+        ],
+        "limit": [
+          "Raw or undercooked meats, seafood, sushi, and runny eggs (neutropenic precautions)",
+          "Unpasteurized milk, cheeses, and juices",
+          "Unwashed raw produce"
+        ],
+        "general_tip": "Follow strict food hygiene and food safety guidelines to protect against bacterial and viral infections during treatment."
+      },
+      "exercise": {
+        "recommended": [
+          "Short, gentle walks around the home or garden as energy permits",
+          "Light stretching and seated range-of-motion exercises",
+          "Relaxation breathing exercises"
+        ],
+        "precautions": [
+          "Avoid crowded gyms and public fitness centers when white blood cell counts are low.",
+          "Avoid contact sports or activities with injury risk due to low platelet counts and bleeding risks.",
+          "Stop immediately if feeling fatigued, feverish, or dizzy."
+        ]
+      },
+      "lifestyle": [
+        "Practice strict hand hygiene and wear protective masks in crowded settings",
+        "Avoid contact with individuals who have active infections or colds",
+        "Prioritize ample sleep and emotional support networks",
+        "Maintain clean living spaces"
+      ],
+      "monitoring": [
+        "Frequent Complete Blood Count (CBC) with differential monitoring",
+        "Bone marrow biopsy and aspiration follow-ups",
+        "Platelet count and clotting profile assessments",
+        "Routine temperature checks for early infection detection"
+      ],
+      "medical_guidance": [
+        "Undergo care with a specialized hematologist-oncologist.",
+        "Adhere strictly to chemotherapy, targeted therapy, or immunotherapy protocols.",
+        "Report any fever immediately (fever in neutropenic patients is a medical emergency)."
+      ],
+      "warning_signs": [
+        "Any fever of 100.4\u00b0F (38.0\u00b0C) or higher with low white blood cell count",
+        "Uncontrolled bleeding from gums, nose, or minor cuts",
+        "Sudden, severe shortness of breath or chest pain",
+        "Confusion, severe headache, or vision changes"
+      ],
+      "when_to_seek_help": [
+        "Go to the emergency department IMMEDIATELY for any fever during chemotherapy or with known low white counts.",
+        "Seek immediate emergency care for major unexplained bleeding or bruising."
+      ],
+      "sources": [
+        "Leukemia & Lymphoma Society (LLS)",
+        "National Cancer Institute (NCI) - Leukemia",
+        "American Cancer Society (ACS)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Leukemia Cell Image Dataset (Original & Segmented)",
+        "data_type": "Image (6,512 microscopic cell images)",
+        "folder_path": "organized_datasets/Hematology/Leukemia/luekemina"
+      }
+    },
+    "HIV_AIDS": {
+      "category": "Blood / Hematological",
+      "description": "Human Immunodeficiency Virus (HIV) attacks the body's immune system, specifically CD4 helper T cells. If left untreated, it can lead to Acquired Immunodeficiency Syndrome (AIDS).",
+      "common_types": [
+        "HIV-1 (most common worldwide)",
+        "HIV-2",
+        "Stage 1 (Acute HIV Infection)",
+        "Stage 2 (Chronic HIV Infection)",
+        "Stage 3 (AIDS)"
+      ],
+      "symptoms": [
+        "Early flu-like illness (fever, chills, rash, night sweats, sore throat)",
+        "Swollen lymph nodes (especially in neck and groin)",
+        "Rapid unexplained weight loss ('wasting')",
+        "Recurring fever and profuse night sweats",
+        "Chronic diarrhea lasting more than a week",
+        "Prolonged fatigue and sores in mouth, anus, or genitals"
+      ],
+      "risk_factors": [
+        "Unprotected sexual contact without barrier methods or PrEP",
+        "Sharing contaminated needles or syringes",
+        "Mother-to-child transmission during pregnancy, childbirth, or breastfeeding (without medical intervention)"
+      ],
+      "food": {
+        "prefer": [
+          "Nutrient-dense whole foods, colorful vegetables, and fruits",
+          "High-protein sources (lean meats, beans, pasteurized dairy) to prevent muscle loss",
+          "Safe, clean, purified drinking water",
+          "Well-cooked foods prepared with strict food hygiene"
+        ],
+        "limit": [
+          "Raw or undercooked meats, eggs, and unpasteurized dairy products",
+          "Excessive alcohol and recreational drugs (which weaken immune response)",
+          "Sugary and ultra-processed junk food"
+        ],
+        "general_tip": "Maintain high-calorie, protein-rich nutrition with rigorous food safety to protect against opportunistic gastrointestinal infections."
+      },
+      "exercise": {
+        "recommended": [
+          "Regular moderate aerobic exercise (walking, jogging, swimming)",
+          "Progressive resistance training to build and maintain lean muscle mass",
+          "Yoga and stretching for flexibility and mental wellness"
+        ],
+        "precautions": [
+          "Pace workouts according to daily energy levels.",
+          "Ensure adequate rest and hydration after physical activity.",
+          "Consult your infectious disease clinician before starting intensive regimens."
+        ]
+      },
+      "lifestyle": [
+        "Consistent daily adherence to Antiretroviral Therapy (ART) to achieve undetectable viral load (U=U)",
+        "Practice safer sex with barrier methods",
+        "Stay up to date with recommended vaccinations (pneumococcal, flu, hepatitis)",
+        "Avoid smoking and illicit substance use"
+      ],
+      "monitoring": [
+        "Routine CD4 T-cell count tests",
+        "HIV viral load testing (aiming for undetectable viral load)",
+        "Liver and kidney function screening",
+        "Regular screening for co-infections (TB, Hepatitis B/C, STIs)"
+      ],
+      "medical_guidance": [
+        "Take prescribed Antiretroviral Therapy (ART) every single day at the same time.",
+        "Work with an experienced infectious disease specialist.",
+        "Undetectable = Untransmittable (U=U): an undetectable viral load prevents sexual transmission."
+      ],
+      "warning_signs": [
+        "Persistent high fever or severe, productive cough (possible opportunistic pneumonia or TB)",
+        "Severe, relentless headache with stiff neck or light sensitivity (possible meningitis)",
+        "Sudden, severe vision loss or eye pain",
+        "Rapid, extreme weight loss and severe chronic diarrhea"
+      ],
+      "when_to_seek_help": [
+        "Immediate emergency care for high fever, severe breathing difficulty, or altered mental status.",
+        "Prompt medical visit for any new rash, mouth ulcers, or unexplained weight loss."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - HIV/AIDS Fact Sheet",
+        "Centers for Disease Control and Prevention (CDC) - HIV",
+        "UNAIDS Global Guidelines"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Breast_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Breast cancer is a malignancy that originates in the cells of the breast, most commonly forming in the ducts (invasive ductal carcinoma) or the lobules (invasive lobular carcinoma).",
+      "common_types": [
+        "Invasive Ductal Carcinoma (IDC)",
+        "Invasive Lobular Carcinoma (ILC)",
+        "Ductal Carcinoma In Situ (DCIS)",
+        "Triple-Negative Breast Cancer",
+        "HER2-Positive Breast Cancer"
+      ],
+      "symptoms": [
+        "A new lump or thickening in the breast or underarm area",
+        "Change in the size, shape, or appearance of the breast",
+        "Dimpling, puckering, or redness of the breast skin (orange peel texture)",
+        "Nipple inversion, pain, or abnormal discharge (especially bloody)",
+        "Scaling, peeling, or flaking of the areola or breast skin"
+      ],
+      "risk_factors": [
+        "Female gender and increasing age (over 50)",
+        "Inherited genetic mutations (BRCA1, BRCA2 genes)",
+        "Personal or family history of breast or ovarian cancer",
+        "Dense breast tissue",
+        "Early menstruation (before age 12) or late menopause (after age 55)",
+        "Postmenopausal obesity and alcohol consumption"
+      ],
+      "food": {
+        "prefer": [
+          "Cruciferous vegetables (broccoli, cauliflower, cabbage, kale)",
+          "Antioxidant-rich berries and citrus fruits",
+          "Fiber-rich legumes, flaxseeds, and whole grains",
+          "Healthy fats from olive oil, avocados, and fatty fish"
+        ],
+        "limit": [
+          "Alcoholic beverages (even moderate alcohol increases breast cancer risk)",
+          "Charred, overcooked, and processed meats",
+          "Excess refined sugars and high-glycemic carbohydrates",
+          "Saturated and industrial trans fats"
+        ],
+        "general_tip": "Maintain a plant-forward, fiber-dense diet and limit alcohol consumption to support cellular health."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate aerobic activities (brisk walking, cycling, swimming, 150 mins/week)",
+          "Strength and resistance training (2 days/week)",
+          "Gentle arm and shoulder range-of-motion exercises following surgery"
+        ],
+        "precautions": [
+          "Work with a certified lymphedema therapist for upper body exercise if lymph nodes were removed.",
+          "Wear supportive, well-fitting sports bras.",
+          "Avoid heavy strain on surgical sites until fully cleared by the surgical team."
+        ]
+      },
+      "lifestyle": [
+        "Maintain a healthy body weight, especially after menopause",
+        "Limit or avoid alcohol consumption",
+        "Perform regular breast self-awareness and attend routine mammograms",
+        "Engage in cancer survivorship support groups"
+      ],
+      "monitoring": [
+        "Regular screening mammography as per clinical guidelines (usually annual or biennial)",
+        "Clinical breast examinations by a healthcare professional",
+        "Breast MRI or ultrasound for high-risk individuals or dense breasts",
+        "Genetic counseling and testing if strong family history exists"
+      ],
+      "medical_guidance": [
+        "Discuss an individualized screening plan with your gynecologist or primary physician.",
+        "Follow prescribed multidisciplinary treatment (surgery, chemotherapy, radiation, endocrine therapy).",
+        "Do not ignore any new breast change or lump, even if a recent mammogram was normal."
+      ],
+      "warning_signs": [
+        "A hard, painless lump with irregular edges in the breast or armpit",
+        "Rapid swelling, warmth, and redness of the entire breast (inflammatory signs)",
+        "Spontaneous bloody or clear nipple discharge",
+        "Skin ulceration or sudden nipple retraction"
+      ],
+      "when_to_seek_help": [
+        "Schedule a prompt clinical evaluation whenever any new breast lump, skin dimple, or nipple change is noticed.",
+        "Seek immediate medical attention for signs of post-operative infection (fever, spreading redness, purulent drainage)."
+      ],
+      "sources": [
+        "American Cancer Society (ACS) - Breast Cancer",
+        "National Cancer Institute (NCI) - Breast Cancer Overview",
+        "World Health Organization (WHO) - Global Breast Cancer Initiative"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Breast Cancer Wisconsin Diagnostic",
+        "data_type": "Tabular (.data, .names)",
+        "folder_path": "organized_datasets/Oncology_Dermatology/Breast_Cancer/breast+cancer+wisconsin+diagnostic"
+      }
+    },
+    "Lung_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Lung cancer is a malignant tumor characterized by uncontrolled cell growth in the tissues of the lung, primarily originating in the bronchi, bronchioles, or alveoli.",
+      "common_types": [
+        "Non-Small Cell Lung Cancer (NSCLC - Adenocarcinoma, Squamous Cell, Large Cell)",
+        "Small Cell Lung Cancer (SCLC)",
+        "Mesothelioma"
+      ],
+      "symptoms": [
+        "A persistent cough that does not go away or gets worse",
+        "Coughing up blood or rust-colored phlegm (hemoptysis)",
+        "Chest pain that worsens with deep breathing, coughing, or laughing",
+        "Hoarseness and voice changes",
+        "Shortness of breath and new wheezing",
+        "Unexplained weight loss and loss of appetite",
+        "Repeated respiratory infections like bronchitis or pneumonia"
+      ],
+      "risk_factors": [
+        "Cigarette smoking and exposure to secondhand smoke (primary risk factor)",
+        "Exposure to radon gas in homes and buildings",
+        "Occupational exposure to asbestos, arsenic, chromium, and diesel exhaust",
+        "Family history of lung cancer",
+        "Air pollution and particulate matter exposure"
+      ],
+      "food": {
+        "prefer": [
+          "Colorful fruits and vegetables rich in carotenoids and flavonoids",
+          "High-calorie, protein-dense foods to prevent cancer cachexia",
+          "Hydrating soups, broths, and purees if swallowing is uncomfortable",
+          "Small, frequent meals throughout the day"
+        ],
+        "limit": [
+          "High-dose synthetic beta-carotene supplements (shown to increase risk in active smokers)",
+          "Processed and charred meats",
+          "Sugary, nutrient-depleted snacks"
+        ],
+        "general_tip": "Focus on nutrient-dense, easily consumable foods to maintain energy and support lung tissue."
+      },
+      "exercise": {
+        "recommended": [
+          "Pulmonary rehabilitation and breathing retraining exercises",
+          "Gentle walking on flat surfaces at a comfortable pace",
+          "Seated stretching and light resistance band movements"
+        ],
+        "precautions": [
+          "Use supplemental oxygen during exercise if prescribed by your pulmonologist.",
+          "Stop exercising immediately if experiencing severe shortness of breath or dizziness.",
+          "Avoid exercising outdoors on days with poor air quality or high smog."
+        ]
+      },
+      "lifestyle": [
+        "Completely stop smoking immediately (benefits occur at any stage of diagnosis)",
+        "Test your home for radon levels",
+        "Avoid secondhand smoke and workplace dust/fume exposure",
+        "Use air purifiers indoors"
+      ],
+      "monitoring": [
+        "Low-Dose Computed Tomography (LDCT) annual screening for eligible high-risk smokers",
+        "Chest CT/PET scans during and after oncology treatment",
+        "Pulmonary function tests (PFTs) and pulse oximetry monitoring"
+      ],
+      "medical_guidance": [
+        "Work with a thoracic oncologist, pulmonologist, and thoracic surgeon.",
+        "Explore molecular biomarker and genetic testing (EGFR, ALK, PD-L1) for targeted therapies.",
+        "Attend regular pulmonary rehabilitation sessions."
+      ],
+      "warning_signs": [
+        "Coughing up significant amounts of blood",
+        "Sudden, severe shortness of breath or inability to catch breath",
+        "Swelling of the face, neck, and upper chest (Superior Vena Cava syndrome)",
+        "Severe, intractable bone pain or neurological deficits (headache, seizures)"
+      ],
+      "when_to_seek_help": [
+        "Seek emergency care for sudden severe respiratory distress or coughing up frank blood.",
+        "Consult a doctor promptly if a cough persists for more than 3 to 4 weeks."
+      ],
+      "sources": [
+        "American Lung Association",
+        "National Cancer Institute (NCI) - Lung Cancer",
+        "Centers for Disease Control and Prevention (CDC) - Lung Cancer"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Cervical_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Cervical cancer develops in the cervix (the lower part of the uterus that connects to the vagina), almost always caused by persistent infection with high-risk types of Human Papillomavirus (HPV).",
+      "common_types": [
+        "Squamous Cell Carcinoma (most common)",
+        "Adenocarcinoma",
+        "Adenosquamous Carcinoma"
+      ],
+      "symptoms": [
+        "Abnormal vaginal bleeding (between periods, after intercourse, or postmenopausal)",
+        "Unusual, watery, or foul-smelling vaginal discharge",
+        "Pelvic pain or pain during sexual intercourse",
+        "Lower back pain or leg swelling (in advanced stages)"
+      ],
+      "risk_factors": [
+        "Persistent infection with high-risk HPV strains (e.g., HPV 16, 18)",
+        "Lack of regular Pap smear / HPV screening",
+        "Smoking (doubles the risk of cervical cancer)",
+        "Weakened immune system (e.g., HIV infection)",
+        "Long-term use of oral contraceptives without screening"
+      ],
+      "food": {
+        "prefer": [
+          "Folate-rich foods (dark green leafy vegetables, chickpeas, avocados)",
+          "Vitamin A, C, and E rich foods (carrots, bell peppers, berries)",
+          "Cruciferous vegetables containing indole-3-carbinol",
+          "Plenty of clean water"
+        ],
+        "limit": [
+          "Processed meats and high-saturated fat foods",
+          "Excessive sugar and refined carbohydrates",
+          "Alcohol and tobacco products"
+        ],
+        "general_tip": "Consume an antioxidant-rich, folate-abundant diet to support cervical cellular health and immune defense."
+      },
+      "exercise": {
+        "recommended": [
+          "Regular moderate aerobic exercise (walking, swimming, light cycling)",
+          "Pelvic floor physical therapy and gentle core strengthening",
+          "Yoga and relaxation techniques for pelvic tension"
+        ],
+        "precautions": [
+          "Avoid high-impact jumping if experiencing pelvic discomfort.",
+          "Follow surgeon's restrictions after cervical biopsy, LEEP, or surgery regarding strenuous activity."
+        ]
+      },
+      "lifestyle": [
+        "Get vaccinated against HPV (recommended for adolescents and eligible adults up to age 45)",
+        "Attend regular cervical cancer screenings (Pap smears and HPV DNA testing)",
+        "Avoid tobacco smoking",
+        "Practice safer sex using barrier methods"
+      ],
+      "monitoring": [
+        "Routine Pap smear (every 3 years) or co-testing with HPV DNA (every 5 years) as advised",
+        "Colposcopy and cervical biopsy for abnormal screening findings",
+        "Post-treatment pelvic examinations and oncologic imaging"
+      ],
+      "medical_guidance": [
+        "Follow national screening guidelines according to age and risk profile.",
+        "Discuss HPV vaccination with your healthcare provider.",
+        "Promptly follow up on any abnormal Pap smear or positive HPV result."
+      ],
+      "warning_signs": [
+        "Heavy, continuous postmenopausal vaginal bleeding",
+        "Severe pelvic pain radiating down the legs",
+        "Difficulty or pain during urination accompanied by blood in urine",
+        "Unexplained rapid weight loss and persistent fatigue"
+      ],
+      "when_to_seek_help": [
+        "Seek medical evaluation promptly for any abnormal, unexpected vaginal bleeding or postcoital bleeding.",
+        "Consult your gynecologist immediately for severe, persistent pelvic pain."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Cervical Cancer Fact Sheet",
+        "American College of Obstetricians and Gynecologists (ACOG)",
+        "Centers for Disease Control and Prevention (CDC) - Cervical Cancer"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Risk Factors Cervical Cancer (Kaggle dataset)",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Oncology_Dermatology/Cervical_Cancer/cervical cencer"
+      }
+    },
+    "Skin_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Skin cancer is the abnormal and uncontrolled growth of skin cells, most commonly caused by exposure to ultraviolet (UV) radiation from sunlight or tanning beds.",
+      "common_types": [
+        "Basal Cell Carcinoma (BCC - most common)",
+        "Squamous Cell Carcinoma (SCC)",
+        "Melanoma (most serious and potentially life-threatening)",
+        "Merkel Cell Carcinoma"
+      ],
+      "symptoms": [
+        "A new mole or a change in an existing mole (ABCDE rule: Asymmetry, Border irregularity, Color changes, Diameter >6mm, Evolving)",
+        "A pearly or waxy bump on sun-exposed skin (face, ears, neck)",
+        "A firm, red nodule or flat lesion with a scaly, crusted surface",
+        "A sore that does not heal, bleeds, or oozes repeatedly",
+        "Dark lesions under fingernails or on palms/soles"
+      ],
+      "risk_factors": [
+        "Excessive exposure to UV sunlight and history of sunburns",
+        "Use of indoor tanning beds",
+        "Fair skin, light hair, light eyes, and freckles",
+        "Large number of moles or presence of atypical (dysplastic) moles",
+        "Weakened immune system or family history of melanoma"
+      ],
+      "food": {
+        "prefer": [
+          "Antioxidant-dense foods (blueberries, tomatoes with lycopene, leafy greens)",
+          "Omega-3 fatty acids (flaxseeds, walnuts, wild salmon)",
+          "Green tea containing polyphenols (EGCG)",
+          "Adequate water to support skin hydration"
+        ],
+        "limit": [
+          "Excessive alcohol consumption",
+          "Ultra-processed foods and artificial trans fats",
+          "Refined sugars and high-glycemic snacks"
+        ],
+        "general_tip": "Incorporate antioxidant and polyphenol-rich foods into your daily diet to support cellular DNA repair mechanisms."
+      },
+      "exercise": {
+        "recommended": [
+          "Indoor fitness activities, gym workouts, or swimming in covered pools",
+          "Outdoor walking and running scheduled before 10:00 AM or after 4:00 PM",
+          "Yoga, Pilates, and bodyweight training"
+        ],
+        "precautions": [
+          "Apply broad-spectrum SPF 30+ water-resistant sunscreen 20 minutes before outdoor exercise.",
+          "Wear UV-protective clothing (UPF 50+), wide-brimmed hats, and UV-blocking sunglasses.",
+          "Reapply sunscreen every 2 hours or immediately after heavy sweating or swimming."
+        ]
+      },
+      "lifestyle": [
+        "Never use tanning beds or UV sun lamps",
+        "Seek shade during peak UV hours (10:00 AM to 4:00 PM)",
+        "Perform monthly head-to-toe skin self-examinations using a full-length mirror",
+        "Wear protective clothing, long sleeves, and broad-brimmed hats outdoors"
+      ],
+      "monitoring": [
+        "Monthly skin self-checks following the ABCDE criteria",
+        "Annual comprehensive total-body skin examination by a certified dermatologist",
+        "Dermoscopy and digital mole mapping for high-risk individuals"
+      ],
+      "medical_guidance": [
+        "Visit a board-certified dermatologist for any suspicious or changing spot.",
+        "Have any biopsy-confirmed skin cancer treated promptly according to stage.",
+        "Never attempt to scratch, freeze, or remove moles at home."
+      ],
+      "warning_signs": [
+        "A mole changing rapidly in size, color, shape, or height",
+        "A mole that itches, burns, tingles, or bleeds spontaneously",
+        "A dark spot with irregular borders and multiple shades of brown, black, blue, or red",
+        "A non-healing ulcer or crusted bump persisting longer than 4 weeks"
+      ],
+      "when_to_seek_help": [
+        "Schedule an urgent dermatology appointment for any mole meeting the ABCDE warning signs.",
+        "Consult a doctor for any new, persistent, or rapidly growing skin growth."
+      ],
+      "sources": [
+        "American Academy of Dermatology (AAD)",
+        "Skin Cancer Foundation",
+        "National Cancer Institute (NCI) - Skin Cancer"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "HAM10000 Skin Cancer Dermoscopy Images & Metadata",
+        "data_type": "Image (10,020 dermoscopy images) & Tabular (.csv)",
+        "folder_path": "organized_datasets/Oncology_Dermatology/Skin_Cancer/skin cancer"
+      }
+    },
+    "Colorectal_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Colorectal cancer is a malignancy that begins in the large intestine (colon) or rectum, typically originating as noncancerous polyps (adenomas) that slowly transform into cancer over time.",
+      "common_types": [
+        "Adenocarcinoma (over 90% of cases)",
+        "Gastrointestinal Carcinoid Tumors",
+        "Gastrointestinal Stromal Tumors (GIST)",
+        "Colorectal Lymphoma"
+      ],
+      "symptoms": [
+        "A persistent change in bowel habits (diarrhea, constipation, or narrowing of stool)",
+        "Rectal bleeding or dark blood in the stool",
+        "Persistent abdominal discomfort, cramping, gas, or pain",
+        "A feeling that the bowel does not empty completely",
+        "Weakness, unexplained fatigue, and iron deficiency anemia",
+        "Unexplained weight loss"
+      ],
+      "risk_factors": [
+        "Age 50 and older (though rates in young adults are rising)",
+        "Personal or family history of colorectal polyps or cancer",
+        "Inherited syndromes (Lynch syndrome, Familial Adenomatous Polyposis)",
+        "Inflammatory bowel disease (Ulcerative Colitis or Crohn's disease)",
+        "Sedentary lifestyle, obesity, smoking, and heavy alcohol use",
+        "Diet high in red and processed meats and low in fiber"
+      ],
+      "food": {
+        "prefer": [
+          "High-fiber foods (beans, lentils, oats, whole wheat, vegetables)",
+          "Calcium and Vitamin D rich foods (fortified dairy/plant milk, leafy greens)",
+          "Antioxidant-rich fruits (apples, berries, oranges)",
+          "Plenty of water to maintain digestive regularity"
+        ],
+        "limit": [
+          "Processed meats (hot dogs, sausages, bacon, deli meats)",
+          "Excessive red meat (beef, pork, lamb)",
+          "Alcoholic beverages",
+          "Ultra-processed low-fiber foods"
+        ],
+        "general_tip": "Adopt a high-fiber, plant-rich diet and minimize processed meats to support colorectal health."
+      },
+      "exercise": {
+        "recommended": [
+          "Brisk walking, jogging, or cycling (at least 150-300 mins/week)",
+          "Core and abdominal strengthening routines",
+          "Moderate resistance training"
+        ],
+        "precautions": [
+          "Start gradually if recovering from abdominal surgery or ostomy placement.",
+          "Stay well hydrated before, during, and after workouts.",
+          "Consult with your surgical or oncology team regarding hernia precautions."
+        ]
+      },
+      "lifestyle": [
+        "Maintain a healthy body weight and waist circumference",
+        "Quit smoking and avoid all tobacco products",
+        "Limit or eliminate alcohol consumption",
+        "Stay physically active every day"
+      ],
+      "monitoring": [
+        "Routine screening colonoscopy starting at age 45 (or earlier for high-risk individuals)",
+        "Stool-based screening tests (FIT, fecal occult blood, FIT-DNA) where indicated",
+        "Carcinoembryonic Antigen (CEA) blood tests during oncology surveillance"
+      ],
+      "medical_guidance": [
+        "Adhere to recommended colorectal cancer screening guidelines.",
+        "Have precancerous polyps removed promptly during colonoscopy.",
+        "Report persistent changes in bowel habits or visible blood in stool to a gastroenterologist."
+      ],
+      "warning_signs": [
+        "Significant bright red blood from the rectum or dark, tarry stools",
+        "Severe, persistent abdominal pain and swelling",
+        "Complete bowel obstruction (inability to pass stool or gas accompanied by vomiting)",
+        "Severe, unexplained weakness from rapid drop in hemoglobin"
+      ],
+      "when_to_seek_help": [
+        "Seek emergency evaluation for severe abdominal pain, vomiting, or heavy rectal bleeding.",
+        "Schedule a gastroenterology appointment promptly for persistent bowel habit changes or blood in stool."
+      ],
+      "sources": [
+        "American Cancer Society (ACS) - Colorectal Cancer",
+        "Centers for Disease Control and Prevention (CDC) - Colorectal Cancer",
+        "World Health Organization (WHO) - Colorectal Cancer"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Gastric_Cancer": {
+      "category": "Cancer / Oncology",
+      "description": "Gastric (stomach) cancer is a malignancy that develops from the cells lining the stomach wall, most commonly in the inner glandular mucosa.",
+      "common_types": [
+        "Adenocarcinoma (vast majority of cases)",
+        "Gastrointestinal Stromal Tumor (GIST)",
+        "Gastric Lymphoma",
+        "Carcinoid Tumor"
+      ],
+      "symptoms": [
+        "Persistent indigestion, heartburn, or stomach discomfort",
+        "Feeling full after eating only small amounts of food (early satiety)",
+        "Persistent nausea and vomiting (sometimes with blood)",
+        "Unexplained weight loss and loss of appetite",
+        "Difficulty or pain while swallowing (dysphagia)",
+        "Vague abdominal pain above the navel",
+        "Dark, tarry stools (melena)"
+      ],
+      "risk_factors": [
+        "Chronic Helicobacter pylori (H. pylori) bacterial infection",
+        "Diet high in smoked, salted, pickled foods and low in fresh fruits/vegetables",
+        "Tobacco smoking and heavy alcohol use",
+        "Chronic atrophic gastritis, pernicious anemia, or gastric polyps",
+        "Family history or hereditary diffuse gastric cancer (CDH1 gene mutation)"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh fruits rich in Vitamin C (citrus, melons, berries)",
+          "Fresh green vegetables and whole grains",
+          "Small, frequent, easy-to-digest meals",
+          "Lean proteins (poached poultry, soft eggs, tofu, fish)"
+        ],
+        "limit": [
+          "Smoked, cured, salted, and pickled foods",
+          "Charred, grilled meats and processed sausages",
+          "Excessive spicy, acidic, or extremely hot foods",
+          "Alcohol and tobacco"
+        ],
+        "general_tip": "Choose freshly prepared, nutrient-dense, easily digestible foods and avoid heavily salted, smoked, or preserved items."
+      },
+      "exercise": {
+        "recommended": [
+          "Light walking after meals to aid gastric motility",
+          "Gentle stretching and mobility exercises",
+          "Relaxation breathing routines"
+        ],
+        "precautions": [
+          "Avoid vigorous exercise immediately following large meals.",
+          "Pace physical activity around treatment-related fatigue and caloric intake.",
+          "Follow dietary and hydration recommendations before workouts."
+        ]
+      },
+      "lifestyle": [
+        "Quit smoking and avoid secondhand smoke",
+        "Maintain good food hygiene and drink clean, tested water",
+        "Get tested and treated for H. pylori infection if experiencing chronic gastritis",
+        "Eat smaller meals more frequently throughout the day"
+      ],
+      "monitoring": [
+        "Upper endoscopy (EGD) with tissue biopsy for diagnosis and surveillance",
+        "H. pylori testing and post-treatment eradication confirmation",
+        "Complete blood counts to monitor for chronic blood loss anemia"
+      ],
+      "medical_guidance": [
+        "Undergo care with a surgical oncologist and gastroenterologist.",
+        "Follow specialized dietary plans if undergoing partial or total gastrectomy.",
+        "Never ignore chronic indigestion that persists despite standard antacid use."
+      ],
+      "warning_signs": [
+        "Vomiting blood or coffee-ground like material",
+        "Black, tarry, sticky stools",
+        "Complete inability to swallow food or liquids",
+        "Severe, worsening abdominal pain and extreme cachexia"
+      ],
+      "when_to_seek_help": [
+        "Seek immediate emergency care for vomiting blood or passing black tarry stools.",
+        "Consult a gastroenterologist for persistent stomach pain, early satiety, or difficulty swallowing."
+      ],
+      "sources": [
+        "National Cancer Institute (NCI) - Stomach (Gastric) Cancer",
+        "American Cancer Society (ACS) - Stomach Cancer",
+        "World Health Organization (WHO) - Cancer"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Chronic_Kidney_Disease": {
+      "category": "Kidney / Urinary",
+      "description": "Chronic Kidney Disease (CKD) is a gradual, progressive loss of kidney function over time, leading to the accumulation of waste products and fluid in the body.",
+      "common_types": [
+        "Stage 1 (Normal eGFR with kidney damage)",
+        "Stage 2 (Mild loss of kidney function)",
+        "Stage 3a & 3b (Moderate loss of function)",
+        "Stage 4 (Severe loss of function)",
+        "Stage 5 (End-Stage Renal Disease / Kidney Failure)"
+      ],
+      "symptoms": [
+        "Fatigue, low energy, and poor concentration",
+        "Swelling in the feet, ankles, legs, or hands (edema)",
+        "Puffiness around the eyes (especially in the morning)",
+        "Changes in urination frequency (especially nocturia)",
+        "Foamy, bubbly, or dark urine",
+        "Persistent itchy, dry skin",
+        "Muscle cramps and metallic taste in the mouth"
+      ],
+      "risk_factors": [
+        "Diabetes (leading cause of CKD)",
+        "High blood pressure (hypertension)",
+        "Cardiovascular disease",
+        "Family history of kidney disease",
+        "Chronic use of NSAID pain relievers (e.g., ibuprofen, naproxen)",
+        "Polycystic kidney disease or glomerulonephritis"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh fruits and vegetables tailored to individualized potassium allowances",
+          "Healthy cooking oils (olive oil)",
+          "High-quality, portion-controlled protein sources",
+          "Low-sodium home-cooked foods flavored with herbs"
+        ],
+        "limit": [
+          "Excess sodium and table salt",
+          "High-phosphorus foods (colass, processed cheeses, packaged meats)",
+          "High-potassium foods if potassium levels are elevated (bananas, potatoes, tomatoes)",
+          "Excessive protein intake in advanced CKD stages (unless on dialysis)"
+        ],
+        "general_tip": "Work with a specialized renal dietitian to customize sodium, potassium, phosphorus, and protein targets based on your CKD stage."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate walking, stationary cycling, and water aerobics (30 mins/day, 5 days/week)",
+          "Low-resistance strength training",
+          "Flexibility and balance exercises"
+        ],
+        "precautions": [
+          "Avoid extreme high-intensity workouts that cause severe muscle breakdown (rhabdomyolysis).",
+          "Stay within recommended fluid restriction guidelines while exercising.",
+          "Check blood pressure before and after physical activity."
+        ]
+      },
+      "lifestyle": [
+        "Strictly control blood pressure (target usually <130/80 mmHg as advised)",
+        "Maintain tight blood sugar control if diabetic",
+        "Avoid over-the-counter NSAIDs (ibuprofen, naproxen) without nephrologist consent",
+        "Quit smoking and maintain a healthy weight"
+      ],
+      "monitoring": [
+        "Routine estimated Glomerular Filtration Rate (eGFR) and serum creatinine tests",
+        "Urine Albumin-to-Creatinine Ratio (uACR) testing",
+        "Electrolytes (potassium, sodium, bicarbonate, calcium, phosphorus) monitoring",
+        "Frequent blood pressure tracking"
+      ],
+      "medical_guidance": [
+        "Partner closely with a nephrologist and renal care team.",
+        "Take prescribed ACE inhibitors, ARBs, SGLT2 inhibitors, or other kidney-protective medications as directed.",
+        "Understand your lab numbers (eGFR, uACR, potassium) and their trends."
+      ],
+      "warning_signs": [
+        "Severe shortness of breath from fluid accumulation in lungs (pulmonary edema)",
+        "Marked decrease or complete cessation of urine output",
+        "Severe confusion, drowsiness, or seizures (uremic encephalopathy)",
+        "Chest pain or irregular heartbeat from dangerously high potassium (hyperkalemia)"
+      ],
+      "when_to_seek_help": [
+        "Seek immediate emergency care for severe breathlessness, chest pain, or marked fluid retention.",
+        "Contact your nephrologist promptly if blood pressure is dangerously high or urine output drops noticeably."
+      ],
+      "sources": [
+        "National Kidney Foundation (NKF) - KDOQI Guidelines",
+        "American Kidney Fund (AKF)",
+        "Centers for Disease Control and Prevention (CDC) - Chronic Kidney Disease"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Chronic Kidney Disease Dataset",
+        "data_type": "Tabular (.arff)",
+        "folder_path": "organized_datasets/Renal_System/Chronic_Kidney_Disease/Chronic_Kidney_Disease"
+      }
+    },
+    "Obesity": {
+      "category": "Endocrine / Metabolic",
+      "description": "Obesity is a complex, chronic relapsing disease characterized by excess adiposity (body fat) that impairs health and increases the risk of numerous metabolic and cardiovascular conditions.",
+      "common_types": [
+        "Class 1 Obesity (BMI 30.0 - 34.9)",
+        "Class 2 Obesity (BMI 35.0 - 39.9)",
+        "Class 3 Obesity (BMI 40.0 or higher / Severe Obesity)"
+      ],
+      "symptoms": [
+        "Excess body fat accumulation around abdomen and vital organs",
+        "Breathlessness during light exertion",
+        "Joint and back pain from increased mechanical load",
+        "Excessive sweating and heat intolerance",
+        "Daytime fatigue and loud snoring / obstructive sleep apnea",
+        "Skin irritation and friction rashes in skin folds"
+      ],
+      "risk_factors": [
+        "Dietary habits high in ultra-processed, energy-dense foods and sugary beverages",
+        "Sedentary lifestyle and lack of regular physical activity",
+        "Genetic factors and family history",
+        "Hormonal imbalances, chronic stress, and sleep deprivation",
+        "Certain medications (steroids, antidepressants, antipsychotics)"
+      ],
+      "food": {
+        "prefer": [
+          "Whole, minimally processed foods (vegetables, legumes, whole grains)",
+          "Lean proteins (chicken breast, fish, tofu, beans) to promote satiety",
+          "High-fiber foods that slow digestion and stabilize blood sugar",
+          "Water as the primary beverage"
+        ],
+        "limit": [
+          "Sugar-sweetened sodas, energy drinks, and fruit juices",
+          "Fast foods, deep-fried snacks, and pastries",
+          "Highly refined grains and white flour products",
+          "Excessive alcohol intake"
+        ],
+        "general_tip": "Focus on sustainable, nutrient-dense whole foods and portion control rather than severe crash dieting."
+      },
+      "exercise": {
+        "recommended": [
+          "Gradual progression to 150-300 minutes of moderate aerobic activity per week (walking, cycling, swimming)",
+          "Resistance and strength training (2-3 days per week) to preserve lean muscle mass",
+          "Water aerobics and low-impact movements to minimize joint strain"
+        ],
+        "precautions": [
+          "Choose low-impact activities to protect knees, hips, and lower back.",
+          "Warm up and cool down thoroughly to prevent musculoskeletal injuries.",
+          "Stay hydrated and avoid overheating during exercise."
+        ]
+      },
+      "lifestyle": [
+        "Target 7-9 hours of quality sleep per night (sleep debt alters appetite hormones)",
+        "Practice mindful eating and stress management techniques",
+        "Track daily physical activity using a pedometer or smartwatch",
+        "Build a supportive network of family, friends, or healthcare coaches"
+      ],
+      "monitoring": [
+        "Regular monitoring of body weight, waist circumference, and BMI",
+        "Routine fasting glucose, HbA1c, and lipid panel screenings",
+        "Blood pressure checks and screening for obstructive sleep apnea",
+        "Liver function tests (to screen for non-alcoholic fatty liver disease)"
+      ],
+      "medical_guidance": [
+        "Work collaboratively with an obesity medicine specialist, primary care physician, and registered dietitian.",
+        "Discuss medically supervised lifestyle interventions, anti-obesity pharmacotherapy, or metabolic bariatric surgery if appropriate.",
+        "Focus on overall metabolic health gains rather than solely on scale weight."
+      ],
+      "warning_signs": [
+        "Sudden chest pain, tightness, or severe shortness of breath",
+        "Episodes of gasping for air or waking with a choke during sleep",
+        "Severe joint swelling and sudden inability to bear weight",
+        "Pain, warmth, and swelling in one calf (possible deep vein thrombosis)"
+      ],
+      "when_to_seek_help": [
+        "Seek emergency care for chest pain, sudden breathlessness, or one-sided leg swelling.",
+        "Consult a physician to develop an individualized, comprehensive medical weight management plan."
+      ],
+      "sources": [
+        "The Obesity Society (TOS)",
+        "World Health Organization (WHO) - Obesity and Overweight",
+        "Centers for Disease Control and Prevention (CDC) - Adult Obesity"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Estimation of Obesity Levels Based on Eating Habits and Physical Condition",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Endocrine_Metabolic/Obesity_and_Lifestyle/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition"
+      }
+    },
+    "Thyroid_Disease": {
+      "category": "Endocrine / Metabolic",
+      "description": "Thyroid disease encompasses disorders affecting the thyroid gland, leading to either insufficient hormone production (hypothyroidism) or excessive hormone production (hyperthyroidism).",
+      "common_types": [
+        "Hypothyroidism (underactive thyroid / Hashimoto's thyroiditis)",
+        "Hyperthyroidism (overactive thyroid / Graves' disease)",
+        "Thyroid Nodules",
+        "Thyroiditis",
+        "Goiter"
+      ],
+      "symptoms": [
+        "Hypothyroidism: Fatigue, weight gain, cold intolerance, dry skin, constipation, hair thinning",
+        "Hyperthyroidism: Unexplained weight loss, rapid heartbeat, heat intolerance, anxiety, tremors, insomnia",
+        "Enlarged neck swelling (goiter) or difficulty swallowing"
+      ],
+      "risk_factors": [
+        "Female gender (women are 5 to 8 times more likely to develop thyroid disorders)",
+        "Personal or family history of autoimmune diseases (Type 1 diabetes, celiac disease, vitiligo)",
+        "Past radiation exposure to neck or head",
+        "Postpartum period or recent pregnancy",
+        "Inadequate or excessive dietary iodine intake"
+      ],
+      "food": {
+        "prefer": [
+          "Adequate dietary iodine (iodized salt, seafood, dairy in balanced amounts)",
+          "Selenium-rich foods (Brazil nuts, sunflower seeds, tuna)",
+          "Zinc-rich foods (pumpkin seeds, lentils, lean poultry)",
+          "Anti-inflammatory whole foods and fiber"
+        ],
+        "limit": [
+          "Excessive raw cruciferous vegetables (cabbage, kale) if iodine deficient",
+          "Soy products and high-calcium foods taken within 4 hours of thyroid hormone medication",
+          "Excessive kelp or high-dose iodine supplements without medical guidance"
+        ],
+        "general_tip": "Maintain a balanced, nutrient-dense diet; separate thyroid hormone medication (e.g. levothyroxine) from calcium, iron, and soy supplements by at least 4 hours."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate aerobic activities (walking, cycling, swimming)",
+          "Strength and resistance training to boost metabolic rate",
+          "Yoga and relaxation techniques for stress reduction"
+        ],
+        "precautions": [
+          "In hyperthyroidism, avoid strenuous high-heart-rate exercise until hormone levels are controlled.",
+          "In hypothyroidism, start exercise slowly to accommodate fatigue and muscle stiffness.",
+          "Stay hydrated and avoid extreme temperature environments."
+        ]
+      },
+      "lifestyle": [
+        "Take thyroid replacement medication consistently on an empty stomach with a full glass of water 30-60 minutes before breakfast",
+        "Manage psychological stress (stress influences endocrine function)",
+        "Prioritize consistent, restful sleep",
+        "Avoid smoking (smoking worsens thyroid eye disease)"
+      ],
+      "monitoring": [
+        "Regular Thyroid Function Tests (TSH, Free T4, Free T3)",
+        "Thyroid autoantibody tests (anti-TPO, anti-Tg, TSI)",
+        "Thyroid ultrasound imaging for nodules or goiter"
+      ],
+      "medical_guidance": [
+        "Work with an endocrinologist or primary care physician.",
+        "Keep medication dosage consistent and never alter doses without repeat lab tests.",
+        "Attend regular follow-up blood tests every 6 to 12 weeks after dosage adjustments."
+      ],
+      "warning_signs": [
+        "Severe, rapid heart rate (>120 bpm), high fever, and delirium (Thyroid Storm)",
+        "Extreme hypothermia, profound lethargy, and slowed breathing (Myxedema Coma)",
+        "Protrusion, redness, and severe pain in the eyes (Thyroid Eye Disease)",
+        "Rapidly enlarging hard neck lump with hoarseness"
+      ],
+      "when_to_seek_help": [
+        "Seek immediate emergency medical attention for symptoms of thyroid storm or myxedema coma.",
+        "Consult your doctor if you experience persistent palpitations, severe heat/cold intolerance, or rapid weight fluctuations."
+      ],
+      "sources": [
+        "American Thyroid Association (ATA)",
+        "Endocrine Society Guidelines",
+        "British Thyroid Foundation (BTF)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Thyroid Disease UCI Dataset (allbp, allhyper, allhypo, hypothyroid, sick, ann-train)",
+        "data_type": "Tabular (.data, .test, .names - 39 files)",
+        "folder_path": "organized_datasets/Endocrine_Metabolic/Thyroid_Disease/thyroid+disease (1)"
+      }
+    },
+    "PCOS": {
+      "category": "Endocrine / Metabolic",
+      "description": "Polycystic Ovary Syndrome (PCOS) is a common hormonal disorder characterized by irregular menstrual cycles, excess androgen (male hormone) levels, and polycystic ovarian morphology.",
+      "common_types": [
+        "Insulin-Resistant PCOS (most common)",
+        "Post-Pill PCOS",
+        "Inflammatory PCOS",
+        "Adrenal PCOS"
+      ],
+      "symptoms": [
+        "Irregular, infrequent, or absent menstrual periods",
+        "Excess facial and body hair growth (hirsutism)",
+        "Severe adult acne and oily skin",
+        "Thinning hair on the scalp (female pattern hair loss)",
+        "Weight gain and difficulty losing weight",
+        "Darkened skin patches in neck creases and underarms (acanthosis nigricans)",
+        "Infertility or difficulty conceiving"
+      ],
+      "risk_factors": [
+        "Insulin resistance and hyperinsulinemia",
+        "Family history of PCOS or Type 2 diabetes",
+        "Chronic low-grade inflammation",
+        "Overweight or obesity"
+      ],
+      "food": {
+        "prefer": [
+          "Low-glycemic index foods (quinoa, barley, sweet potatoes, legumes)",
+          "Anti-inflammatory foods (berries, tomatoes, fatty fish, leafy greens)",
+          "High-fiber vegetables and lean proteins with every meal",
+          "Healthy fats from nuts, seeds, and extra virgin olive oil"
+        ],
+        "limit": [
+          "Refined carbohydrates (white bread, pastries, sugary breakfast cereals)",
+          "Sugar-sweetened beverages and high-fructose corn syrup",
+          "Processed and fried foods that exacerbate inflammation",
+          "Excessive dairy if found to aggravate personal acne symptoms"
+        ],
+        "general_tip": "Focus on low-glycemic, anti-inflammatory whole foods to stabilize insulin levels and balance hormones."
+      },
+      "exercise": {
+        "recommended": [
+          "Resistance and strength training (3 days per week to improve insulin sensitivity)",
+          "Moderate-intensity interval training (HIIT) or brisk walking",
+          "Pilates, yoga, and gentle stretching for cortisol reduction"
+        ],
+        "precautions": [
+          "Avoid excessive, chronic over-training which can spike cortisol and worsen hormonal imbalances.",
+          "Allow adequate rest and recovery days between intense workouts."
+        ]
+      },
+      "lifestyle": [
+        "Prioritize consistent 7-8 hours of quality sleep to optimize insulin regulation",
+        "Implement daily stress management practices (meditation, journaling)",
+        "Maintain regular physical movement throughout the day",
+        "Track menstrual cycles and symptoms using a dedicated log"
+      ],
+      "monitoring": [
+        "Hormonal panel testing (Total/Free Testosterone, DHEA-S, LH, FSH, Prolactin)",
+        "Fasting glucose, insulin, and oral glucose tolerance tests (OGTT)",
+        "Lipid panel screening",
+        "Pelvic ultrasound to assess ovarian morphology and endometrial thickness"
+      ],
+      "medical_guidance": [
+        "Work with a gynecologist, reproductive endocrinologist, and dietitian.",
+        "Discuss personalized strategies for cycle regulation, fertility, and metabolic health.",
+        "Screen regularly for diabetes, metabolic syndrome, and sleep apnea."
+      ],
+      "warning_signs": [
+        "Absence of menstrual periods for >3 consecutive months without pregnancy (risk of endometrial hyperplasia)",
+        "Extremely heavy, prolonged bleeding causing severe dizziness or pallor",
+        "Sudden, severe pelvic pain (possible ovarian cyst rupture or torsion)",
+        "Severe depressive symptoms or anxiety"
+      ],
+      "when_to_seek_help": [
+        "Seek urgent care for sudden, severe sharp pelvic pain or heavy bleeding causing weakness.",
+        "Consult your gynecologist for irregular cycles, fertility concerns, or persistent signs of androgen excess."
+      ],
+      "sources": [
+        "American College of Obstetricians and Gynecologists (ACOG) - PCOS",
+        "Endocrine Society Clinical Practice Guidelines on PCOS",
+        "World Health Organization (WHO) - Polycystic Ovary Syndrome"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Osteoporosis": {
+      "category": "Endocrine / Metabolic",
+      "description": "Osteoporosis is a systemic skeletal condition characterized by low bone mass, microarchitectural deterioration of bone tissue, and an increased susceptibility to fragility fractures.",
+      "common_types": [
+        "Primary Osteoporosis (Postmenopausal / Age-related)",
+        "Secondary Osteoporosis (due to medications, malabsorption, or chronic conditions)",
+        "Osteopenia (low bone mass / precursor to osteoporosis)"
+      ],
+      "symptoms": [
+        "Often called a 'silent disease' with no symptoms until a bone fractures",
+        "Loss of height over time (1 inch or more)",
+        "Stooped or hunched posture (kyphosis / 'dowager's hump')",
+        "Sudden, severe back pain caused by a fractured or collapsed vertebra",
+        "Bone fractures occurring from minor bumps or simple falls from standing height"
+      ],
+      "risk_factors": [
+        "Postmenopausal women and advancing age (over 65)",
+        "Low body weight or small body frame",
+        "Family history of osteoporosis or hip fracture",
+        "Long-term use of corticosteroid medications (prednisone)",
+        "Inadequate dietary calcium and Vitamin D intake",
+        "Sedentary lifestyle, smoking, and heavy alcohol intake"
+      ],
+      "food": {
+        "prefer": [
+          "Calcium-rich foods (dairy products, fortified plant milk, tofu, collard greens, canned sardines with bones)",
+          "Vitamin D sources (fatty fish, egg yolks, fortified cereals)",
+          "Magnesium and Vitamin K2 sources (leafy greens, nuts, fermented foods)",
+          "Adequate lean protein to maintain muscle mass"
+        ],
+        "limit": [
+          "Excessive sodium (increases calcium excretion in urine)",
+          "Excessive alcohol (impairs bone remodeling and increases fall risk)",
+          "High consumption of caffeinated energy drinks and colas",
+          "Smoking"
+        ],
+        "general_tip": "Ensure adequate daily intake of calcium (1,000-1,200 mg) and Vitamin D (800-2,000 IU) through balanced dietary sources and clinician-approved supplements."
+      },
+      "exercise": {
+        "recommended": [
+          "Weight-bearing aerobic exercises (brisk walking, low-impact aerobics, stair climbing)",
+          "Progressive resistance training with weights or bands (2-3 days/week)",
+          "Balance and stability exercises (Tai Chi, single-leg stands) to prevent falls"
+        ],
+        "precautions": [
+          "Avoid high-impact jumping, running, or sudden jarring movements.",
+          "Avoid loaded spinal flexion (touching toes, crunches) and extreme spinal twisting.",
+          "Exercise in a safe environment with non-slip flooring."
+        ]
+      },
+      "lifestyle": [
+        "Fall-proof your home (remove loose rugs, improve lighting, install bathroom grab bars)",
+        "Wear stable, low-heeled shoes with non-slip rubber soles",
+        "Completely quit smoking and limit alcohol intake",
+        "Maintain adequate sun exposure safely for Vitamin D synthesis"
+      ],
+      "monitoring": [
+        "Dual-Energy X-ray Absorptiometry (DEXA) bone density scans (T-score evaluation)",
+        "FRAX (Fracture Risk Assessment Tool) score calculations",
+        "Serum 25-hydroxy Vitamin D, calcium, and kidney function tests"
+      ],
+      "medical_guidance": [
+        "Discuss bone density test results and fracture risk with your physician.",
+        "Take prescribed antiresorptive or bone-anabolic medications (e.g., bisphosphonates) exactly as instructed.",
+        "Never ignore sudden severe back pain following minor movements."
+      ],
+      "warning_signs": [
+        "Sudden, severe back pain following minor bending or lifting (possible vertebral compression fracture)",
+        "Inability to stand or bear weight after a minor fall",
+        "Severe hip, groin, or wrist pain with visible deformity"
+      ],
+      "when_to_seek_help": [
+        "Seek immediate emergency medical evaluation after any fall with suspected bone fracture.",
+        "Consult your doctor for bone density screening if you are a woman over 65, a man over 70, or have high risk factors."
+      ],
+      "sources": [
+        "National Osteoporosis Foundation (Bone Health & Osteoporosis Foundation - BHOF)",
+        "International Osteoporosis Foundation (IOF)",
+        "Centers for Disease Control and Prevention (CDC) - Osteoporosis"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Pneumonia": {
+      "category": "Respiratory",
+      "description": "Pneumonia is an acute inflammatory infection of one or both lungs, where the air sacs (alveoli) fill with fluid or pus, causing cough, fever, chills, and difficulty breathing.",
+      "common_types": [
+        "Bacterial Pneumonia (e.g., Streptococcus pneumoniae)",
+        "Viral Pneumonia (e.g., Influenza, RSV, SARS-CoV-2)",
+        "Fungal Pneumonia",
+        "Community-Acquired Pneumonia (CAP)",
+        "Hospital-Acquired Pneumonia (HAP)",
+        "Aspiration Pneumonia"
+      ],
+      "symptoms": [
+        "Cough producing green, yellow, or bloody phlegm",
+        "High fever, sweating, and shaking chills",
+        "Sharp or stabbing chest pain that worsens when breathing deeply or coughing",
+        "Shortness of breath and rapid, shallow breathing",
+        "Fatigue, loss of appetite, and nausea",
+        "Confusion or altered mental state, especially in older adults"
+      ],
+      "risk_factors": [
+        "Age extremes (children under 2 and adults 65 or older)",
+        "Chronic lung conditions (COPD, asthma, bronchiectasis)",
+        "Weakened immune system (HIV, chemotherapy, immunosuppressants)",
+        "Tobacco smoking and environmental air pollution",
+        "Recent viral respiratory infection (flu, COVID-19)"
+      ],
+      "food": {
+        "prefer": [
+          "Warm, hydrating broths, herbal teas, and soups",
+          "Plenty of clean water and electrolyte fluids",
+          "Nutrient-dense fruits rich in Vitamin C (berries, oranges)",
+          "Easily digestible proteins (poached poultry, soft eggs, lentils)"
+        ],
+        "limit": [
+          "Dairy products if they make mucus feel uncomfortably thicker for the individual",
+          "Cold drinks and caffeinated beverages",
+          "Sugary, processed, heavy foods",
+          "Alcohol and tobacco"
+        ],
+        "general_tip": "Maintain high fluid intake and warm, soothing broths to loosen respiratory secretions and prevent dehydration."
+      },
+      "exercise": {
+        "recommended": [
+          "Complete physical rest during the acute infection phase",
+          "Deep breathing and incentive spirometry exercises in bed",
+          "Gradual, short indoor walking only after fever subsides and energy returns"
+        ],
+        "precautions": [
+          "Do not engage in moderate or vigorous exercise until fully recovered and cleared by a clinician.",
+          "Avoid exposure to cold, dry air.",
+          "Rest immediately if breathing becomes labored."
+        ]
+      },
+      "lifestyle": [
+        "Prioritize extensive bed rest and sleep",
+        "Use a cool-mist humidifier in the bedroom",
+        "Avoid all exposure to tobacco smoke and chemical fumes",
+        "Stay up to date with pneumococcal and annual influenza vaccinations"
+      ],
+      "monitoring": [
+        "Pulse oximetry monitoring (blood oxygen saturation should ideally be 95% or higher)",
+        "Body temperature tracking",
+        "Chest X-ray to confirm resolution of consolidation",
+        "Sputum and blood cultures if hospitalized"
+      ],
+      "medical_guidance": [
+        "Seek prompt medical diagnosis and follow prescribed antimicrobial or supportive care.",
+        "Complete the full course of prescribed antibiotics if bacterial pneumonia is diagnosed.",
+        "Attend scheduled medical follow-up visits to ensure lungs are fully clear."
+      ],
+      "warning_signs": [
+        "Oxygen saturation dropping below 92% on room air",
+        "Severe shortness of breath, gasping, or inability to speak in sentences",
+        "Bluish lips or fingertips (cyanosis)",
+        "Confusion, severe dizziness, or persistent high fever unresponsive to medication"
+      ],
+      "when_to_seek_help": [
+        "Seek IMMEDIATE emergency care for severe breathing difficulty, low oxygen, cyanosis, or confusion.",
+        "Visit a doctor promptly for high fever, productive cough, and sharp chest pain."
+      ],
+      "sources": [
+        "American Lung Association - Pneumonia",
+        "World Health Organization (WHO) - Pneumonia in Children and Adults",
+        "Centers for Disease Control and Prevention (CDC) - Pneumonia"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Tuberculosis": {
+      "category": "Respiratory",
+      "description": "Tuberculosis (TB) is a contagious infectious disease caused by the bacterium Mycobacterium tuberculosis, primarily affecting the lungs (pulmonary TB) but capable of spreading to other organs.",
+      "common_types": [
+        "Latent TB Infection (inactive, non-contagious)",
+        "Active TB Disease (pulmonary)",
+        "Extrapulmonary TB (lymph nodes, bones, kidneys, brain)",
+        "Multidrug-Resistant TB (MDR-TB)"
+      ],
+      "symptoms": [
+        "A bad cough lasting 3 weeks or longer",
+        "Coughing up blood or sputum (hemoptysis)",
+        "Chest pain when breathing or coughing",
+        "Unexplained weight loss and loss of appetite",
+        "Prolonged fever and drenching night sweats",
+        "Persistent fatigue and weakness"
+      ],
+      "risk_factors": [
+        "Close contact with someone who has active pulmonary TB",
+        "Weakened immune system (HIV infection, malnutrition, diabetes, chemotherapy)",
+        "Living or working in high-density or crowded settings",
+        "Substance abuse and tobacco smoking",
+        "Living in or traveling to regions with high TB prevalence"
+      ],
+      "food": {
+        "prefer": [
+          "Calorie-dense and high-protein foods (eggs, legumes, fish, dairy) to counteract wasting",
+          "Vitamin A, B-complex, C, D, and E rich foods",
+          "Zinc and iron rich foods (nuts, seeds, leafy greens)",
+          "Frequent small meals rich in healthy fats"
+        ],
+        "limit": [
+          "Alcohol (crucial to avoid as TB medications are metabolized by the liver)",
+          "Excessive caffeine and sugary sodas",
+          "Tobacco products"
+        ],
+        "general_tip": "Emphasize high-calorie, protein-rich nutrition with total avoidance of alcohol to support immune recovery and protect liver health."
+      },
+      "exercise": {
+        "recommended": [
+          "Strict rest during the initial infectious and symptomatic phases",
+          "Gentle breathing exercises and short walks as energy returns and after becoming non-infectious",
+          "Gradual progressive rehabilitation"
+        ],
+        "precautions": [
+          "Do not engage in strenuous exertion while actively ill or fatigued.",
+          "Exercise only in private or well-ventilated spaces until confirmed non-contagious.",
+          "Stop immediately if experiencing chest pain or breathlessness."
+        ]
+      },
+      "lifestyle": [
+        "Strict adherence to Directly Observed Therapy (DOT) for the full 6-9 month medication duration",
+        "Wear a high-filtration mask (N95) around others during the infectious period",
+        "Ensure excellent room ventilation (open windows, sunlight exposure)",
+        "Strictly abstain from alcohol and smoking"
+      ],
+      "monitoring": [
+        "Monthly sputum smear and culture tests until consecutive negative results are confirmed",
+        "Serial chest X-rays to assess lung healing",
+        "Routine Liver Function Tests (LFTs - ALT, AST, Bilirubin) to monitor drug toxicity",
+        "Periodic vision and hearing checks (for specific second-line TB drugs)"
+      ],
+      "medical_guidance": [
+        "Work with public health authorities and infectious disease specialists.",
+        "NEVER stop or miss doses of TB medications, even when feeling completely healthy (prevents drug resistance).",
+        "Ensure household contacts are screened for latent or active TB."
+      ],
+      "warning_signs": [
+        "Coughing up large quantities of frank blood (massive hemoptysis)",
+        "Severe shortness of breath or sudden chest pain",
+        "Yellowing of the eyes/skin, severe nausea, or dark urine (signs of drug-induced liver injury)",
+        "Severe, persistent vomiting or numbness/tingling in hands and feet"
+      ],
+      "when_to_seek_help": [
+        "Seek emergency medical care for massive hemoptysis, jaundice, or severe breathlessness.",
+        "Report any missed medication doses or side effects immediately to your TB clinic."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Tuberculosis Global Report",
+        "Centers for Disease Control and Prevention (CDC) - Tuberculosis",
+        "Stop TB Partnership Guidelines"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "TB Chest Radiography Database (Normal & Tuberculosis)",
+        "data_type": "Image (4,203 Chest X-ray images) & Excel (.xlsx)",
+        "folder_path": "organized_datasets/Respiratory/Tuberculosis/TB_Chest_Radiography_Database"
+      }
+    },
+    "Asthma": {
+      "category": "Respiratory",
+      "description": "Asthma is a chronic inflammatory disorder of the airways characterized by hyperresponsiveness, bronchospasm, and mucus production, leading to recurrent episodes of wheezing and breathlessness.",
+      "common_types": [
+        "Allergic (Extrinsic) Asthma",
+        "Non-Allergic (Intrinsic) Asthma",
+        "Exercise-Induced Bronchoconstriction (EIB)",
+        "Occupational Asthma",
+        "Severe / Refractory Asthma"
+      ],
+      "symptoms": [
+        "Recurrent wheezing (a whistling sound when exhaling)",
+        "Shortness of breath and rapid breathing",
+        "Chest tightness or pain",
+        "Persistent coughing, especially at night or early morning",
+        "Trouble sleeping caused by coughing or wheezing"
+      ],
+      "risk_factors": [
+        "Family history of asthma or allergic conditions (atopy)",
+        "Personal history of allergic rhinitis (hay fever) or eczema",
+        "Exposure to environmental triggers (pollen, dust mites, pet dander, mold)",
+        "Tobacco smoke exposure (active and secondhand)",
+        "Occupational fumes, chemicals, and outdoor air pollution"
+      ],
+      "food": {
+        "prefer": [
+          "Antioxidant-rich fresh fruits (apples, berries, citrus) and vegetables",
+          "Omega-3 fatty acids (salmon, flaxseeds, walnuts) to reduce inflammation",
+          "Magnesium-rich foods (spinach, pumpkin seeds, whole grains)",
+          "Adequate water hydration"
+        ],
+        "limit": [
+          "Foods containing sulfites and preservatives (dried fruits, wine, pickled foods)",
+          "Known personal food allergens (e.g., shellfish, peanuts, dairy if allergic)",
+          "Excessive sodium and processed fast foods"
+        ],
+        "general_tip": "Follow an anti-inflammatory dietary pattern rich in fresh produce and avoid foods with sulfites or known allergy triggers."
+      },
+      "exercise": {
+        "recommended": [
+          "Swimming and water sports (humid, warm air is gentle on airways)",
+          "Walking, gentle cycling, and hiking in mild weather",
+          "Yoga, diaphragmatic breathing, and Pranayama routines"
+        ],
+        "precautions": [
+          "Always carry a prescribed quick-relief rescue inhaler (e.g., albuterol) during exercise.",
+          "Warm up and cool down thoroughly for 10-15 minutes.",
+          "Avoid outdoor workouts in cold, dry weather or on days with high pollen/pollution counts."
+        ]
+      },
+      "lifestyle": [
+        "Identify and avoid individual asthma triggers (dust mites, pet dander, mold, tobacco smoke)",
+        "Use allergen-proof mattress and pillow covers",
+        "Maintain indoor humidity below 50% to prevent mold and dust mites",
+        "Keep a peak flow meter and Asthma Action Plan readily accessible"
+      ],
+      "monitoring": [
+        "Daily or periodic Peak Expiratory Flow (PEF) monitoring",
+        "Spirometry (FEV1, FVC) assessments during clinical checkups",
+        "Tracking symptom frequency and rescue inhaler usage (rule of twos)"
+      ],
+      "medical_guidance": [
+        "Develop a written Asthma Action Plan with your pulmonologist or allergist.",
+        "Use daily controller/preventer inhalers consistently even when symptom-free.",
+        "Know the difference between daily controller medications and fast-acting rescue inhalers."
+      ],
+      "warning_signs": [
+        "Severe breathlessness and inability to speak in full sentences",
+        "Rescue inhaler provides no relief or lasts less than 2-3 hours",
+        "Ribs or neck muscles pulling in tightly during breathing (retractions)",
+        "Peak flow reading in the 'Red Zone' (<50% of personal best)",
+        "Bluish color in lips or fingernails (cyanosis)"
+      ],
+      "when_to_seek_help": [
+        "Call emergency services immediately for an acute, severe asthma attack not responding to rescue medication.",
+        "Contact your doctor if you need your rescue inhaler more than twice a week for daytime symptoms."
+      ],
+      "sources": [
+        "Global Initiative for Asthma (GINA) Guidelines",
+        "American Lung Association - Asthma",
+        "National Heart, Lung, and Blood Institute (NHLBI / NIH) Guidelines"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "COPD": {
+      "category": "Respiratory",
+      "description": "Chronic Obstructive Pulmonary Disease (COPD) is a progressive, chronic inflammatory lung disease that causes obstructed airflow from the lungs, primarily comprising emphysema and chronic bronchitis.",
+      "common_types": [
+        "Emphysema (destruction of alveoli walls)",
+        "Chronic Bronchitis (chronic inflammation and mucus in bronchial tubes)",
+        "Asthma-COPD Overlap Syndrome (ACOS)"
+      ],
+      "symptoms": [
+        "Shortness of breath (dyspnea), especially during physical activities",
+        "Chronic cough that produces significant mucus/sputum",
+        "Frequent respiratory infections (colds, bronchitis, pneumonia)",
+        "Wheezing and chest tightness",
+        "Lack of energy and progressive limitation in daily activities",
+        "Unintended weight loss in advanced stages"
+      ],
+      "risk_factors": [
+        "Long-term tobacco smoking (primary cause in 85-90% of cases)",
+        "Long-term occupational exposure to dusts, chemicals, and industrial fumes",
+        "Exposure to indoor biomass fuel smoke and outdoor air pollution",
+        "Genetic deficiency of Alpha-1 Antitrypsin (AATD)",
+        "History of severe childhood respiratory infections"
+      ],
+      "food": {
+        "prefer": [
+          "High-protein, calorie-dense foods to prevent muscle wasting and respiratory muscle fatigue",
+          "Antioxidant-rich vegetables and fruits",
+          "Healthy fats (avocados, nuts, olive oil) which produce less CO2 per calorie metabolized than carbohydrates",
+          "Small, frequent meals to prevent diaphragm crowding"
+        ],
+        "limit": [
+          "Excessive simple carbohydrates and sugary sodas (which increase carbon dioxide production)",
+          "Excess sodium (can cause fluid retention and breathing difficulty)",
+          "Gas-producing foods that cause bloating and push against the diaphragm",
+          "Alcohol and tobacco"
+        ],
+        "general_tip": "Eat small, frequent, nutrient-dense meals high in healthy fats and proteins; rest before eating to conserve energy."
+      },
+      "exercise": {
+        "recommended": [
+          "Structured Pulmonary Rehabilitation programs",
+          "Pursed-lip breathing and diaphragmatic breathing training",
+          "Gentle walking on flat surfaces with scheduled rest intervals",
+          "Upper-body resistance band exercises to strengthen breathing muscles"
+        ],
+        "precautions": [
+          "Use portable supplemental oxygen during exercise if prescribed.",
+          "Stop immediately if experiencing extreme shortness of breath, dizziness, or chest pain.",
+          "Avoid exercising outdoors during extreme cold, high heat, or poor air quality."
+        ]
+      },
+      "lifestyle": [
+        "Completely quit smoking immediately (the single most effective intervention to slow decline)",
+        "Stay up to date with pneumococcal, influenza, and COVID-19 vaccines",
+        "Use air purifiers and maintain clean indoor air",
+        "Practice energy-saving techniques during daily chores"
+      ],
+      "monitoring": [
+        "Periodic Spirometry testing (FEV1/FVC post-bronchodilator ratio)",
+        "Pulse oximetry and arterial blood gas (ABG) measurements",
+        "Tracking frequency of acute COPD exacerbations",
+        "Alpha-1 Antitrypsin genetic testing in newly diagnosed individuals"
+      ],
+      "medical_guidance": [
+        "Work closely with a pulmonologist and respiratory therapist.",
+        "Take maintenance bronchodilators and inhaled corticosteroids strictly as scheduled.",
+        "Have a written COPD Exacerbation Action Plan detailing when to start emergency antibiotics or steroids."
+      ],
+      "warning_signs": [
+        "Sudden, severe worsening of shortness of breath at rest",
+        "Change in sputum color (to dark green/brown), increased thickness, or blood in mucus",
+        "New or worsening confusion, extreme drowsiness, or morning headaches (signs of CO2 retention)",
+        "Swelling in ankles, legs, or feet (signs of cor pulmonale / right heart failure)"
+      ],
+      "when_to_seek_help": [
+        "Seek immediate emergency medical care for severe respiratory failure, blue lips, or confusion.",
+        "Contact your doctor promptly at the first sign of an acute flare-up or increased sputum production."
+      ],
+      "sources": [
+        "Global Initiative for Chronic Obstructive Lung Disease (GOLD)",
+        "American Thoracic Society (ATS)",
+        "World Health Organization (WHO) - COPD Fact Sheet"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Malaria": {
+      "category": "Infectious",
+      "description": "Malaria is a life-threatening, preventable, and curable mosquito-borne infectious disease caused by Plasmodium parasites transmitted to humans through the bites of infected female Anopheles mosquitoes.",
+      "common_types": [
+        "Plasmodium falciparum (most severe and dangerous)",
+        "Plasmodium vivax",
+        "Plasmodium ovale",
+        "Plasmodium malariae",
+        "Plasmodium knowlesi"
+      ],
+      "symptoms": [
+        "High fever, shaking chills, and profuse sweating (often in cyclical paroxysms)",
+        "Severe headaches and body/muscle aches",
+        "Nausea, vomiting, and diarrhea",
+        "Abdominal pain and loss of appetite",
+        "Extreme fatigue and anemia",
+        "Jaundice (yellowish skin/eyes) in severe infections"
+      ],
+      "risk_factors": [
+        "Living in or traveling to tropical and subtropical malaria-endemic regions",
+        "Lack of mosquito protection (bed nets, repellent, indoor spraying)",
+        "Absence of prophylactic antimalarial medication during travel",
+        "Young children, pregnant women, and non-immune travelers (highest vulnerability)"
+      ],
+      "food": {
+        "prefer": [
+          "Abundant fluids, clean water, oral rehydration salts (ORS), and coconut water",
+          "Fresh fruit juices, vegetable broths, and easy-to-digest soups",
+          "Soft carbohydrates (porridge, boiled rice, mashed potatoes)",
+          "Iron and protein rich foods (eggs, lentils) during recovery to rebuild red blood cells"
+        ],
+        "limit": [
+          "Oily, spicy, and deep-fried foods that provoke nausea and vomiting",
+          "Caffeinated beverages and alcohol",
+          "Heavy, hard-to-digest meals during the acute fever stage"
+        ],
+        "general_tip": "Maintain aggressive hydration with electrolyte-rich liquids and soft, easily digestible foods during the fever stage."
+      },
+      "exercise": {
+        "recommended": [
+          "Complete bed rest throughout the acute infection and fever phases",
+          "No physical exertion until fully treated, fever-free, and hemoglobin levels recover",
+          "Gradual resumption of light daily walking after medical clearance"
+        ],
+        "precautions": [
+          "Strictly avoid any strenuous exercise or sports while infected (risk of splenic rupture if spleen is enlarged).",
+          "Rest adequately to allow bone marrow to regenerate red blood cells."
+        ]
+      },
+      "lifestyle": [
+        "Sleep under insecticide-treated mosquito nets (ITNs)",
+        "Apply DEET or picaridin-based insect repellents on exposed skin",
+        "Wear long-sleeved clothing and long pants during dusk and dawn",
+        "Take prescribed travel chemoprophylaxis when visiting endemic areas"
+      ],
+      "monitoring": [
+        "Rapid Diagnostic Tests (RDTs) and microscopic blood smear examination (thick and thin films)",
+        "Complete blood counts to monitor hemoglobin, hematocrit, and platelet counts",
+        "Liver and renal function tests, blood glucose levels"
+      ],
+      "medical_guidance": [
+        "Seek immediate medical testing for any fever after traveling to a malaria-endemic area.",
+        "Complete the full prescribed course of Artemisinin-based Combination Therapy (ACT) or indicated antimalarials.",
+        "Never delay malaria treatment, as P. falciparum can progress to severe malaria within 24 hours."
+      ],
+      "warning_signs": [
+        "Confusion, convulsions, coma, or altered consciousness (Cerebral Malaria)",
+        "Severe anemia, pale appearance, and extreme breathlessness (Acidosis)",
+        "Passing very dark or black urine ('Blackwater fever')",
+        "Persistent vomiting preventing oral medication intake",
+        "Sudden, severe drop in blood pressure and shock"
+      ],
+      "when_to_seek_help": [
+        "Seek IMMEDIATE emergency medical hospitalization for any sign of severe malaria, confusion, or dark urine.",
+        "Visit a clinic promptly for any unexplained fever following travel to tropical areas."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Malaria Guidelines",
+        "Centers for Disease Control and Prevention (CDC) - Malaria",
+        "Medicines for Malaria Venture (MMV)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Malaria Cell Images Dataset (Parasitized & Uninfected)",
+        "data_type": "Image (55,120 cell images)",
+        "folder_path": "organized_datasets/Infectious_Diseases/Malaria/malaria"
+      }
+    },
+    "Hepatitis_C": {
+      "category": "Infectious",
+      "description": "Hepatitis C is a viral infection caused by the Hepatitis C Virus (HCV) that causes liver inflammation, often leading to chronic infection, cirrhosis, and liver cancer.",
+      "common_types": [
+        "Acute Hepatitis C (short-term, within first 6 months)",
+        "Chronic Hepatitis C (long-term, in >70-80% of untreated cases)",
+        "HCV Genotypes 1 through 6"
+      ],
+      "symptoms": [
+        "Often asymptomatic for decades ('silent infection')",
+        "Chronic fatigue, malaise, and joint pain",
+        "Loss of appetite, nausea, and mild abdominal pain in upper right quadrant",
+        "Dark-colored urine and pale, clay-colored stools",
+        "Yellowing of skin and eyes (jaundice)",
+        "Easy bruising and bleeding"
+      ],
+      "risk_factors": [
+        "Sharing contaminated needles, syringes, or drug preparation equipment",
+        "Receiving blood transfusions or organ transplants before universal screening (e.g., before 1992)",
+        "Unregulated tattooing or body piercing with non-sterile equipment",
+        "Needlestick injuries in healthcare workers",
+        "Infants born to HCV-infected mothers"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh fruits and leafy green vegetables rich in antioxidants",
+          "Lean proteins (poultry, fish, legumes, tofu)",
+          "Whole grains (brown rice, oats, barley)",
+          "Moderate consumption of black, unsweetened coffee (shown in studies to support liver health)"
+        ],
+        "limit": [
+          "Alcohol (must be completely avoided; accelerates liver fibrosis and cirrhosis)",
+          "Raw or undercooked shellfish (risk of Vibrio vulnificus infection in liver disease)",
+          "High-fat, fried, and heavily processed foods",
+          "Excessive iron supplements unless specifically prescribed"
+        ],
+        "general_tip": "Follow a balanced, liver-protective Mediterranean-style diet and strictly eliminate all alcohol intake."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate aerobic activities (walking, light cycling, swimming, 150 mins/week)",
+          "Light resistance and bodyweight exercises to maintain muscle mass",
+          "Stretching and yoga for stress reduction"
+        ],
+        "precautions": [
+          "Pace exercise sessions according to daily energy levels and liver status.",
+          "Avoid contact sports if spleen is enlarged or platelets are low.",
+          "Stay well hydrated during workouts."
+        ]
+      },
+      "lifestyle": [
+        "Strictly abstain from all alcohol and recreational drugs",
+        "Get vaccinated against Hepatitis A and Hepatitis B to prevent dual viral infections",
+        "Avoid sharing personal hygiene items (razors, toothbrushes, nail clippers)",
+        "Review all over-the-counter medications and herbal supplements with your hepatologist"
+      ],
+      "monitoring": [
+        "HCV Antibody screening test followed by confirmatory HCV RNA PCR viral load",
+        "HCV Genotype testing",
+        "Liver Function Tests (ALT, AST, Bilirubin, Albumin, INR)",
+        "Non-invasive fibrosis assessment (FibroScan / transient elastography or APRI score)",
+        "Liver ultrasound screening every 6 months if cirrhosis is present"
+      ],
+      "medical_guidance": [
+        "Consult a hepatologist, gastroenterologist, or infectious disease specialist.",
+        "Complete a curative course of Direct-Acting Antiviral (DAA) therapy (typically 8 to 12 weeks with >95% cure rates).",
+        "Confirm cure with a Sustained Virologic Response test (SVR12) 12 weeks after completing DAA therapy."
+      ],
+      "warning_signs": [
+        "Vomiting blood or passing black, tarry stools (Esophageal variceal bleeding)",
+        "Abdominal swelling with fluid accumulation (Ascites)",
+        "Confusion, disorientation, forgetfulness, or slurred speech (Hepatic Encephalopathy)",
+        "Rapid, progressive jaundice and dark urine"
+      ],
+      "when_to_seek_help": [
+        "Seek IMMEDIATE emergency care for vomiting blood, black stools, or acute mental confusion.",
+        "Visit an infectious disease or liver clinic for curative DAA medication treatment."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Hepatitis C Guidelines",
+        "American Association for the Study of Liver Diseases (AASLD) / IDSA HCV Guidance",
+        "Centers for Disease Control and Prevention (CDC) - Hepatitis C"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "COVID_19": {
+      "category": "Infectious",
+      "description": "COVID-19 is a contagious respiratory and systemic illness caused by the novel coronavirus SARS-CoV-2, which can range from mild upper respiratory symptoms to severe pneumonia, ARDS, and multi-organ failure.",
+      "common_types": [
+        "Mild / Moderate COVID-19",
+        "Severe COVID-19 (with Hypoxemia)",
+        "Critical COVID-19 (ARDS, Sepsis, Shock)",
+        "Long COVID (Post-Acute Sequelae of SARS-CoV-2 / PASC)"
+      ],
+      "symptoms": [
+        "Fever or chills",
+        "Cough (often dry, but can be productive)",
+        "Shortness of breath or difficulty breathing",
+        "Fatigue, muscle or body aches",
+        "New loss of taste or smell (anosmia/ageusia)",
+        "Sore throat, congestion, or runny nose",
+        "Nausea, vomiting, or diarrhea"
+      ],
+      "risk_factors": [
+        "Older age (65 years and older)",
+        "Underlying medical conditions (diabetes, chronic lung disease, heart disease, obesity, CKD)",
+        "Immunocompromised status",
+        "Unvaccinated status against COVID-19"
+      ],
+      "food": {
+        "prefer": [
+          "Hydrating fluids (water, herbal teas, broths, electrolyte solutions)",
+          "Nutrient-dense fruits and vegetables rich in vitamins and zinc",
+          "Easily digestible proteins (eggs, soups, yogurt, tofu)",
+          "Small, frequent meals when appetite or smell is diminished"
+        ],
+        "limit": [
+          "Sugary sodas, energy drinks, and alcohol",
+          "Ultra-processed, salty snack foods",
+          "Heavily fried, greasy meals that worsen digestive upset"
+        ],
+        "general_tip": "Prioritize aggressive hydration, balanced protein intake, and antioxidant-rich foods to support immune response."
+      },
+      "exercise": {
+        "recommended": [
+          "Complete rest during acute viral infection and fever",
+          "Gentle breathing exercises and proning (lying on stomach to improve oxygenation) if comfortable",
+          "Gradual, staged return to physical activity only after complete resolution of acute symptoms"
+        ],
+        "precautions": [
+          "Do not engage in aerobic or resistance workouts while febrile or short of breath.",
+          "Stop and rest immediately if post-exertional malaise, heart palpitations, or dizziness occur.",
+          "Follow medical guidance before resuming sports if you experienced cardiac symptoms."
+        ]
+      },
+      "lifestyle": [
+        "Isolate from others to prevent viral transmission according to public health guidelines",
+        "Wear high-quality masks (N95/KN95) when around others",
+        "Ensure good indoor ventilation (open windows, HEPA filters)",
+        "Stay up to date with updated COVID-19 vaccines"
+      ],
+      "monitoring": [
+        "Home pulse oximetry monitoring (normal oxygen saturation is typically 95-100%)",
+        "Body temperature tracking",
+        "Rapid antigen or PCR diagnostic testing",
+        "Monitoring for lingering symptoms (Long COVID)"
+      ],
+      "medical_guidance": [
+        "Eligible high-risk patients should consult a doctor early regarding oral antivirals (e.g., Paxlovid) within 5 days of symptom onset.",
+        "Rest extensively and do not rush recovery.",
+        "Seek medical evaluation if symptoms rebound or fail to improve after 7-10 days."
+      ],
+      "warning_signs": [
+        "Oxygen saturation dropping below 92-94% on room air",
+        "Trouble breathing, persistent pain or pressure in the chest",
+        "New confusion or inability to wake or stay awake",
+        "Pale, gray, or blue-colored skin, lips, or nail beds (cyanosis)"
+      ],
+      "when_to_seek_help": [
+        "Call emergency services IMMEDIATELY for severe shortness of breath, low oxygen levels, chest pressure, or cyanosis.",
+        "Contact your doctor promptly upon testing positive if you have high-risk chronic conditions."
+      ],
+      "sources": [
+        "World Health Organization (WHO) - Coronavirus Disease (COVID-19)",
+        "Centers for Disease Control and Prevention (CDC) - COVID-19 Guidelines",
+        "National Institutes of Health (NIH) - COVID-19 Treatment Guidelines"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    },
+    "Liver_Disease": {
+      "category": "Liver / Gastrointestinal",
+      "description": "Liver disease encompasses various acute and chronic conditions that damage hepatic tissue, impairing liver metabolism, detoxification, bile production, and protein synthesis.",
+      "common_types": [
+        "Non-Alcoholic Fatty Liver Disease (NAFLD / MASLD)",
+        "Alcohol-Related Liver Disease (ARLD)",
+        "Viral Hepatitis (A, B, C, D, E)",
+        "Autoimmune Hepatitis",
+        "Cirrhosis and End-Stage Liver Disease"
+      ],
+      "symptoms": [
+        "Yellowing of the skin and whites of the eyes (jaundice)",
+        "Abdominal pain and swelling (especially in the right upper quadrant)",
+        "Chronic fatigue, weakness, and generalized malaise",
+        "Dark amber-colored urine and pale, clay-colored stools",
+        "Itchy skin (pruritus) without rash",
+        "Swelling in the legs, ankles, and abdomen (ascites)",
+        "Easy bruising and bleeding tendencies"
+      ],
+      "risk_factors": [
+        "Heavy and chronic alcohol consumption",
+        "Obesity, Type 2 diabetes, and high triglycerides (metabolic dysfunction)",
+        "Unprotected exposure to viral hepatitis",
+        "Overuse of hepatotoxic medications (e.g., chronic excessive acetaminophen) or unregulated herbal supplements",
+        "Exposure to industrial toxins and environmental chemicals"
+      ],
+      "food": {
+        "prefer": [
+          "Fresh vegetables, cruciferous greens, and antioxidant-rich fruits",
+          "Moderate consumption of unsweetened black coffee (hepatoprotective properties)",
+          "Plant-based proteins (tofu, beans, lentils) and lean poultry/fish",
+          "Whole grains (oats, brown rice, quinoa)",
+          "Low-sodium home-prepared foods"
+        ],
+        "limit": [
+          "Alcohol in all forms (complete abstinence is essential in active liver disease)",
+          "High-sodium foods, canned items, and cured meats (worsens fluid retention/ascites)",
+          "Raw or undercooked shellfish and seafood",
+          "Excessive saturated fats, trans fats, and high-fructose corn syrup"
+        ],
+        "general_tip": "Adopt a low-sodium, nutrient-dense Mediterranean diet and strictly avoid all alcohol to reduce liver strain."
+      },
+      "exercise": {
+        "recommended": [
+          "Regular moderate aerobic exercise (walking, stationary cycling, swimming, 150 mins/week)",
+          "Light resistance and strength training to prevent sarcopenia (muscle loss)",
+          "Gentle stretching and mobility routines"
+        ],
+        "precautions": [
+          "Avoid high-impact or contact sports if spleen is enlarged or if portal hypertension is present.",
+          "Exercise at a comfortable pace and avoid overexertion during fatigue flare-ups.",
+          "Ensure adequate hydration without exceeding fluid restrictions if prescribed."
+        ]
+      },
+      "lifestyle": [
+        "Complete and permanent abstinence from alcohol",
+        "Maintain a healthy body weight and waist circumference",
+        "Get vaccinated against Hepatitis A and Hepatitis B",
+        "Review all prescription drugs, OTC pain relievers, and supplements with a hepatologist"
+      ],
+      "monitoring": [
+        "Liver Function Tests (ALT, AST, Alkaline Phosphatase, Total Bilirubin, Albumin, INR)",
+        "Abdominal ultrasound, FibroScan (transient elastography), or MRI",
+        "Alpha-Fetoprotein (AFP) blood tests and 6-monthly ultrasounds for liver cancer surveillance in cirrhosis",
+        "Platelet counts and complete blood counts"
+      ],
+      "medical_guidance": [
+        "Work collaboratively with a hepatologist or gastroenterologist.",
+        "Identify and treat the specific underlying cause (e.g., antiviral therapy, weight reduction, alcohol cessation).",
+        "Never take high doses of acetaminophen or untested dietary supplements."
+      ],
+      "warning_signs": [
+        "Vomiting blood or passing black, tarry, foul-smelling stools (gastrointestinal hemorrhage)",
+        "Sudden, severe confusion, disorientation, lethargy, or hand tremors (Hepatic Encephalopathy)",
+        "Rapidly expanding, tense abdominal swelling with fever and abdominal tenderness (Spontaneous Bacterial Peritonitis)",
+        "Deep jaundice with severe generalized itching"
+      ],
+      "when_to_seek_help": [
+        "Seek IMMEDIATE emergency care for vomiting blood, black stools, acute confusion, or fever with abdominal swelling.",
+        "Consult a physician promptly for new onset jaundice, dark urine, or unexplained persistent fatigue."
+      ],
+      "sources": [
+        "American Association for the Study of Liver Diseases (AASLD)",
+        "European Association for the Study of the Liver (EASL)",
+        "American Liver Foundation (ALF)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Indian Liver Patient Dataset (ILPD)",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Hepatic_System/Liver_Disease/ilpd+indian+liver+patient+dataset"
+      }
+    },
+    "Maternal_Health_Risk": {
+      "category": "Women's Health",
+      "description": "Maternal health risk refers to conditions, complications, and high-risk factors that affect maternal and fetal well-being during pregnancy, childbirth, and the postpartum period.",
+      "common_types": [
+        "Preeclampsia / Gestational Hypertension",
+        "Gestational Diabetes Mellitus (GDM)",
+        "Hyperemesis Gravidarum",
+        "Preterm Labor / Cervical Insufficiency",
+        "Postpartum Hemorrhage / Postpartum Depression"
+      ],
+      "symptoms": [
+        "Severe, persistent headaches or vision changes (flashing lights, blurring)",
+        "Sudden swelling (edema) of face, hands, or feet",
+        "High blood pressure readings (>140/90 mmHg)",
+        "Severe upper right abdominal pain (under the ribs)",
+        "Vaginal bleeding or fluid leakage during pregnancy",
+        "Noticeable decrease or cessation in fetal movements",
+        "Persistent severe nausea and vomiting with inability to keep liquids down"
+      ],
+      "risk_factors": [
+        "Maternal age (under 18 or over 35 years)",
+        "Pre-existing chronic conditions (hypertension, diabetes, renal disease, autoimmune disorders)",
+        "History of preeclampsia or gestational diabetes in a prior pregnancy",
+        "Multiple gestation (twins, triplets)",
+        "Obesity, severe anemia, or malnutrition",
+        "Lack of regular prenatal medical care"
+      ],
+      "food": {
+        "prefer": [
+          "Nutrient-dense, balanced meals with adequate lean protein, complex carbohydrates, and healthy fats",
+          "Folate/folic acid-rich foods and prenatal vitamins",
+          "Iron-rich foods (spinach, lentils, lean meats) combined with Vitamin C",
+          "Calcium and Vitamin D rich foods (pasteurized dairy, fortified plant milk)",
+          "Abundant clean drinking water and fluids"
+        ],
+        "limit": [
+          "Raw or undercooked meats, poultry, sushi, and runny eggs (Listeria/Toxoplasma risk)",
+          "Unpasteurized dairy products, soft cheeses, and unpasteurized juices",
+          "High-mercury fish (shark, swordfish, king mackerel, tilefish)",
+          "Alcohol and tobacco (must be strictly avoided)",
+          "Excessive caffeine (keep below 200 mg/day as recommended)"
+        ],
+        "general_tip": "Follow a balanced, well-cooked prenatal diet rich in iron, calcium, and folate, accompanied by prescribed prenatal vitamins."
+      },
+      "exercise": {
+        "recommended": [
+          "Prenatal walking on level, secure surfaces (30 mins most days)",
+          "Prenatal swimming, water aerobics, and stationary cycling",
+          "Prenatal yoga, pelvic floor (Kegel) exercises, and gentle stretching"
+        ],
+        "precautions": [
+          "Avoid contact sports, hot yoga, and activities with falling or abdominal impact risks.",
+          "Avoid lying flat on your back (supine position) after the first trimester.",
+          "Stop immediately and seek care if experiencing vaginal bleeding, fluid leakage, dizziness, or contractions."
+        ]
+      },
+      "lifestyle": [
+        "Attend all scheduled prenatal and postpartum medical visits",
+        "Strictly avoid alcohol, tobacco, vaping, and non-prescribed medications",
+        "Get adequate rest and sleep on your side (preferably left side) to optimize placental blood flow",
+        "Monitor blood pressure and fetal movements as advised by your obstetrician"
+      ],
+      "monitoring": [
+        "Regular prenatal blood pressure, weight, and urine protein checks at every visit",
+        "Routine blood tests (CBC, blood type/Rh antibody screen, rubella, infectious disease panel)",
+        "Oral Glucose Tolerance Test (OGTT) for gestational diabetes screening at 24-28 weeks",
+        "Obstetric ultrasounds for fetal growth, anatomy, and placental evaluation",
+        "Daily fetal kick counts in the third trimester"
+      ],
+      "medical_guidance": [
+        "Maintain close communication with your obstetrician, certified nurse-midwife, or maternal-fetal medicine specialist.",
+        "Never take over-the-counter medications, herbal teas, or supplements without obstetric clearance.",
+        "Attend postpartum checkups to monitor blood pressure, healing, and mental health."
+      ],
+      "warning_signs": [
+        "Sudden, severe headache not relieved by acetaminophen, accompanied by blurred vision or spots",
+        "Vaginal bleeding or sudden gush of clear fluid (water breaking prematurely)",
+        "Sudden significant decrease in baby's movements",
+        "Severe, sharp pain in upper right abdomen or severe continuous pelvic pain",
+        "Fever of 100.4\u00b0F (38\u00b0C) or higher with chills"
+      ],
+      "when_to_seek_help": [
+        "Go to the nearest Labor & Delivery triage / emergency hospital IMMEDIATELY for vaginal bleeding, fluid leakage, decreased fetal movements, or severe headaches with visual disturbances.",
+        "Contact your obstetric team promptly for any concerning symptoms or blood pressure >140/90 mmHg."
+      ],
+      "sources": [
+        "American College of Obstetricians and Gynecologists (ACOG)",
+        "World Health Organization (WHO) - Maternal and Perinatal Health",
+        "Centers for Disease Control and Prevention (CDC) - Hear Her Campaign"
+      ],
+      "dataset_info": {
+        "is_dataset_present": true,
+        "dataset_name": "Maternal Health Risk Data Set",
+        "data_type": "Tabular (.csv)",
+        "folder_path": "organized_datasets/Obstetrics_Gynecology/Maternal_Health_Risk/maternal+health+risk"
+      }
+    },
+    "Dermatological_Diseases": {
+      "category": "Dermatological",
+      "description": "Dermatological diseases comprise a broad range of inflammatory, allergic, infectious, and autoimmune conditions that affect the skin, hair, nails, and mucous membranes.",
+      "common_types": [
+        "Atopic Dermatitis (Eczema)",
+        "Psoriasis (Plaque, Guttate, Pustular)",
+        "Acne Vulgaris and Rosacea",
+        "Contact Dermatitis (Allergic and Irritant)",
+        "Fungal Skin Infections (Tinea / Ringworm)",
+        "Urticaria (Hives)"
+      ],
+      "symptoms": [
+        "Redness, inflammation, and erythema on the skin",
+        "Intense itching (pruritus), burning, or stinging sensation",
+        "Dry, cracked, scaly, or flaking skin patches",
+        "Raised bumps, blisters, pustules, or hives",
+        "Thickened, leathery skin plaques with silvery scales (in psoriasis)",
+        "Skin oozing, crusting, or weeping"
+      ],
+      "risk_factors": [
+        "Genetic predisposition and family history of eczema, psoriasis, or allergies",
+        "Immune system dysregulation or autoimmune tendencies",
+        "Environmental allergens, harsh soaps, detergents, and fragrances",
+        "Extreme weather, dry air, and temperature fluctuations",
+        "Psychological stress, sleep deprivation, and friction"
+      ],
+      "food": {
+        "prefer": [
+          "Anti-inflammatory foods (berries, leafy greens, wild salmon, walnuts)",
+          "Foods rich in Omega-3 fatty acids and Vitamin E (avocados, seeds, olive oil)",
+          "Zinc-rich foods (beans, pumpkin seeds, whole grains) to support skin repair",
+          "Abundant water and hydrating herbal teas"
+        ],
+        "limit": [
+          "Ultra-processed foods, high-sugar snacks, and artificial additives",
+          "Excessive dairy, refined carbohydrates, and saturated fats (which can trigger acne flare-ups in some individuals)",
+          "Alcohol and excessive spicy foods (common triggers for rosacea and flushing)"
+        ],
+        "general_tip": "Consume an anti-inflammatory, antioxidant-rich diet and stay well hydrated to support skin barrier integrity."
+      },
+      "exercise": {
+        "recommended": [
+          "Moderate cardiovascular exercises in temperature-controlled indoor spaces",
+          "Swimming in clean, well-maintained pools (rinse and moisturize immediately afterward)",
+          "Yoga, stretching, and low-impact resistance training"
+        ],
+        "precautions": [
+          "Wear loose-fitting, breathable, 100% cotton exercise clothing to minimize friction.",
+          "Shower promptly after sweating with lukewarm water and a gentle, soap-free cleanser.",
+          "Apply hypoallergenic moisturizer within 3 minutes of patting skin dry (soak and seal method)."
+        ]
+      },
+      "lifestyle": [
+        "Take short (5-10 minute), lukewarm showers; avoid hot water which strips skin oils",
+        "Use fragrance-free, dye-free cleansers, laundry detergents, and moisturizers",
+        "Keep fingernails trimmed short to minimize skin damage and infection from scratching",
+        "Use an indoor humidifier during dry winter months"
+      ],
+      "monitoring": [
+        "Regular monitoring of skin lesions, plaque coverage, and flare-up frequency",
+        "Tracking individual trigger exposures (foods, personal care products, weather, stress)",
+        "Periodic skin checks by a board-certified dermatologist"
+      ],
+      "medical_guidance": [
+        "Consult a dermatologist for accurate diagnostic evaluation and specialized treatment.",
+        "Use topical corticosteroids, calcineurin inhibitors, biologics, or systemic treatments strictly as directed.",
+        "Do not apply harsh over-the-counter astringents, alcohol rubs, or unverified home remedies to inflamed skin."
+      ],
+      "warning_signs": [
+        "Rapidly spreading redness, extreme heat, swelling, and severe pain (Cellulitis / Bacterial infection)",
+        "Widespread blistering, skin peeling, and high fever (Medical emergencies like SJS/TEN or Erythrodermic Psoriasis)",
+        "Facial swelling, lip/tongue swelling, and breathing difficulty accompanying hives (Anaphylaxis)",
+        "Yellow pus-filled crusts with increasing warmth (Staphylococcal superinfection)"
+      ],
+      "when_to_seek_help": [
+        "Seek IMMEDIATE emergency care for hives accompanied by breathing difficulty or throat swelling (Anaphylaxis), or rapid skin detachment.",
+        "Consult a dermatologist promptly for non-healing rashes, severe pain, spreading infection, or unmanageable itching."
+      ],
+      "sources": [
+        "American Academy of Dermatology (AAD)",
+        "National Eczema Association (NEA)",
+        "National Psoriasis Foundation (NPF)"
+      ],
+      "dataset_info": {
+        "is_dataset_present": false,
+        "dataset_name": "N/A",
+        "data_type": "N/A",
+        "folder_path": "N/A"
+      }
+    }
+  }
+}

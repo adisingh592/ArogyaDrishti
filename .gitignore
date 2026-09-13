@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large Datasets and Archives (Do NOT upload to GitHub)
+organized_datasets/
+raw_datasets/
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# Dataset Reports & Logs
+dataset_report.csv
+*.log
+
+# Environments and OS files
+.env
+.venv
+env/
+venv/
+ENV/
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
