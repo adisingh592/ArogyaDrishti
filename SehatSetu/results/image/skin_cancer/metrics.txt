@@ -1,0 +1,16 @@
+SEHATSETU - SKIN CANCER MODEL EVALUATION METRICS
+==================================================
+
+Architecture: MobileNetV2 Transfer Learning
+Classes: ['HAM10000_images_part_1', 'HAM10000_images_part_2']
+
+Classification Report:
+                        precision    recall  f1-score   support
+
+HAM10000_images_part_1       0.56      0.81      0.66       983
+HAM10000_images_part_2       0.67      0.38      0.48      1020
+
+              accuracy                           0.59      2003
+             macro avg       0.62      0.59      0.57      2003
+          weighted avg       0.62      0.59      0.57      2003
+

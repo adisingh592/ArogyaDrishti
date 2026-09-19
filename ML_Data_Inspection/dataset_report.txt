@@ -1,0 +1,495 @@
+======================================================================
+           SEHATSETU - DATASET INSPECTION REPORT                      
+======================================================================
+
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/hungarian.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\hungarian.data
+Rows:           2940
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/long-beach-va.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\long-beach-va.data
+Rows:           2000
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/new.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\new.data
+Rows:           18492
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/processed.cleveland.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\processed.cleveland.data
+Rows:           303
+Columns:        14
+Target Column:  13
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/processed.hungarian.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\processed.hungarian.data
+Rows:           294
+Columns:        14
+Target Column:  13
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/processed.switzerland.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\processed.switzerland.data
+Rows:           123
+Columns:        14
+Target Column:  13
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/processed.va.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\processed.va.data
+Rows:           200
+Columns:        14
+Target Column:  13
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/reprocessed.hungarian.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\reprocessed.hungarian.data
+Rows:           294
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+disease/switzerland.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+disease\switzerland.data
+Rows:           1230
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   heart+failure+clinical+records (1)/heart_failure_clinical_records_dataset.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\heart+failure+clinical+records (1)\heart_failure_clinical_records_dataset.csv
+Rows:           299
+Columns:        13
+Target Column:  diabetes
+Classes:        2 ([np.int64(0), np.int64(1)])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Heart_Disease
+Category:       Cardiovascular
+Dataset Name:   statlog+heart (1)/heart.dat
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Heart_Disease\statlog+heart (1)\heart.dat
+Rows:           270
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Stroke
+Category:       Cardiovascular
+Dataset Name:   heart stroke/healthcare-dataset-stroke-data.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Cardiovascular\Stroke\heart stroke\healthcare-dataset-stroke-data.csv
+Rows:           5110
+Columns:        12
+Target Column:  heart_disease
+Classes:        2 ([np.int64(1), np.int64(0)])
+Missing Values: 201
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Diabetes
+Category:       Endocrine_Metabolic
+Dataset Name:   diabetes health indicator/diabetes_012_health_indicators_BRFSS2015.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Diabetes\diabetes health indicator\diabetes_012_health_indicators_BRFSS2015.csv
+Rows:           253680
+Columns:        22
+Target Column:  Diabetes_012
+Classes:        3 ([np.int64(0), np.int64(2), np.int64(1)])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Diabetes
+Category:       Endocrine_Metabolic
+Dataset Name:   diabetes health indicator/diabetes_binary_5050split_health_indicators_BRFSS2015.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Diabetes\diabetes health indicator\diabetes_binary_5050split_health_indicators_BRFSS2015.csv
+Rows:           70692
+Columns:        22
+Target Column:  Diabetes_binary
+Classes:        2 ([np.float64(0.0), np.float64(1.0)])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Diabetes
+Category:       Endocrine_Metabolic
+Dataset Name:   diabetes health indicator/diabetes_binary_health_indicators_BRFSS2015.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Diabetes\diabetes health indicator\diabetes_binary_health_indicators_BRFSS2015.csv
+Rows:           253680
+Columns:        22
+Target Column:  Diabetes_binary
+Classes:        2 ([np.float64(0.0), np.float64(1.0)])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Diabetes
+Category:       Endocrine_Metabolic
+Dataset Name:   diabetes+130-us+hospitals+for+years+1999-2008/diabetic_data.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Diabetes\diabetes+130-us+hospitals+for+years+1999-2008\diabetic_data.csv
+Rows:           101766
+Columns:        50
+Target Column:  num_lab_procedures
+Classes:        118 ([np.int64(41), np.int64(59), np.int64(11), np.int64(44), np.int64(51)])
+Missing Values: 181168
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Diabetes
+Category:       Endocrine_Metabolic
+Dataset Name:   diabetes+130-us+hospitals+for+years+1999-2008/IDS_mapping.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Diabetes\diabetes+130-us+hospitals+for+years+1999-2008\IDS_mapping.csv
+Rows:           67
+Columns:        2
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 7
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Obesity_and_Lifestyle
+Category:       Endocrine_Metabolic
+Dataset Name:   estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition/ObesityDataSet_raw_and_data_sinthetic.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Obesity_and_Lifestyle\estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition\ObesityDataSet_raw_and_data_sinthetic.csv
+Rows:           2111
+Columns:        17
+Target Column:  NObeyesdad
+Classes:        7 (['Normal_Weight', 'Overweight_Level_I', 'Overweight_Level_II', 'Obesity_Type_I', 'Insufficient_Weight'])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/allbp.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\allbp.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/allhyper.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\allhyper.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/allhypo.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\allhypo.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/allrep.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\allrep.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/ann-test.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\ann-test.data
+Rows:           3428
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/ann-train.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\ann-train.data
+Rows:           3772
+Columns:        1
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/dis.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\dis.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/hypothyroid.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\hypothyroid.data
+Rows:           3163
+Columns:        26
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/new-thyroid.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\new-thyroid.data
+Rows:           215
+Columns:        6
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/sick-euthyroid.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\sick-euthyroid.data
+Rows:           3163
+Columns:        26
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/sick.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\sick.data
+Rows:           2800
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Thyroid_Disease
+Category:       Endocrine_Metabolic
+Dataset Name:   thyroid+disease (1)/thyroid0387.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Endocrine_Metabolic\Thyroid_Disease\thyroid+disease (1)\thyroid0387.data
+Rows:           9172
+Columns:        30
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Anemia
+Category:       Hematology
+Dataset Name:   anemia/anemia_dataset.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Hematology\Anemia\anemia\anemia_dataset.csv
+Rows:           104
+Columns:        14
+Target Column:  Number
+Classes:        104 ([np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)])
+Missing Values: 727
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Leukemia
+Category:       Hematology
+Dataset Name:   luekemina
+Dataset Type:   Image
+Location:       E:\multidisease prdiction\organized_datasets\Hematology\Leukemia\luekemina
+Total Images:   6512
+Classes (2): Original: 3256, Segmented: 3256
+Sample Sizes:   224x224
+Corrupted:      0
+Status:         Ready for Image Training
+--------------------------------------------------
+Disease:        Liver_Disease
+Category:       Hepatic_System
+Dataset Name:   ilpd+indian+liver+patient+dataset/Indian Liver Patient Dataset (ILPD).csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Hepatic_System\Liver_Disease\ilpd+indian+liver+patient+dataset\Indian Liver Patient Dataset (ILPD).csv
+Rows:           582
+Columns:        11
+Target Column:  1
+Classes:        2 ([np.int64(1), np.int64(2)])
+Missing Values: 4
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Malaria
+Category:       Infectious_Diseases
+Dataset Name:   malaria
+Dataset Type:   Image
+Location:       E:\multidisease prdiction\organized_datasets\Infectious_Diseases\Malaria\malaria
+Total Images:   55116
+Classes (1): cell_images: 55116
+Sample Sizes:   133x154, 148x208, 139x151, 145x154, 142x148
+Corrupted:      0
+Status:         Ready for Image Training
+--------------------------------------------------
+Disease:        Alzheimers_Disease
+Category:       Neurological
+Dataset Name:   alhezhimer/ML_transform_alz.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Neurological\Alzheimers_Disease\alhezhimer\ML_transform_alz.csv
+Rows:           192808
+Columns:        56
+Target Column:  QuestionCode_lifetime_depression_diagnosis
+Classes:        2 ([np.int64(0), np.int64(1)])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Brain_Tumor
+Category:       Neurological
+Dataset Name:   brain tumour
+Dataset Type:   Image
+Location:       E:\multidisease prdiction\organized_datasets\Neurological\Brain_Tumor\brain tumour
+Total Images:   3264
+Classes (2): Testing: 394, Training: 2870
+Sample Sizes:   495x619, 369x419, 524x581, 386x406
+Corrupted:      0
+Status:         Ready for Image Training
+--------------------------------------------------
+Disease:        Maternal_Health_Risk
+Category:       Obstetrics_Gynecology
+Dataset Name:   maternal+health+risk/Maternal Health Risk Data Set.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Obstetrics_Gynecology\Maternal_Health_Risk\maternal+health+risk\Maternal Health Risk Data Set.csv
+Rows:           1014
+Columns:        7
+Target Column:  RiskLevel
+Classes:        3 (['high risk', 'low risk', 'mid risk'])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Breast_Cancer
+Category:       Oncology_Dermatology
+Dataset Name:   breast+cancer+wisconsin+diagnostic/wdbc.data
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Oncology_Dermatology\Breast_Cancer\breast+cancer+wisconsin+diagnostic\wdbc.data
+Rows:           569
+Columns:        32
+Target Column:  Needs Manual Review
+Classes:        N/A (N/A)
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Cervical_Cancer
+Category:       Oncology_Dermatology
+Dataset Name:   cervical cencer/kag_risk_factors_cervical_cancer.csv
+Dataset Type:   Tabular
+Location:       E:\multidisease prdiction\organized_datasets\Oncology_Dermatology\Cervical_Cancer\cervical cencer\kag_risk_factors_cervical_cancer.csv
+Rows:           858
+Columns:        36
+Target Column:  Number of sexual partners
+Classes:        13 (['4.0', '1.0', '5.0', '3.0', '2.0'])
+Missing Values: 0
+Status:         Ready for Tabular Training
+--------------------------------------------------
+Disease:        Skin_Cancer
+Category:       Oncology_Dermatology
+Dataset Name:   skin cancer
+Dataset Type:   Image
+Location:       E:\multidisease prdiction\organized_datasets\Oncology_Dermatology\Skin_Cancer\skin cancer
+Total Images:   10015
+Classes (2): HAM10000_images_part_1: 5000, HAM10000_images_part_2: 5015
+Sample Sizes:   600x450
+Corrupted:      0
+Status:         Ready for Image Training
+--------------------------------------------------
+Disease:        Tuberculosis
+Category:       Respiratory
+Dataset Name:   TB_Chest_Radiography_Database
+Dataset Type:   Image
+Location:       E:\multidisease prdiction\organized_datasets\Respiratory\Tuberculosis\TB_Chest_Radiography_Database
+Total Images:   4200
+Classes (2): Normal: 3500, Tuberculosis: 700
+Sample Sizes:   512x512
+Corrupted:      0
+Status:         Ready for Image Training
+--------------------------------------------------
+
+======================================================================
+Total Datasets/Files Inspected: 42
+======================================================================

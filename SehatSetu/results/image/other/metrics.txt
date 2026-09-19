@@ -1,0 +1,16 @@
+SEHATSETU - GENERIC MEDICAL IMAGE MODEL EVALUATION METRICS
+==================================================
+
+Architecture: MobileNetV2 Transfer Learning
+Classes: ['Normal', 'Tuberculosis']
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.92      1.00      0.96       701
+Tuberculosis       1.00      0.55      0.71       139
+
+    accuracy                           0.93       840
+   macro avg       0.96      0.78      0.84       840
+weighted avg       0.93      0.93      0.92       840
+

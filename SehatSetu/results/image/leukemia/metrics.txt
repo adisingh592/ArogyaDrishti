@@ -1,0 +1,18 @@
+SEHATSETU - LEUKEMIA MODEL EVALUATION METRICS
+==================================================
+
+Architecture: MobileNetV2 Transfer Learning
+Classes: ['Benign', 'Early', 'Pre', 'Pro']
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Benign       0.88      0.81      0.84        84
+       Early       0.90      0.95      0.93       206
+         Pre       0.99      0.95      0.97       187
+         Pro       0.98      1.00      0.99       174
+
+    accuracy                           0.95       651
+   macro avg       0.94      0.93      0.93       651
+weighted avg       0.95      0.95      0.95       651
+

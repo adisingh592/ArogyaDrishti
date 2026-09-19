@@ -1,0 +1,18 @@
+SEHATSETU - BRAIN TUMOR MRI EVALUATION METRICS
+==================================================
+
+Architecture: MobileNetV2 Transfer Learning
+Classes: ['glioma_tumor', 'meningioma_tumor', 'no_tumor', 'pituitary_tumor']
+
+Classification Report:
+                  precision    recall  f1-score   support
+
+    glioma_tumor       0.85      0.74      0.79       151
+meningioma_tumor       0.87      0.47      0.61       175
+        no_tumor       0.79      0.81      0.80        77
+ pituitary_tumor       0.63      0.99      0.77       171
+
+        accuracy                           0.74       574
+       macro avg       0.79      0.75      0.75       574
+    weighted avg       0.79      0.74      0.73       574
+
