@@ -40,7 +40,7 @@ ArogyaDrishti/
         └── test_recommendation_system.py      # Automated test suite covering 10 test scenarios
 ```
 
-> **Note**: Heavy training datasets (~5.8 GB / 79,000+ files) are tracked locally under `organized_datasets/` and are excluded from version control via `.gitignore`.
+> 
 
 ---
 
