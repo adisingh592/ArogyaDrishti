@@ -142,6 +142,68 @@ print("Foods to prefer:", advice_data["food"]["prefer"])
 
 ---
 
+## 📈 Model Results
+
+Scores are measured on a held-out 20% test split. Full reports, confusion matrices, model comparisons and training curves are in [`SehatSetu/results/`](SehatSetu/results/). Trained models are in [`SehatSetu/models/`](SehatSetu/models/).
+
+**Status key:** ✅ usable · ⚠️ usable with caution · ❌ not meaningful yet (see the notes below)
+
+### Tabular models (best of Logistic Regression, Decision Tree, Random Forest, SVM)
+
+| Disease | Best model | Test samples | Accuracy | Weighted F1 | Disease-class recall | Status |
+|:--|:--|--:|--:|--:|--:|:--:|
+| Thyroid (hypothyroid) | Decision Tree | 633 | 98.7% | 98.8% | 97% | ✅ |
+| Obesity level (7 classes) | Random Forest | 423 | 92.7% | 92.8% | — | ⚠️ ¹ |
+| Heart failure (mortality) | Random Forest | 60 | 85.0% | 84.3% | 63% | ⚠️ ² |
+| Stroke | Decision Tree | 1,022 | 82.8% | 87.2% | 70% (precision 18%) | ⚠️ ³ |
+| Diabetes (BRFSS 50/50) | Random Forest | 14,139 | 75.0% | 74.9% | 80% | ✅ |
+| Liver disease (ILPD) | Random Forest | 117 | 74.4% | 71.0% | 93% | ⚠️ ⁴ |
+| Chronic kidney disease | Logistic Regression | 80 | 100% | 100% | 100% | ⚠️ ⁵ |
+| Anaemia | Logistic Regression | 21 | 100% | 100% | 100% | ⚠️ ⁵ |
+| Alzheimer's (CDC survey) | Logistic Regression | 4,000 | 100% | 100% | 100% | ❌ ⁶ |
+| Parkinson's | Random Forest | 39 | 79.5% | 72.5% | — | ❌ ⁷ |
+| EEG / seizure | Decision Tree | 100 | 62.0% | 58.2% | 16% | ❌ ⁷ |
+
+### Image models (MobileNetV2 transfer learning, 224 × 224)
+
+| Disease | Classes | Test images | Accuracy | Macro F1 | Status |
+|:--|:--|--:|--:|--:|:--:|
+| Leukemia | Benign, Early, Pre, Pro | 651 | 95% | 93% | ⚠️ ⁸ |
+| Malaria | Parasitized, Uninfected | 5,511 | 94% | 94% | ⚠️ ⁸ |
+| Tuberculosis | Normal, Tuberculosis | 840 | 93% | 85% | ✅ |
+| Brain tumor | glioma, meningioma, no tumor, pituitary | 574 | 74% | 75% | ✅ |
+| Pneumonia | Normal, Tuberculosis | 840 | 93% | 85% | ❌ ⁹ |
+| Skin cancer | image part 1, image part 2 | 2,003 | 59% | 57% | ❌ ¹⁰ |
+
+<details>
+<summary><b>Notes on the results</b></summary>
+
+1. **Obesity:** 77% of the dataset is synthetic (SMOTE), and height and weight almost determine the label (BMI).
+2. **Heart failure:** only 60 test patients. The model predicts *death during follow-up*, not whether heart disease is present.
+3. **Stroke:** only 4.9% of patients had a stroke. The model catches 70% of strokes, but only 18% of its stroke alarms are correct.
+4. **Liver:** the dataset is 71% patients, so the model leans towards predicting disease (93% recall, but weak on healthy people).
+5. **Kidney / Anaemia:** very small test sets (80 and 21). In anaemia, haemoglobin itself defines the label. Perfect scores will not hold on new patients.
+6. **Alzheimer's:** the CDC file holds population survey statistics, not patient records, and the target is a depression-question flag. It does not detect Alzheimer's.
+7. **Parkinson's / EEG:** the real datasets are not available locally, so these were trained on randomly generated data. Treat them as placeholders.
+8. **Leukemia / Malaria:** the dataset folders contain duplicate images (original + segmented, and a copied malaria folder), so the same image can be in both training and test sets.
+9. **Pneumonia:** no pneumonia dataset is present, so this model was trained on the TB X-rays. It is a duplicate of the TB model.
+10. **Skin cancer:** trained on the two storage folders instead of the 7 diagnosis labels in `HAM10000_metadata.csv`. Needs retraining with the real labels.
+
+</details>
+
+<details>
+<summary><b>Confusion matrices</b></summary>
+
+| Thyroid | Diabetes | Stroke |
+|:--:|:--:|:--:|
+| ![Thyroid](SehatSetu/results/tabular/thyroid/confusion_matrix.png) | ![Diabetes](SehatSetu/results/tabular/diabetes/confusion_matrix.png) | ![Stroke](SehatSetu/results/tabular/stroke/confusion_matrix.png) |
+| **Tuberculosis** | **Brain tumor** | **Leukemia** |
+| ![Tuberculosis](SehatSetu/results/image/tuberculosis/confusion_matrix.png) | ![Brain tumor](SehatSetu/results/image/brain_tumor/confusion_matrix.png) | ![Leukemia](SehatSetu/results/image/leukemia/confusion_matrix.png) |
+
+</details>
+
+---
+
 ## ⚠️ Medical Safety & Disclaimer
 
 > **DISCLAIMER:**  

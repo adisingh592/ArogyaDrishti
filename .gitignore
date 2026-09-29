@@ -25,9 +25,7 @@ pdf_preview/
 DATASETS.md
 generate_project_pdf.py
 
-# Training outputs (regenerate with train.py / train.bat)
-# Trained models in SehatSetu/models/ ARE uploaded (all files < 15 MB)
-SehatSetu/results/
+# Trained models (SehatSetu/models/) and training results (SehatSetu/results/) ARE uploaded
 
 # Medical report analysis outputs (may contain patient data)
 SehatSetu/report_analysis/outputs/
