@@ -9,3 +9,7 @@ matplotlib>=3.6.0
 seaborn>=0.12.0
 tensorflow>=2.10.0
 pillow>=9.0.0
+
+# Optional - medical report analysis (report_analysis/)
+pypdf>=4.0.0          # read PDF reports
+pytesseract>=0.3.10   # read scanned report images (also install the Tesseract OCR program)

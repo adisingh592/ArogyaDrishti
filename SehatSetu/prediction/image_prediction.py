@@ -35,7 +35,7 @@ def load_image_model(disease_name):
     """
     import tensorflow as tf
     clean_name = disease_name.lower().replace(" ", "_").replace("'", "")
-    model_path = os.path.join(PROJECT_ROOT, "models", "image", clean_name, f"{clean_name}_model.keras")
+    model_path = os.path.join(SEHATSETU_DIR, "models", "image", clean_name, f"{clean_name}_model.keras")
     
     if not os.path.exists(model_path):
         print(f"Warning: Model for '{disease_name}' not found at {model_path}.")

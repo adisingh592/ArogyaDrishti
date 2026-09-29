@@ -36,7 +36,7 @@ def load_tabular_model_and_preprocessor(disease_name):
     Loads the trained model and preprocessor for the specified disease.
     """
     clean_name = disease_name.lower().replace(" ", "_").replace("'", "")
-    model_folder = os.path.join(PROJECT_ROOT, "models", "tabular", clean_name)
+    model_folder = os.path.join(SEHATSETU_DIR, "models", "tabular", clean_name)
     
     model_path = os.path.join(model_folder, f"{clean_name}_model.pkl")
     preproc_path = os.path.join(model_folder, f"{clean_name}_preprocessor.pkl")

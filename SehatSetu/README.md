@@ -105,6 +105,15 @@ SehatSetu/
 │   ├── image_prediction.py               # Inference pipeline for medical imagery
 │   └── README.txt
 │
+├── report_analysis/                      # Medical report examination & decision
+│   ├── analyze_report.py                 # Entry point: read report -> examine -> decide
+│   ├── report_reader.py                  # Text from .pdf / .txt / image (OCR) / .json
+│   ├── report_parser.py                  # Finds lab values, converts units
+│   ├── clinical_rules.py                 # Reference-range checks (ADA, AHA, WHO, KDIGO, ATA)
+│   ├── model_bridge.py                   # Feeds report values to the trained models
+│   ├── sample_report.txt                 # Example lab report (fictional patient)
+│   └── README.txt
+│
 ├── recommendation/                       # Rule-based health advisory subsystem
 │   ├── recommendation_system.py          # Core recommendation engine
 │   ├── disease_information.json          # 34+ clinical condition knowledge base
@@ -193,7 +202,32 @@ Each disease folder is self-contained. You can train any model individually when
 
 ---
 
-## 🩺 7. Health Recommendation Subsystem
+## 🧾 7. Medical Report Analysis (Examine & Decide)
+
+Give SehatSetu a patient's lab report and it examines every test value and makes a decision.
+
+```bash
+cd SehatSetu/report_analysis
+python analyze_report.py                          # interactive: file path, paste text, or type values
+python analyze_report.py sample_report.txt        # .txt / .pdf / .png / .jpg / .json report
+python analyze_report.py --value hba1c=7.2 --value age=52 --value sex=M
+python analyze_report.py report.pdf --json result.json
+```
+
+**How it examines the report**
+1. **Read**: extracts text from the report file (PDF text, OCR for scanned images).
+2. **Extract**: recognises about 40 common tests (blood sugar, HbA1c, lipid profile, kidney and liver function, thyroid, CBC, electrolytes, BP, BMI, age and sex) and converts SI units (mmol/L, µmol/L, g/L) to one standard unit.
+3. **Clinical rules**: compares each value with published cut-offs (ADA for diabetes, 2017 ACC/AHA for blood pressure, NCEP ATP III for lipids, WHO for anaemia and BMI, KDIGO with the CKD-EPI 2021 eGFR for kidneys, ATA for thyroid).
+4. **ML models**: runs the trained kidney, liver, thyroid, stroke, diabetes and heart models, but only when the report contains enough of each model's inputs. It shows how many inputs came from the report.
+5. **Decision**: one of `URGENT - SEEK MEDICAL CARE TODAY`, `CONSULT A DOCTOR`, `BORDERLINE - LIFESTYLE CHANGES AND RE-TEST`, `NO ABNORMALITY FOUND`, or `NOT ENOUGH DATA`. It lists the conditions to discuss and gives diet, exercise and warning-sign guidance from the recommendation system.
+
+The lab-value rules take priority over the ML models: a model can add a borderline flag, but it cannot clear an abnormal lab result.
+
+PDF input needs `pip install pypdf`. Scanned images need `pip install pytesseract pillow` and the [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) program.
+
+---
+
+## 🩺 8. Health Recommendation Subsystem
 
 Medical recommendations require deterministic safety. SehatSetu uses a structured clinical knowledge base (`disease_information.json`) sourced from recognized healthcare bodies (WHO, CDC, NHS, ADA, AHA).
 
@@ -210,7 +244,7 @@ For every predicted disease, the recommendation engine provides:
 
 ---
 
-## 🎓 8. College Viva & Technical Discussion Highlights
+## 🎓 9. College Viva & Technical Discussion Highlights
 
 1. **Why separate training folders per disease?**
    * *Answer*: Decouples dependencies, enables independent tuning, prevents codebase bloat, and simplifies debugging and demonstration during viva.

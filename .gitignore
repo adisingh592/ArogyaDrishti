@@ -14,7 +14,24 @@ raw_datasets/
 
 # Dataset Reports & Logs
 dataset_report.csv
+dataset_report.txt
 *.log
+
+# Generated documents (repo holds only source code + README files)
+*.pdf
+*.docx
+*.pptx
+pdf_preview/
+DATASETS.md
+generate_project_pdf.py
+
+# Training outputs (regenerate with train.py / train.bat)
+# Trained models in SehatSetu/models/ ARE uploaded (all files < 15 MB)
+SehatSetu/results/
+
+# Medical report analysis outputs (may contain patient data)
+SehatSetu/report_analysis/outputs/
+patient_reports/
 
 # Environments and OS files
 .env
