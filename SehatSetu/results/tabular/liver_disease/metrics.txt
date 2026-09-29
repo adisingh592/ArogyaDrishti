@@ -1,0 +1,22 @@
+SEHATSETU - LIVER DISEASE CLASSIFICATION METRICS
+==================================================
+
+Best Model: Random Forest
+
+Model Comparison:
+                 Model  Accuracy  Precision  Recall  F1-Score
+   Logistic Regression    0.7350     0.7192  0.7350    0.6754
+         Decision Tree    0.6838     0.6375  0.6838    0.6457
+         Random Forest    0.7436     0.7225  0.7436    0.7100
+Support Vector Machine    0.7094     0.5033  0.7094    0.5888
+
+Classification Report for Best Model:
+              precision    recall  f1-score   support
+
+           0       0.62      0.29      0.40        34
+           1       0.76      0.93      0.84        83
+
+    accuracy                           0.74       117
+   macro avg       0.69      0.61      0.62       117
+weighted avg       0.72      0.74      0.71       117
+

@@ -1,0 +1,22 @@
+SEHATSETU - PARKINSON'S DISEASE CLASSIFICATION METRICS
+==================================================
+
+Best Model: Random Forest
+
+Model Comparison:
+                 Model  Accuracy  Precision  Recall  F1-Score
+   Logistic Regression    0.7692     0.5917  0.7692    0.6689
+         Decision Tree    0.7179     0.6830  0.7179    0.6965
+         Random Forest    0.7949     0.8381  0.7949    0.7249
+Support Vector Machine    0.7692     0.5917  0.7692    0.6689
+
+Classification Report for Best Model:
+              precision    recall  f1-score   support
+
+           0       1.00      0.11      0.20         9
+           1       0.79      1.00      0.88        30
+
+    accuracy                           0.79        39
+   macro avg       0.89      0.56      0.54        39
+weighted avg       0.84      0.79      0.72        39
+

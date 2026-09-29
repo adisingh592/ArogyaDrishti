@@ -1,0 +1,16 @@
+SEHATSETU - MALARIA CELL MODEL EVALUATION METRICS
+==================================================
+
+Architecture: MobileNetV2 Transfer Learning
+Classes: ['Parasitized', 'Uninfected']
+
+Classification Report:
+              precision    recall  f1-score   support
+
+ Parasitized       0.93      0.94      0.93      2717
+  Uninfected       0.94      0.93      0.94      2794
+
+    accuracy                           0.94      5511
+   macro avg       0.94      0.94      0.94      5511
+weighted avg       0.94      0.94      0.94      5511
+

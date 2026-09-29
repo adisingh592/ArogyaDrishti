@@ -1,0 +1,27 @@
+SEHATSETU - OBESITY LEVEL CLASSIFICATION METRICS
+==================================================
+
+Best Model: Random Forest
+
+Model Comparison:
+                 Model  Accuracy  Precision  Recall  F1-Score
+   Logistic Regression    0.8629     0.8612  0.8629    0.8610
+         Decision Tree    0.9149     0.9176  0.9149    0.9155
+         Random Forest    0.9267     0.9326  0.9267    0.9282
+Support Vector Machine    0.8487     0.8540  0.8487    0.8502
+
+Classification Report for Best Model:
+                     precision    recall  f1-score   support
+
+Insufficient_Weight       1.00      0.93      0.96        54
+      Normal_Weight       0.74      0.90      0.81        58
+     Obesity_Type_I       0.94      0.96      0.95        70
+    Obesity_Type_II       1.00      0.98      0.99        60
+   Obesity_Type_III       1.00      0.98      0.99        65
+ Overweight_Level_I       0.89      0.81      0.85        58
+Overweight_Level_II       0.95      0.91      0.93        58
+
+           accuracy                           0.93       423
+          macro avg       0.93      0.92      0.93       423
+       weighted avg       0.93      0.93      0.93       423
+

@@ -1,0 +1,22 @@
+SEHATSETU - ALZHEIMER'S DISEASE CLASSIFICATION METRICS
+==================================================
+
+Best Model: Logistic Regression
+
+Model Comparison:
+                 Model  Accuracy  Precision  Recall  F1-Score
+   Logistic Regression    1.0000     1.0000  1.0000    1.0000
+         Decision Tree    1.0000     1.0000  1.0000    1.0000
+         Random Forest    0.9595     0.9206  0.9595    0.9397
+Support Vector Machine    1.0000     1.0000  1.0000    1.0000
+
+Classification Report for Best Model:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3838
+           1       1.00      1.00      1.00       162
+
+    accuracy                           1.00      4000
+   macro avg       1.00      1.00      1.00      4000
+weighted avg       1.00      1.00      1.00      4000
+
