@@ -33,8 +33,12 @@ except Exception as e:
 # ── app ───────────────────────────────────────────────────────────────────────
 app = Flask(__name__)
 
-# Allow all origins in production (Vercel + local dev)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+# Broad CORS — allow all origins, methods, and headers
+CORS(app,
+     origins="*",
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET", "POST", "OPTIONS"],
+     supports_credentials=False)
 
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".txt"}
 
@@ -48,8 +52,11 @@ def health():
     })
 
 
-@app.route("/api/analyze", methods=["POST"])
+@app.route("/api/analyze", methods=["POST", "OPTIONS"])
 def analyze():
+    # Handle CORS preflight
+    if request.method == "OPTIONS":
+        return jsonify({}), 200
     """
     Accepts:
       • multipart/form-data  with field 'file'  (PDF / image / TXT)
