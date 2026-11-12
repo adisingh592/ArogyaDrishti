@@ -1,18 +1,16 @@
 # Root requirements.txt — Railway reads this automatically
-# Flask API dependencies
+# Flask API
 flask>=3.0.0
 flask-cors>=4.0.0
+gunicorn>=21.0.0
 
-# SehatSetu ML dependencies
+# SehatSetu ML (tabular models only — no tensorflow to save memory)
 numpy>=1.22.0
 pandas>=1.5.0
 scikit-learn>=1.2.0
 joblib>=1.2.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
 pillow>=9.0.0
 pypdf>=4.0.0
 
-# Note: tensorflow is very large (~500MB) — omit if Railway free tier runs out of memory
-# tensorflow>=2.10.0
-# pytesseract requires Tesseract binary — not available on Railway by default
+# Note: tensorflow (~500MB) excluded — image models disabled on free tier
+# Note: pytesseract excluded — requires Tesseract binary; OCR disabled
