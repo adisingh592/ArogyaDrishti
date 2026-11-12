@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, Cambria, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#1a5e52] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#154a40] transition-colors text-sm;
+  }
+  .btn-outline {
+    @apply border border-[#1a5e52] text-[#1a5e52] px-5 py-2.5 rounded-lg font-medium hover:bg-[#f0f4f2] transition-colors text-sm;
+  }
+  .badge-high {
+    @apply bg-orange-100 text-orange-600 text-xs font-semibold px-2 py-0.5 rounded;
+  }
+  .badge-normal {
+    @apply bg-teal-100 text-teal-700 text-xs font-semibold px-2 py-0.5 rounded;
+  }
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+  }
+  .step-label {
+    @apply text-xs font-semibold tracking-widest text-[#1a5e52] uppercase mb-2;
+  }
+}
