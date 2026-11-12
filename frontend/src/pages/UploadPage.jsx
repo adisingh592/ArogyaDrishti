@@ -11,6 +11,7 @@ const nextSteps = [
   { n: 4, title: 'Prediction and guidance', desc: 'You get a result with confidence and lifestyle advice.' },
 ]
 
+
 export default function UploadPage() {
   const navigate = useNavigate()
   const fileInputRef = useRef(null)
