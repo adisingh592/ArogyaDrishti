@@ -206,16 +206,48 @@ export default function ResultsPage() {
                   </span>
                 </div>
                 <div className="flex justify-between border-b border-gray-50 pb-2">
-                  <span className="text-gray-500">Models run</span>
-                  <span className="font-medium text-gray-800">
-                    {modelResults.filter(m => m.status === 'ran').length}
+                  <span className="text-gray-500">Models evaluated</span>
+                  <span className="font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-mono">
+                    {modelResults.filter(m => m.status === 'ran').length} active
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between border-b border-gray-50 pb-2">
                   <span className="text-gray-500">Overall decision</span>
                   <span className="font-medium text-gray-800 text-xs text-right max-w-[55%]">
                     {analysis.decision}
                   </span>
+                </div>
+              </div>
+
+              {/* Models Breakdown */}
+              <div className="mt-4 pt-3 border-t border-gray-100">
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+                  Meta-Classifier Routed Models
+                </p>
+                <div className="space-y-2">
+                  {modelResults.map((m, idx) => (
+                    <div key={idx} className="bg-gray-50 rounded p-2 text-xs">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-medium text-gray-800">{m.label}</span>
+                        <span className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
+                          m.status === 'ran' 
+                            ? (m.positive ? 'bg-orange-100 text-orange-700' : 'bg-teal-100 text-teal-800')
+                            : 'bg-gray-200 text-gray-600'
+                        }`}>
+                          {m.status === 'ran' ? `${m.probability}% prob` : m.status}
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-gray-500 flex justify-between">
+                        <span>Report inputs: {m.features_used || '—'}</span>
+                        <span>Coverage: {m.coverage ? `${m.coverage}%` : '—'}</span>
+                      </div>
+                      {m.assumptions && m.assumptions.length > 0 && (
+                        <div className="mt-1 text-[10px] text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded">
+                          Defaults: {m.assumptions.join(', ')}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

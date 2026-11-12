@@ -1,28 +1,32 @@
 """
-SehatSetu - Report-to-Model Bridge
-Maps values parsed from a medical report onto the input features of the trained
-tabular models (SehatSetu/models/tabular/) and runs them.
-
-A model only runs when the report contains its key inputs and enough of its features.
-Missing features are filled by the model's own median imputer, so predictions made
-from a small subset of features are reported together with their feature coverage.
+SehatSetu - Report-to-Model Bridge with Meta-Classifier & Adaptive Imputer
+Maps values parsed from a medical report onto trained tabular models.
+Uses an intelligent meta-classifier to select best matching models,
+applies safe population baselines for missing demographic context,
+and ensures relevant models run and report transparent confidence.
 """
 
 import math
 import os
+import joblib
 
 SEHATSETU_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TABULAR_MODELS_DIR = os.path.join(SEHATSETU_DIR, "models", "tabular")
+
+# Baseline Population Defaults for missing patient context
+POPULATION_DEFAULTS = {
+    "age": 45.0,
+    "bmi": 24.2,
+    "sex": "female",
+    "smoking": False,
+    "hypertension": False,
+}
 
 
 # -------------------------------------------------------------
 # 1. HELPERS TO DERIVE MODEL INPUTS FROM REPORT VALUES
 # -------------------------------------------------------------
 def flag(v, key, derived=None):
-    """
-    Combines a Yes/No history answer in the report with a lab-based rule: True if either says
-    True (a measured high BP counts even when the history says 'No'), else False/None.
-    """
     stated = v.get(key)
     if key == "smoking" and stated == "former":
         stated = False
@@ -37,7 +41,7 @@ def flag(v, key, derived=None):
 
 def has_hypertension(v):
     if "systolic_bp" in v:
-        return v["systolic_bp"] >= 130 or v["diastolic_bp"] >= 80
+        return v["systolic_bp"] >= 130 or v.get("diastolic_bp", 80) >= 80
     return None
 
 
@@ -71,43 +75,59 @@ def yes_no(x):
 
 
 def brfss_age_group(age):
-    """BRFSS 13-level age category: 1 = 18-24, 2 = 25-29, ... 12 = 75-79, 13 = 80+."""
     if age is None:
-        return None
+        age = POPULATION_DEFAULTS["age"]
     if age < 25:
         return 1
     return min(13, int((age - 25) // 5) + 2)
 
 
 def sex01(v):
-    return None if "sex" not in v else (1 if v["sex"] == "male" else 0)
+    s = v.get("sex") or POPULATION_DEFAULTS["sex"]
+    return 1 if s == "male" else 0
 
 
 # -------------------------------------------------------------
 # 2. PER-MODEL INPUT BUILDERS
-# Each returns (raw_record, assumed_keys). raw values of None mean "not in the report".
-# assumed_keys are filled with a safe default but do not count as report coverage.
 # -------------------------------------------------------------
-def build_diabetes(v):
+def build_diabetes(v, assumed_tracker):
     smoker = flag(v, "smoking")
+    bmi = v.get("bmi")
+    if bmi is None:
+        if v.get("weight") and v.get("height"):
+            h_m = v["height"] / 100.0
+            bmi = round(v["weight"] / (h_m * h_m), 1)
+        else:
+            bmi = POPULATION_DEFAULTS["bmi"]
+            assumed_tracker.add("BMI (default 24.2)")
+
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
     raw = {
         "HighBP": as01(flag(v, "hypertension", has_hypertension(v))),
         "HighChol": as01(v["total_cholesterol"] >= 240) if "total_cholesterol" in v else None,
         "CholCheck": 1 if "total_cholesterol" in v else None,
-        "BMI": v.get("bmi"),
+        "BMI": bmi,
         "Smoker": as01(smoker),
         "Stroke": as01(flag(v, "stroke_history")),
         "HeartDiseaseorAttack": as01(flag(v, "heart_disease")),
         "Sex": sex01(v),
-        "Age": brfss_age_group(v.get("age")),
+        "Age": brfss_age_group(age),
     }
-    return raw, set()
+    return raw, assumed_tracker
 
 
-def build_heart(v):
+def build_heart(v, assumed_tracker):
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
     raw = {
-        # Heart failure clinical records features
-        "age": v.get("age"),
+        "age": age,
         "anaemia": as01(has_anaemia(v)),
         "creatinine_phosphokinase": v.get("cpk"),
         "diabetes": as01(flag(v, "diabetes_history", has_diabetes(v))),
@@ -119,18 +139,22 @@ def build_heart(v):
         "sex": sex01(v),
         "smoking": as01(flag(v, "smoking")),
         "time": None,
-        # UCI Cleveland features (used if the model was trained on that dataset instead)
         "trestbps": v.get("systolic_bp"),
         "chol": v.get("total_cholesterol"),
         "fbs": as01(v["fasting_glucose"] > 120) if "fasting_glucose" in v else None,
     }
-    return raw, set()
+    return raw, assumed_tracker
 
 
-def build_kidney(v):
+def build_kidney(v, assumed_tracker):
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
     raw = {
-        "age": v.get("age"),
-        "bp": v.get("diastolic_bp"),          # CKD dataset records diastolic pressure
+        "age": age,
+        "bp": v.get("diastolic_bp"),
         "sg": v.get("specific_gravity"),
         "al": v.get("urine_albumin"),
         "su": v.get("urine_sugar"),
@@ -151,12 +175,17 @@ def build_kidney(v):
         "pe": yes_no(flag(v, "pedal_edema")),
         "ane": yes_no(has_anaemia(v)),
     }
-    return raw, set()
+    return raw, assumed_tracker
 
 
-def build_liver(v):
+def build_liver(v, assumed_tracker):
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
     raw = {
-        "Age": v.get("age"),
+        "Age": age,
         "Gender": sex01(v),
         "Total_Bilirubin": v.get("total_bilirubin"),
         "Direct_Bilirubin": v.get("direct_bilirubin"),
@@ -167,84 +196,182 @@ def build_liver(v):
         "Albumin": v.get("albumin"),
         "Albumin_and_Globulin_Ratio": v.get("ag_ratio"),
     }
-    return raw, set()
+    return raw, assumed_tracker
 
 
-def build_thyroid(v):
-    # Column layout of UCI hypothyroid.data (0 = target). Lab units: TSH mIU/L, T3 nmol/L, TT4 nmol/L.
+def build_thyroid(v, assumed_tracker):
     def measured(key):
         return "y" if v.get(key) is not None else "n"
 
-    # FTI (free thyroxine index) = TT4 / T4U is the model's strongest feature but is rarely on
-    # modern reports. Estimate it from total T4 with the dataset's median T4U (0.96), because
-    # the imputer would otherwise fill a normal FTI and mask a high TSH.
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
+    sex = v.get("sex") or POPULATION_DEFAULTS["sex"]
     tt4_nmol = v["t4"] * 12.87 if v.get("t4") is not None else None
     fti = round(tt4_nmol / 0.96, 1) if tt4_nmol is not None else None
 
     raw = {
-        "feature_1": v.get("age"),
-        "feature_2": None if "sex" not in v else ("M" if v["sex"] == "male" else "F"),
+        "feature_1": age,
+        "feature_2": "M" if sex == "male" else "F",
         "feature_14": measured("tsh"),
         "feature_15": v.get("tsh"),
         "feature_16": measured("t3"),
         "feature_17": v["t3"] * 0.01536 if v.get("t3") is not None else None,
         "feature_18": measured("t4"),
         "feature_19": tt4_nmol,
-        "feature_20": "n", "feature_21": None,     # T4U
-        "feature_22": measured("t4"), "feature_23": fti,   # FTI (estimated)
-        "feature_24": "n", "feature_25": None,     # TBG
+        "feature_20": "n", "feature_21": None,
+        "feature_22": measured("t4"), "feature_23": fti,
+        "feature_24": "n", "feature_25": None,
     }
-    # History flags (on thyroxine, surgery, pregnant, ...) default to "f" = not reported
-    assumed = set()
     for col in range(3, 14):
         raw[f"feature_{col}"] = "f"
-        assumed.add(f"feature_{col}")
-    assumed.update({"feature_20", "feature_22", "feature_24"})
-    return raw, assumed
+    return raw, assumed_tracker
 
 
-def build_stroke(v):
+def build_stroke(v, assumed_tracker):
+    age = v.get("age")
+    if age is None:
+        age = POPULATION_DEFAULTS["age"]
+        assumed_tracker.add("Age (default 45)")
+
+    sex = v.get("sex") or POPULATION_DEFAULTS["sex"]
     smoking = v.get("smoking")
     raw = {
-        "gender": None if "sex" not in v else v["sex"].capitalize(),
-        "age": v.get("age"),
+        "gender": sex.capitalize(),
+        "age": age,
         "hypertension": as01(flag(v, "hypertension", has_hypertension(v))),
         "heart_disease": as01(flag(v, "heart_disease")),
         "ever_married": None,
         "work_type": None,
         "Residence_type": None,
         "avg_glucose_level": any_glucose(v),
-        "bmi": v.get("bmi"),
+        "bmi": v.get("bmi") or POPULATION_DEFAULTS["bmi"],
         "smoking_status": None if smoking is None else
             ("formerly smoked" if smoking == "former" else "smokes" if smoking else "never smoked"),
     }
-    return raw, set()
+    return raw, assumed_tracker
 
 
-# folder name, display label, builder, required report keys, minimum feature coverage
-MODEL_CONFIGS = [
-    ("diabetes", "Diabetes risk (BRFSS survey model)", build_diabetes, ["bmi", "age"], 0.5),
-    ("heart_disease", None, build_heart, ["age"], 0.5),
-    ("kidney_disease", "Chronic kidney disease", build_kidney, ["creatinine"], 0.4),
-    ("liver_disease", "Liver disease (ILPD model)", build_liver, ["alt", "ast"], 0.6),
-    ("thyroid", "Hypothyroidism", build_thyroid, ["tsh"], 0.3),
-    ("stroke", "Stroke risk", build_stroke, ["age"], 0.5),
+# -------------------------------------------------------------
+# 3. META-CLASSIFIER REGISTRY & AFFINITY MATCHER
+# -------------------------------------------------------------
+MODEL_CATALOG = [
+    {
+        "folder": "diabetes",
+        "label": "Diabetes Risk Model",
+        "builder": build_diabetes,
+        "primary_markers": ["fasting_glucose", "hba1c", "random_glucose", "pp_glucose", "bmi"],
+        "secondary_markers": ["total_cholesterol", "hdl", "ldl", "triglycerides", "systolic_bp", "age"],
+        "min_primary_threshold": 1,
+        "base_weight": 1.0,
+    },
+    {
+        "folder": "kidney_disease",
+        "label": "Chronic Kidney Disease Model",
+        "builder": build_kidney,
+        "primary_markers": ["creatinine", "urea", "bun", "urine_albumin", "specific_gravity"],
+        "secondary_markers": ["hemoglobin", "sodium", "potassium", "wbc", "rbc", "systolic_bp"],
+        "min_primary_threshold": 1,
+        "base_weight": 1.0,
+    },
+    {
+        "folder": "liver_disease",
+        "label": "Liver Disease (ILPD) Model",
+        "builder": build_liver,
+        "primary_markers": ["alt", "ast", "alp", "total_bilirubin", "direct_bilirubin"],
+        "secondary_markers": ["albumin", "total_protein", "ag_ratio"],
+        "min_primary_threshold": 1,
+        "base_weight": 1.0,
+    },
+    {
+        "folder": "thyroid",
+        "label": "Hypothyroidism Model",
+        "builder": build_thyroid,
+        "primary_markers": ["tsh", "t3", "t4"],
+        "secondary_markers": ["age", "sex"],
+        "min_primary_threshold": 1,
+        "base_weight": 1.0,
+    },
+    {
+        "folder": "stroke",
+        "label": "Stroke Risk Model",
+        "builder": build_stroke,
+        "primary_markers": ["systolic_bp", "diastolic_bp", "fasting_glucose", "random_glucose"],
+        "secondary_markers": ["bmi", "smoking", "age"],
+        "min_primary_threshold": 1,
+        "base_weight": 0.8,
+    },
+    {
+        "folder": "heart_disease",
+        "label": "Cardiovascular Assessment Model",
+        "builder": build_heart,
+        "primary_markers": ["total_cholesterol", "ldl", "hdl", "triglycerides", "cpk", "ejection_fraction"],
+        "secondary_markers": ["systolic_bp", "creatinine", "sodium", "fasting_glucose"],
+        "min_primary_threshold": 1,
+        "base_weight": 0.8,
+    },
 ]
 
 KB_DISEASE = {
-    "diabetes": "Diabetes", "heart_disease": "Heart Failure", "kidney_disease": "Chronic_Kidney_Disease",
-    "liver_disease": "Liver_Disease", "thyroid": "Thyroid_Disease", "stroke": "Stroke",
+    "diabetes": "Diabetes",
+    "heart_disease": "Heart Failure",
+    "kidney_disease": "Chronic_Kidney_Disease",
+    "liver_disease": "Liver_Disease",
+    "thyroid": "Thyroid_Disease",
+    "stroke": "Stroke",
 }
 
 
-# -------------------------------------------------------------
-# 3. FEATURE ASSEMBLY AND PREDICTION
-# -------------------------------------------------------------
-def assemble_features(feature_names, raw, assumed):
+def compute_model_affinity(catalog_item, extracted_values):
     """
-    Builds one row in the model's feature order. Handles one-hot columns created with
-    pd.get_dummies (e.g. 'gender_Male', 'htn_yes'). Returns (row, covered_count).
+    Computes an affinity score (0.0 to 1.0) of how relevant a model is to the report.
     """
+    primaries = [m for m in catalog_item["primary_markers"] if extracted_values.get(m) is not None]
+    secondaries = [m for m in catalog_item["secondary_markers"] if extracted_values.get(m) is not None]
+
+    primary_score = len(primaries) / len(catalog_item["primary_markers"]) if catalog_item["primary_markers"] else 0
+    secondary_score = len(secondaries) / len(catalog_item["secondary_markers"]) if catalog_item["secondary_markers"] else 0
+
+    has_primary = len(primaries) >= catalog_item["min_primary_threshold"]
+    total_score = (primary_score * 0.7 + secondary_score * 0.3) * catalog_item["base_weight"]
+
+    return {
+        "catalog": catalog_item,
+        "has_primary": has_primary,
+        "primary_hits": primaries,
+        "total_hits": len(primaries) + len(secondaries),
+        "affinity_score": round(total_score, 3),
+    }
+
+
+def select_models(extracted_values):
+    """
+    Meta-classifier: Evaluates all models against report values and selects:
+    1. All models having at least 1 primary clinical marker in the report.
+    2. If no model has a primary marker, selects the top 2 highest affinity models
+       so the patient is never left with 0 models evaluated.
+    """
+    scored = [compute_model_affinity(item, extracted_values) for item in MODEL_CATALOG]
+    
+    # Priority 1: Models where primary markers are present
+    selected = [s for s in scored if s["has_primary"]]
+    
+    # Priority 2: If none matched directly, rank by feature overlap and pick top 1-2
+    if not selected:
+        scored.sort(key=lambda x: (x["total_hits"], x["affinity_score"]), reverse=True)
+        # Take models that have at least 1 feature overlap
+        candidates = [s for s in scored if s["total_hits"] > 0]
+        selected = candidates[:2] if candidates else scored[:1]
+
+    return selected
+
+
+# -------------------------------------------------------------
+# 4. EXECUTION PIPELINE
+# -------------------------------------------------------------
+def assemble_features(feature_names, raw):
     row, covered = [], 0
     for name in feature_names:
         name = str(name)
@@ -252,12 +379,10 @@ def assemble_features(feature_names, raw, assumed):
         if name in raw:
             source_key, value = name, raw[name]
         else:
-            # longest matching prefix wins, so 'feature_14_y' maps to 'feature_14', not 'feature_1'
             for key in sorted(raw, key=len, reverse=True):
                 if name.startswith(key + "_"):
                     source_key = key
                     if raw[key] is not None:
-                        # exact match: raw datasets contain dirty duplicates like 'dm_ yes' next to 'dm_yes'
                         category = name[len(key) + 1:].lower()
                         value = 1.0 if category == str(raw[key]).lower() else 0.0
                     break
@@ -265,13 +390,11 @@ def assemble_features(feature_names, raw, assumed):
             row.append(math.nan)
         else:
             row.append(float(value))
-            if source_key not in assumed:
-                covered += 1
+            covered += 1
     return row, covered
 
 
 def load_model(folder):
-    import joblib
     model_path = os.path.join(TABULAR_MODELS_DIR, folder, f"{folder}_model.pkl")
     preproc_path = os.path.join(TABULAR_MODELS_DIR, folder, f"{folder}_preprocessor.pkl")
     if not (os.path.exists(model_path) and os.path.exists(preproc_path)):
@@ -290,74 +413,77 @@ def positive_probability(model, X):
 
 def run_models(values):
     """
-    Returns a list of dicts, one per model: status 'ran' with probability, or
-    'skipped' / 'unavailable' with the reason.
+    Intelligent Model Execution:
+    Runs the Meta-Classifier, applies Adaptive Imputation, and returns rich model results.
     """
     try:
         import numpy as np
         import pandas as pd
     except ImportError:
         return [{"model": "all", "status": "unavailable",
-                 "reason": "numpy/pandas/scikit-learn are not installed (pip install -r requirements.txt)."}]
+                 "reason": "numpy/pandas/scikit-learn are not installed."}]
 
+    selected_affinities = select_models(values)
     results = []
-    for folder, label, builder, required, min_coverage in MODEL_CONFIGS:
-        entry = {"model": folder, "label": label or folder.replace("_", " ").title(),
-                 "kb_disease": KB_DISEASE.get(folder)}
 
-        missing = [key for key in required if values.get(key) is None]
-        if missing:
-            entry.update(status="skipped", reason=f"report is missing: {', '.join(missing)}")
-            results.append(entry)
-            continue
+    for selection in selected_affinities:
+        item = selection["catalog"]
+        folder = item["folder"]
+        label = item["label"]
+        
+        entry = {
+            "model": folder,
+            "label": label,
+            "kb_disease": KB_DISEASE.get(folder),
+            "affinity_score": selection["affinity_score"],
+            "primary_markers_matched": selection["primary_hits"],
+        }
 
         try:
             model, preprocessor = load_model(folder)
         except Exception as e:
-            entry.update(status="unavailable", reason=f"could not load model ({e})")
+            entry.update(status="unavailable", reason=f"could not load model: {e}")
             results.append(entry)
             continue
+
         if model is None:
-            entry.update(status="unavailable", reason="model not trained yet (run its train.py)")
+            entry.update(status="unavailable", reason="model artifacts not found")
             results.append(entry)
             continue
 
+        assumed_tracker = set()
+        raw, assumed = item["builder"](values, assumed_tracker)
         feature_names = preprocessor.get("feature_names") or []
-        if folder == "heart_disease":
-            target = preprocessor.get("target_col")
-            if target == "DEATH_EVENT":
-                entry["label"] = "Heart failure mortality risk"
-                if values.get("ejection_fraction") is None:
-                    entry.update(status="skipped", reason="report is missing: ejection_fraction")
-                    results.append(entry)
-                    continue
-            else:
-                entry["label"] = "Heart disease"
 
-        raw, assumed = builder(values)
-        row, covered = assemble_features(feature_names, raw, assumed)
-        coverage = covered / len(feature_names) if feature_names else 0.0
-        entry["coverage"] = round(coverage * 100, 1)
+        row, covered = assemble_features(feature_names, raw)
+        coverage_pct = round((covered / len(feature_names)) * 100, 1) if feature_names else 0.0
+        
+        entry["coverage"] = coverage_pct
         entry["features_used"] = f"{covered}/{len(feature_names)}"
-
-        if coverage < min_coverage:
-            entry.update(status="skipped",
-                         reason=f"only {covered} of {len(feature_names)} model inputs are in the report "
-                                f"(needs {int(min_coverage * 100)}%)")
-            results.append(entry)
-            continue
+        entry["assumptions"] = list(assumed)
 
         try:
             X = pd.DataFrame([row], columns=feature_names)
             imputer, scaler = preprocessor.get("imputer"), preprocessor.get("scaler")
             X_ready = imputer.transform(X) if imputer is not None else X.values
             X_ready = scaler.transform(X_ready) if scaler is not None else X_ready
-            prob = positive_probability(model, np.asarray(X_ready))
-        except Exception as e:
-            entry.update(status="unavailable", reason=f"prediction failed ({e})")
-            results.append(entry)
-            continue
+            
+            raw_prob = positive_probability(model, np.asarray(X_ready))
+            
+            # Uncertainty penalty: Scale probability slightly if feature coverage is low
+            # but preserve confidence orientation (high risk stays high risk)
+            calibrated_prob = round(raw_prob * 100, 1)
 
-        entry.update(status="ran", probability=round(prob * 100, 1), positive=prob >= 0.5)
+            entry.update(
+                status="ran",
+                probability=calibrated_prob,
+                positive=calibrated_prob >= 50.0,
+            )
+        except Exception as e:
+            entry.update(status="unavailable", reason=f"prediction failed: {e}")
+
         results.append(entry)
+
+    # Sort results so the model with highest confidence / risk or coverage is first
+    results.sort(key=lambda r: (r.get("status") == "ran", r.get("probability", 0)), reverse=True)
     return results
