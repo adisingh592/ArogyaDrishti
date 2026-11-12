@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FileText, X, CheckCircle } from 'lucide-react'
+import { FileText, X, CheckCircle, Loader2, AlertCircle } from 'lucide-react'
+import { useApp } from '../context/AppContext'
 
 const reportTypes = ['Auto-detect', 'Blood test', 'Urine / kidney', 'Medical image', 'EEG / signal']
 
@@ -11,23 +12,28 @@ const nextSteps = [
   { n: 4, title: 'Prediction and guidance', desc: 'You get a result with confidence and lifestyle advice.' },
 ]
 
-
 export default function UploadPage() {
   const navigate = useNavigate()
   const fileInputRef = useRef(null)
-  const [file, setFile] = useState(null)
+  const { uploadedFile, setUploadedFile, reportType, setReportType, runAnalysis, loading, error } = useApp()
   const [dragging, setDragging] = useState(false)
-  const [reportType, setReportType] = useState('Auto-detect')
 
-  const handleFile = (f) => {
-    if (f) setFile(f)
-  }
+  const handleFile = (f) => { if (f) setUploadedFile(f) }
 
   const onDrop = (e) => {
     e.preventDefault()
     setDragging(false)
-    const f = e.dataTransfer.files[0]
-    if (f) handleFile(f)
+    handleFile(e.dataTransfer.files[0])
+  }
+
+  const handleAnalyze = async () => {
+    if (!uploadedFile) return
+    try {
+      await runAnalysis(uploadedFile)
+      navigate('/analysis')
+    } catch {
+      // error shown below
+    }
   }
 
   const formatSize = (bytes) => {
@@ -51,7 +57,7 @@ export default function UploadPage() {
             onDragOver={(e) => { e.preventDefault(); setDragging(true) }}
             onDragLeave={() => setDragging(false)}
             onDrop={onDrop}
-            onClick={() => !file && fileInputRef.current.click()}
+            onClick={() => !uploadedFile && fileInputRef.current.click()}
             className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-colors ${
               dragging ? 'border-[#1a5e52] bg-[#1a5e52]/5' : 'border-gray-300 hover:border-[#1a5e52] bg-white'
             }`}
@@ -69,34 +75,34 @@ export default function UploadPage() {
             <input
               ref={fileInputRef}
               type="file"
-              accept=".pdf,.jpg,.jpeg,.png"
+              accept=".pdf,.jpg,.jpeg,.png,.txt"
               className="hidden"
               onChange={(e) => handleFile(e.target.files[0])}
             />
           </div>
 
           {/* File preview */}
-          {file && (
+          {uploadedFile && (
             <div className="card p-4">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-12 bg-gray-100 border border-gray-300 rounded flex items-center justify-center">
                   <span className="text-[9px] font-bold text-gray-500 uppercase">
-                    {file.name.split('.').pop()}
+                    {uploadedFile.name.split('.').pop()}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-gray-800 truncate">{file.name}</p>
-                  <p className="text-xs text-gray-400">{formatSize(file.size)} · Uploaded</p>
+                  <p className="text-sm font-semibold text-gray-800 truncate">{uploadedFile.name}</p>
+                  <p className="text-xs text-gray-400">{formatSize(uploadedFile.size)} · Uploaded</p>
                 </div>
                 <span className="text-xs font-semibold text-[#1a5e52] bg-teal-50 px-2 py-1 rounded flex items-center gap-1">
                   <CheckCircle size={12} /> READY TO ANALYZE
                 </span>
-                <button onClick={() => setFile(null)} className="text-gray-400 hover:text-gray-600">
+                <button onClick={() => setUploadedFile(null)} className="text-gray-400 hover:text-gray-600">
                   <X size={16} />
                 </button>
               </div>
               <div className="h-1.5 bg-gray-100 rounded-full">
-                <div className="h-1.5 bg-[#1a5e52] rounded-full w-full transition-all" />
+                <div className="h-1.5 bg-[#1a5e52] rounded-full w-full" />
               </div>
             </div>
           )}
@@ -121,15 +127,25 @@ export default function UploadPage() {
             </div>
           </div>
 
+          {/* Error */}
+          {error && (
+            <div className="flex items-start gap-2 bg-red-50 border border-red-200 rounded-lg p-3">
+              <AlertCircle size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-700">{error}</p>
+            </div>
+          )}
+
           {/* Actions */}
           <div className="flex items-center gap-3 pt-2">
             <button
-              onClick={() => navigate('/analysis')}
-              className="btn-primary"
+              onClick={handleAnalyze}
+              disabled={!uploadedFile || loading}
+              className="btn-primary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Analyze report
+              {loading && <Loader2 size={15} className="animate-spin" />}
+              {loading ? 'Analyzing…' : 'Analyze report'}
             </button>
-            <button onClick={() => { setFile(null) }} className="text-sm text-gray-500 hover:text-gray-700">
+            <button onClick={() => setUploadedFile(null)} className="text-sm text-gray-500 hover:text-gray-700">
               Cancel
             </button>
           </div>
@@ -153,7 +169,6 @@ export default function UploadPage() {
               ))}
             </div>
           </div>
-
           <div className="card p-5">
             <p className="text-sm font-semibold text-gray-700 mb-3">For the best reading</p>
             <ul className="space-y-2 text-sm text-gray-500">

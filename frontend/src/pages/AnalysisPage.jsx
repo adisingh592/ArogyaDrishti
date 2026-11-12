@@ -1,24 +1,40 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ArrowRight, AlertCircle } from 'lucide-react'
+import { useApp } from '../context/AppContext'
 
-const extractedParams = [
-  { name: 'Fasting glucose', value: '142 mg/dL', reference: '70 – 99', status: 'HIGH' },
-  { name: 'HbA1c', value: '6.9 %', reference: '4.0 – 5.6', status: 'HIGH' },
-  { name: 'Total cholesterol', value: '214 mg/dL', reference: '< 200', status: 'HIGH' },
-  { name: 'Hemoglobin', value: '13.1 g/dL', reference: '12.0 – 15.5', status: 'NORMAL' },
-  { name: 'Serum creatinine', value: '0.9 mg/dL', reference: '0.6 – 1.2', status: 'NORMAL' },
-]
+const SEVERITY_COLOR = {
+  'URGENT':     'badge-high',
+  'ABNORMAL':   'badge-high',
+  'BORDERLINE': 'bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded',
+  'NORMAL':     'badge-normal',
+}
 
-const docRows = [
-  { label: 'Fasting glucose', value: '142 mg/dL', isHigh: true },
-  { label: 'HbA1c', value: '6.9 %', isHigh: true },
-  { label: 'Total cholesterol', value: '214 mg/dL', isHigh: true },
-  { label: 'Hemoglobin', value: '13.1 g/dL', isHigh: false },
-  { label: 'Serum creatinine', value: '0.9 mg/dL', isHigh: false },
-]
+const STATUS_DOC_COLOR = {
+  'URGENT':     'bg-red-50 border border-red-200',
+  'ABNORMAL':   'bg-orange-50 border border-orange-200',
+  'BORDERLINE': 'bg-yellow-50 border border-yellow-200',
+  'NORMAL':     'bg-teal-50 border border-teal-100',
+}
 
 export default function AnalysisPage() {
   const navigate = useNavigate()
+  const { analysis, uploadedFile, loading } = useApp()
+
+  // redirect to upload if no data
+  useEffect(() => {
+    if (!loading && !analysis) navigate('/upload')
+  }, [analysis, loading, navigate])
+
+  if (!analysis) return null
+
+  const findings    = analysis.findings || []
+  const conditions  = analysis.conditions || []
+  const values      = analysis.extracted_values || {}
+  const modelResults = (analysis.model_results || []).filter(m => m.status === 'ran')
+
+  // Top condition for routing display
+  const topCondition = conditions.find(c => c.severity > 0) || conditions[0]
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
@@ -29,92 +45,121 @@ export default function AnalysisPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Document preview */}
+        {/* Document preview — extracted values */}
         <div className="card p-5">
           <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-            <span className="text-sm font-semibold text-gray-700">blood_test_report.pdf</span>
-            <span className="text-xs text-gray-400">PAGE 1 / 2</span>
+            <span className="text-sm font-semibold text-gray-700 truncate">
+              {uploadedFile?.name || 'report'}
+            </span>
+            <span className="text-xs text-gray-400 ml-2 flex-shrink-0">EXTRACTED VALUES</span>
           </div>
-          {/* Fake doc lines */}
-          <div className="space-y-1 mb-3">
-            <div className="h-2 bg-gray-200 rounded w-4/5" />
-            <div className="h-2 bg-gray-200 rounded w-3/5" />
-          </div>
-          <div className="space-y-1.5">
-            {docRows.map((r) => (
-              <div
-                key={r.label}
-                className={`flex justify-between items-center px-3 py-2 rounded text-sm ${
-                  r.isHigh ? 'bg-orange-50 border border-orange-200' : 'bg-teal-50 border border-teal-100'
-                }`}
-              >
-                <span className="text-gray-700">{r.label}</span>
-                <span className="font-medium text-gray-800">{r.value}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 space-y-1">
-            <div className="h-2 bg-gray-200 rounded w-full" />
-            <div className="h-2 bg-gray-200 rounded w-2/3" />
-          </div>
+
+          {Object.keys(values).length === 0 ? (
+            <div className="flex items-center gap-2 text-amber-600 bg-amber-50 rounded p-3">
+              <AlertCircle size={16} />
+              <p className="text-sm">No standard values were recognised in this report.</p>
+            </div>
+          ) : (
+            <div className="space-y-1.5">
+              {Object.entries(values).map(([key, val]) => {
+                const finding = findings.find(f =>
+                  f.parameter?.toLowerCase().includes(key.toLowerCase()) ||
+                  key.toLowerCase().includes(f.parameter?.toLowerCase())
+                )
+                const sev = finding?.severity_label || finding?.status || 'NORMAL'
+                return (
+                  <div
+                    key={key}
+                    className={`flex justify-between items-center px-3 py-2 rounded text-sm ${STATUS_DOC_COLOR[sev] || STATUS_DOC_COLOR['NORMAL']}`}
+                  >
+                    <span className="text-gray-700 capitalize">{key.replace(/_/g, ' ')}</span>
+                    <span className="font-medium text-gray-800">{typeof val === 'number' ? val.toFixed(1) : val}</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Model info */}
+          {modelResults.length > 0 && (
+            <div className="mt-4 pt-3 border-t border-gray-100 space-y-1">
+              {modelResults.map(m => (
+                <p key={m.model} className="text-xs text-gray-500">
+                  🤖 <span className="font-medium">{m.label}</span> — {m.probability}% probability
+                </p>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Right panel */}
         <div className="space-y-5">
-          {/* Extracted parameters table */}
+          {/* Findings table */}
           <div className="card p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-serif font-bold text-gray-900">Extracted parameters</h3>
-              <span className="text-xs text-gray-400">5 found · 0 unreadable</span>
+              <span className="text-xs text-gray-400">
+                {findings.length} found · {findings.filter(f => f.status === 'URGENT' || f.status === 'ABNORMAL').length} flagged
+              </span>
             </div>
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-100">
-                  <th className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">Parameter</th>
-                  <th className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">Value</th>
-                  <th className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">Reference</th>
-                  <th className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {extractedParams.map((p) => (
-                  <tr key={p.name} className="border-b border-gray-50 last:border-0">
-                    <td className="py-2.5 text-gray-700">{p.name}</td>
-                    <td className="py-2.5 text-gray-800 font-medium">{p.value}</td>
-                    <td className="py-2.5 text-gray-500">{p.reference}</td>
-                    <td className="py-2.5">
-                      <span className={p.status === 'HIGH' ? 'badge-high' : 'badge-normal'}>
-                        {p.status}
-                      </span>
-                    </td>
+            {findings.length === 0 ? (
+              <p className="text-sm text-gray-400 italic">No flags raised for supported tests.</p>
+            ) : (
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-100">
+                    {['Parameter', 'Value', 'Reference', 'Status'].map(h => (
+                      <th key={h} className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">{h}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {findings.map((f, i) => (
+                    <tr key={i} className="border-b border-gray-50 last:border-0">
+                      <td className="py-2.5 text-gray-700 pr-2">{f.parameter}</td>
+                      <td className="py-2.5 text-gray-800 font-medium pr-2">{f.value} {f.unit}</td>
+                      <td className="py-2.5 text-gray-500 pr-2 text-xs">{f.reference || '—'}</td>
+                      <td className="py-2.5">
+                        <span className={SEVERITY_COLOR[f.status] || SEVERITY_COLOR['NORMAL']}>
+                          {f.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
 
           {/* Disease routing */}
-          <div className="card p-5">
-            <p className="text-xs font-semibold tracking-widest text-[#1a5e52] uppercase mb-4">Disease Routing</p>
-            <div className="flex items-center gap-2 flex-wrap mb-4">
-              <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">Blood test report</span>
-              <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
-              <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">Endocrine &amp; Metabolic</span>
-              <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
-              <button className="btn-primary text-sm py-1.5">Diabetes model (tabular)</button>
+          {topCondition && (
+            <div className="card p-5">
+              <p className="text-xs font-semibold tracking-widest text-[#1a5e52] uppercase mb-4">Disease Routing</p>
+              <div className="flex items-center gap-2 flex-wrap mb-4">
+                <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">
+                  {uploadedFile?.name?.endsWith('.pdf') ? 'PDF report' : 'Medical report'}
+                </span>
+                <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
+                <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">
+                  {conditions.length} condition{conditions.length !== 1 ? 's' : ''} evaluated
+                </span>
+                <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
+                <span className="btn-primary text-sm py-1.5 cursor-default">
+                  {topCondition.condition}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                {analysis.recommended_action || 'Review the findings above with your healthcare provider.'}
+              </p>
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              The report contains glucose and HbA1c values, so it was routed to the diabetes screening
-              model. Cholesterol, hemoglobin and creatinine are kept for context.
-            </p>
-          </div>
+          )}
         </div>
       </div>
 
       {/* Actions */}
       <div className="flex items-center gap-3 mt-8">
         <button onClick={() => navigate('/results')} className="btn-primary">
-          Run screening
+          View screening result
         </button>
         <button onClick={() => navigate('/upload')} className="btn-outline">
           Upload a different report
