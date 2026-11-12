@@ -1,16 +1,11 @@
 # Root requirements.txt — Railway reads this automatically
-# Flask API
 flask>=3.0.0
-flask-cors>=4.0.0
 gunicorn>=21.0.0
 
-# SehatSetu ML (tabular models only — no tensorflow to save memory)
+# SehatSetu ML (tabular models — no tensorflow to save memory)
 numpy>=1.22.0
 pandas>=1.5.0
 scikit-learn>=1.2.0
 joblib>=1.2.0
 pillow>=9.0.0
 pypdf>=4.0.0
-
-# Note: tensorflow (~500MB) excluded — image models disabled on free tier
-# Note: pytesseract excluded — requires Tesseract binary; OCR disabled

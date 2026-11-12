@@ -8,8 +8,7 @@ import sys
 import json
 import tempfile
 import traceback
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, make_response
 
 # ── path setup ────────────────────────────────────────────────────────────────
 CURRENT_DIR   = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +24,7 @@ for p in (REPORT_DIR, RECOM_DIR):
 try:
     from analyze_report import analyze_report_file, analyze_report_text
     ML_AVAILABLE = True
+    ML_IMPORT_ERROR = None
 except Exception as e:
     ML_AVAILABLE = False
     ML_IMPORT_ERROR = str(e)
@@ -32,25 +32,50 @@ except Exception as e:
 
 # ── app ───────────────────────────────────────────────────────────────────────
 app = Flask(__name__)
-
-# Broad CORS — allow all origins, methods, and headers
-CORS(app,
-     origins="*",
-     allow_headers=["Content-Type", "Authorization"],
-     methods=["GET", "POST", "OPTIONS"],
-     supports_credentials=False)
-
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".txt"}
 
 
+def cors_response(data, status=200):
+    """Create a JSON response with CORS headers on every response."""
+    if isinstance(data, dict):
+        resp = make_response(json.dumps(data), status)
+    else:
+        resp = make_response(data, status)
+    resp.headers["Content-Type"] = "application/json"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Requested-With"
+    resp.headers["Access-Control-Max-Age"] = "86400"
+    return resp
+
+
+@app.after_request
+def add_cors(response):
+    """Add CORS headers to every response."""
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Requested-With"
+    response.headers["Access-Control-Max-Age"] = "86400"
+    return response
+
+
+@app.before_request
+def handle_preflight():
+    """Handle OPTIONS preflight immediately — before any route logic."""
+    if request.method == "OPTIONS":
+        return cors_response({}, 200)
+
+
+# ── routes ────────────────────────────────────────────────────────────────────
 @app.route("/")
 def index():
-    return jsonify({
+    return cors_response({
         "name": "SehatSetu API",
         "version": "1.0",
         "status": "running",
+        "ml_available": ML_AVAILABLE,
         "endpoints": {
-            "health": "/api/health",
+            "health": "GET /api/health",
             "analyze": "POST /api/analyze"
         }
     })
@@ -58,46 +83,37 @@ def index():
 
 @app.route("/api/health")
 def health():
-    return jsonify({
+    return cors_response({
         "status": "ok",
         "ml_available": ML_AVAILABLE,
-        "ml_error": ML_IMPORT_ERROR if not ML_AVAILABLE else None,
+        "ml_error": ML_IMPORT_ERROR,
     })
 
 
-@app.route("/api/analyze", methods=["POST", "OPTIONS"])
+@app.route("/api/analyze", methods=["GET", "POST", "OPTIONS"])
 def analyze():
-    # Handle CORS preflight
-    if request.method == "OPTIONS":
-        return jsonify({}), 200
-    """
-    Accepts:
-      • multipart/form-data  with field 'file'  (PDF / image / TXT)
-      • application/json     with field 'text'  (raw report text)
-    """
+    if request.method in ("GET", "OPTIONS"):
+        return cors_response({"message": "Send a POST request with a 'file' field."})
+
     # ── ML not loaded ─────────────────────────────────────────────────────────
     if not ML_AVAILABLE:
-        return jsonify({
+        return cors_response({
             "error": f"ML pipeline failed to load: {ML_IMPORT_ERROR}",
             "decision": "SERVICE UNAVAILABLE",
-            "conditions": [],
-            "findings": [],
-            "guidance": [],
-            "extracted_values": {},
-            "model_results": [],
-            "notes": [],
-        }), 503
+            "conditions": [], "findings": [], "guidance": [],
+            "extracted_values": {}, "model_results": [], "notes": [],
+        }, 503)
 
     try:
         # ── file upload ───────────────────────────────────────────────────────
         if "file" in request.files:
             uploaded = request.files["file"]
             if not uploaded.filename:
-                return jsonify({"error": "No file selected"}), 400
+                return cors_response({"error": "No file selected"}, 400)
 
             suffix = os.path.splitext(uploaded.filename)[1].lower()
             if suffix not in ALLOWED_EXTENSIONS:
-                return jsonify({"error": f"Unsupported file type '{suffix}'. Use PDF, PNG, JPG, or TXT."}), 400
+                return cors_response({"error": f"Unsupported file type '{suffix}'. Use PDF, PNG, JPG, or TXT."}, 400)
 
             with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
                 uploaded.save(tmp.name)
@@ -116,24 +132,20 @@ def analyze():
             result = analyze_report_text(request.json["text"], use_ml=True)
 
         else:
-            return jsonify({"error": "Send a 'file' field (multipart) or JSON {'text': '...'}"}), 400
+            return cors_response({"error": "Send a 'file' field (multipart) or JSON {'text': '...'}"}, 400)
 
-        return jsonify(_make_serialisable(result))
+        return cors_response(_make_serialisable(result))
 
     except Exception:
         err = traceback.format_exc()
         print(f"[ERROR] /api/analyze failed:\n{err}")
-        return jsonify({
-            "error": "Analysis failed on the server. Check Railway logs for details.",
-            "detail": err.splitlines()[-1],   # last line of traceback
+        return cors_response({
+            "error": "Analysis failed on the server. Check Railway logs.",
+            "detail": err.splitlines()[-1],
             "decision": "ERROR",
-            "conditions": [],
-            "findings": [],
-            "guidance": [],
-            "extracted_values": {},
-            "model_results": [],
-            "notes": [],
-        }), 500
+            "conditions": [], "findings": [], "guidance": [],
+            "extracted_values": {}, "model_results": [], "notes": [],
+        }, 500)
 
 
 def _make_serialisable(obj):
