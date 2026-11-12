@@ -23,9 +23,31 @@ export function AppProvider({ children }) {
     try {
       const form = new FormData()
       form.append('file', file)
-      const res = await fetch(`${API_BASE}/api/analyze`, { method: 'POST', body: form })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Server error')
+
+      let res
+      try {
+        res = await fetch(`${API_BASE}/api/analyze`, { method: 'POST', body: form })
+      } catch (networkErr) {
+        throw new Error(
+          `Cannot reach the API at ${API_BASE}. ` +
+          `Check that VITE_API_URL is set correctly on Vercel and the Railway service is online.`
+        )
+      }
+
+      // Safe JSON parse — handle empty or non-JSON responses
+      const text = await res.text()
+      if (!text || text.trim() === '') {
+        throw new Error(`Server returned an empty response (HTTP ${res.status}). Check Railway logs.`)
+      }
+
+      let data
+      try {
+        data = JSON.parse(text)
+      } catch {
+        throw new Error(`Server returned non-JSON response (HTTP ${res.status}): ${text.slice(0, 200)}`)
+      }
+
+      if (!res.ok) throw new Error(data.error || `Server error ${res.status}`)
       setAnalysis(data)
       return data
     } catch (err) {
