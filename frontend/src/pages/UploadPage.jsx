@@ -46,7 +46,7 @@ export default function UploadPage() {
       <p className="step-label">Step 1 of 4</p>
       <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">Upload your medical report</h1>
       <p className="text-gray-500 mb-10 max-w-xl">
-        Add the report you already have. SehatSetu reads the values and decides which disease-screening model fits.
+        Add the report you already have. ArogyaDrishti reads the values and decides which disease-screening model fits.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">

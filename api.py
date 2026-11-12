@@ -70,7 +70,7 @@ def handle_preflight():
 @app.route("/")
 def index():
     return cors_response({
-        "name": "SehatSetu API",
+        "name": "ArogyaDrishti API",
         "version": "1.0",
         "status": "running",
         "ml_available": ML_AVAILABLE,
@@ -163,5 +163,5 @@ def _make_serialisable(obj):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    print(f"[SehatSetu API] Starting on port {port} | ML available: {ML_AVAILABLE}")
+    print(f"[ArogyaDrishti API] Starting on port {port} | ML available: {ML_AVAILABLE}")
     app.run(host="0.0.0.0", port=port, debug=False)

@@ -18,7 +18,7 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-md bg-[#1a5e52] flex items-center justify-center">
             <Activity size={16} className="text-white" />
           </div>
-          SehatSetu
+          ArogyaDrishti
         </NavLink>
 
         {/* Links */}

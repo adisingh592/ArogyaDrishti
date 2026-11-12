@@ -49,7 +49,7 @@ export default function HomePage() {
             Bring your medical report. Get a clearer picture.
           </h1>
           <p className="text-gray-500 text-base mb-8 leading-relaxed">
-            Upload a lab report and SehatSetu reads the values, runs the matching disease-screening model,
+            Upload a lab report and ArogyaDrishti reads the values, runs the matching disease-screening model,
             and explains what to eat, how to move and when to see a doctor.
           </p>
           <div className="flex items-center gap-3 flex-wrap">
@@ -143,7 +143,7 @@ export default function HomePage() {
         <div className="border border-amber-300 bg-amber-50 rounded-lg p-5 flex gap-3">
           <AlertTriangle size={18} className="text-amber-500 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-gray-700">
-            <strong>Important.</strong> SehatSetu is an academic AI screening and educational project.
+            <strong>Important.</strong> ArogyaDrishti is an academic AI screening and educational project.
             Its predictions are not confirmed diagnoses. Consult a qualified healthcare professional
             for diagnosis and treatment.
           </p>
