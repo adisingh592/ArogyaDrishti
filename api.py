@@ -43,6 +43,19 @@ CORS(app,
 ALLOWED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".txt"}
 
 
+@app.route("/")
+def index():
+    return jsonify({
+        "name": "SehatSetu API",
+        "version": "1.0",
+        "status": "running",
+        "endpoints": {
+            "health": "/api/health",
+            "analyze": "POST /api/analyze"
+        }
+    })
+
+
 @app.route("/api/health")
 def health():
     return jsonify({
