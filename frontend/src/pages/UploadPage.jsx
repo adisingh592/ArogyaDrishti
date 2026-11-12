@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { FileText, Upload, X, CheckCircle } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { FileText, X, CheckCircle } from 'lucide-react'
 
 const reportTypes = ['Auto-detect', 'Blood test', 'Urine / kidney', 'Medical image', 'EEG / signal']
 

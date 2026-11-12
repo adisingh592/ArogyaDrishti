@@ -1,9 +1,14 @@
-# Byte-compiled / optimized / DLL files
+# ============================================================
+# Python — Byte-compiled / optimized / DLL files
+# ============================================================
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
-# Large Datasets and Archives (Do NOT upload to GitHub)
+# ============================================================
+# Large Datasets & Archives (Do NOT upload to GitHub)
+# ============================================================
 organized_datasets/
 raw_datasets/
 *.zip
@@ -12,12 +17,16 @@ raw_datasets/
 *.rar
 *.7z
 
+# ============================================================
 # Dataset Reports & Logs
+# ============================================================
 dataset_report.csv
 dataset_report.txt
 *.log
 
-# Generated documents (repo holds only source code + README files)
+# ============================================================
+# Generated Documents (repo holds only source code + READMEs)
+# ============================================================
 *.pdf
 *.docx
 *.pptx
@@ -25,22 +34,46 @@ pdf_preview/
 DATASETS.md
 generate_project_pdf.py
 
-# Trained models (SehatSetu/models/) and training results (SehatSetu/results/) ARE uploaded
-
-# Medical report analysis outputs (may contain patient data)
+# ============================================================
+# Trained Models & Report Outputs (may contain patient data)
+# ============================================================
 SehatSetu/report_analysis/outputs/
 patient_reports/
 
-# Environments and OS files
+# ============================================================
+# Frontend — Node / Vite build artifacts
+# ============================================================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.local
+frontend/*.local
+
+# Frontend logs
+frontend/logs/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# ============================================================
+# Python Virtual Environments
+# ============================================================
 .env
 .venv
 env/
 venv/
 ENV/
+
+# ============================================================
+# OS & Editor Files
+# ============================================================
 .DS_Store
 Thumbs.db
-
-# IDE & Editor files
 .vscode/
 .idea/
 *.swp
+*.sln
+*.suo
+*.ntvs*
+*.njsproj
