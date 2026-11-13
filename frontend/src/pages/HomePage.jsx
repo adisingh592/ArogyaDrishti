@@ -61,6 +61,232 @@ const CYCLING_MODELS = [
   },
 ]
 
+const HERO_REPORT_EXAMPLES = [
+  {
+    fileName: 'sample-report.pdf',
+    title: 'arogyadrishti / sample-report.pdf',
+    tests: [
+      { name: 'Fasting glucose', value: '142 mg/dL', status: 'HIGH', isAlert: true },
+      { name: 'HbA1c', value: '6.9 %', status: 'HIGH', isAlert: true },
+      { name: 'Hemoglobin', value: '13.1 g/dL', status: 'NORMAL', isAlert: false },
+    ],
+    model: 'Diabetes model',
+    flagTitle: 'Above range',
+    flagHex: '#FFE17C',
+    category: 'Metabolic',
+  },
+  {
+    fileName: 'renal-kft-panel.pdf',
+    title: 'arogyadrishti / renal-kft-panel.pdf',
+    tests: [
+      { name: 'Serum Creatinine', value: '2.4 mg/dL', status: 'HIGH', isAlert: true },
+      { name: 'Blood Urea', value: '58 mg/dL', status: 'HIGH', isAlert: true },
+      { name: 'eGFR', value: '34 mL/min', status: 'LOW', isAlert: true },
+    ],
+    model: 'CKD Kidney model',
+    flagTitle: 'Critical cutoff',
+    flagHex: '#FFE17C',
+    category: 'Renal',
+  },
+  {
+    fileName: 'liver-lft-panel.pdf',
+    title: 'arogyadrishti / liver-lft-panel.pdf',
+    tests: [
+      { name: 'ALT (SGPT)', value: '88 U/L', status: 'HIGH', isAlert: true },
+      { name: 'AST (SGOT)', value: '74 U/L', status: 'HIGH', isAlert: true },
+      { name: 'Total Bilirubin', value: '1.1 mg/dL', status: 'NORMAL', isAlert: false },
+    ],
+    model: 'Liver ILPD model',
+    flagTitle: 'Elevated transaminases',
+    flagHex: '#FFE17C',
+    category: 'Hepatic',
+  },
+  {
+    fileName: 'thyroid-tft-panel.pdf',
+    title: 'arogyadrishti / thyroid-tft-panel.pdf',
+    tests: [
+      { name: 'TSH (Ultrasensitive)', value: '8.45 mIU/L', status: 'HIGH', isAlert: true },
+      { name: 'Free T4 (FT4)', value: '0.72 ng/dL', status: 'LOW', isAlert: true },
+      { name: 'Total T3', value: '1.25 nmol/L', status: 'NORMAL', isAlert: false },
+    ],
+    model: 'Hypothyroidism model',
+    flagTitle: 'TSH elevation',
+    flagHex: '#FFE17C',
+    category: 'Thyroid',
+  },
+  {
+    fileName: 'lipid-cardiac-risk.pdf',
+    title: 'arogyadrishti / lipid-cardiac-risk.pdf',
+    tests: [
+      { name: 'Total Cholesterol', value: '248 mg/dL', status: 'HIGH', isAlert: true },
+      { name: 'Triglycerides', value: '215 mg/dL', status: 'HIGH', isAlert: true },
+      { name: 'HDL Cholesterol', value: '38 mg/dL', status: 'LOW', isAlert: true },
+    ],
+    model: 'Cardiac risk model',
+    flagTitle: 'Dyslipidemia pattern',
+    flagHex: '#FFE17C',
+    category: 'Cardiovascular',
+  },
+  {
+    fileName: 'cbc-anemia-scan.pdf',
+    title: 'arogyadrishti / cbc-anemia-scan.pdf',
+    tests: [
+      { name: 'Hemoglobin (Hb)', value: '9.2 g/dL', status: 'LOW', isAlert: true },
+      { name: 'Hematocrit (PCV)', value: '28.4 %', status: 'LOW', isAlert: true },
+      { name: 'Total RBC Count', value: '3.4 mil/mcL', status: 'LOW', isAlert: true },
+    ],
+    model: 'CBC Anemia model',
+    flagTitle: 'Below reference',
+    flagHex: '#FFE17C',
+    category: 'Hematology',
+  },
+]
+
+function HeroInteractiveReportMockup() {
+  const [index, setIndex] = useState(0)
+  const [fade, setFade] = useState(true)
+  const [isPaused, setIsPaused] = useState(false)
+
+  useEffect(() => {
+    if (isPaused) return
+
+    const timer = setInterval(() => {
+      setFade(false)
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % HERO_REPORT_EXAMPLES.length)
+        setFade(true)
+      }, 250)
+    }, 3200)
+
+    return () => clearInterval(timer)
+  }, [isPaused])
+
+  const current = HERO_REPORT_EXAMPLES[index]
+
+  return (
+    <div
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className="max-w-[1000px] mx-auto mt-16 border border-[rgba(23,30,25,0.1)] bg-white shadow-2xl rounded-xl overflow-hidden text-left transition-all"
+    >
+      {/* Top Window Bar */}
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-[rgba(23,30,25,0.1)] bg-[#f8f9fa]">
+        <div className="flex items-center gap-1.5">
+          <i className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+          <i className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+          <i className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+        </div>
+        <b className="mx-auto text-xs font-mono font-medium opacity-70 pr-10 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ffe17c] animate-ping" />
+          {current.title}
+        </b>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-[180px_1fr_220px] min-h-[300px]">
+        {/* Left pane */}
+        <div className="border-r border-[rgba(23,30,25,0.1)] p-5 text-xs space-y-1 hidden md:block bg-[#fafbfc]">
+          <p className="bg-[#ffe17c] font-bold p-2 rounded text-[#171e19] truncate shadow-sm transition-all duration-300">
+            {current.fileName}
+          </p>
+          <p className="p-2 opacity-70 hover:opacity-100 transition-opacity">Values read</p>
+          <p className="p-2 opacity-70 hover:opacity-100 transition-opacity">Model chosen</p>
+          <p className="p-2 opacity-70 hover:opacity-100 transition-opacity">Guidance</p>
+
+          <div className="pt-6 mt-4 border-t border-gray-200/60">
+            <span className="text-[10px] text-gray-400 font-mono block mb-2 uppercase tracking-wider">
+              Cycles through 6 models
+            </span>
+            <div className="flex gap-1">
+              {HERO_REPORT_EXAMPLES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    index === i ? 'w-5 bg-[#171e19]' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Show example ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Middle preview card */}
+        <div className="bg-[#f8f9fa] p-6 relative flex items-center justify-center min-h-[260px]">
+          <div
+            className={`bg-white text-[#171e19] w-full max-w-[360px] p-5 rounded-lg shadow-md border border-gray-100 transition-all duration-300 ease-out ${
+              fade ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.98] translate-y-1'
+            }`}
+          >
+            {current.tests.map((test, i) => (
+              <div
+                key={i}
+                className={`flex justify-between items-center py-2.5 ${
+                  i < current.tests.length - 1 ? 'border-b border-gray-100' : ''
+                } text-sm`}
+              >
+                <span className="font-medium text-[#171e19]">{test.name}</span>
+                <span className="font-mono text-xs flex items-center gap-1.5">
+                  <span className="font-bold">{test.value}</span>
+                  <span className={test.isAlert ? 'chip-hi' : 'chip-ok'}>{test.status}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Floating animated cursor & tooltip badge */}
+          <div
+            className={`absolute right-[6%] bottom-[12%] flex gap-1 items-start transition-all duration-300 ease-out ${
+              fade ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="#171e19"
+              stroke="#fff"
+              strokeWidth="1.5"
+              className="drop-shadow-md"
+            >
+              <path d="M4 3l16 7-7 2-2 7z" />
+            </svg>
+            <span className="bg-[#171e19] text-[#ffe17c] text-[11px] font-bold font-mono px-2.5 py-1 rounded-md shadow-lg mt-2.5 border border-white/10 flex items-center gap-1.5 whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ffe17c] animate-pulse" />
+              {current.model}
+            </span>
+          </div>
+        </div>
+
+        {/* Right pane */}
+        <div className="border-l border-[rgba(23,30,25,0.1)] p-5 text-xs hidden md:block bg-[#fafbfc]">
+          <h4 className="disp text-lg mb-1">Flag</h4>
+          <p
+            className={`opacity-80 font-medium text-xs transition-opacity duration-300 ${
+              fade ? 'opacity-80' : 'opacity-20'
+            }`}
+          >
+            {current.flagTitle}
+          </p>
+          <div className="flex items-center gap-2 mt-3 font-mono text-xs">
+            <i className="w-5 h-5 rounded bg-[#ffe17c] border border-[rgba(23,30,25,0.1)] shadow-sm" />
+            {current.flagHex}
+          </div>
+          <div className="flex gap-1.5 mt-3">
+            <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded bg-[#171e19]" />
+            <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded bg-gray-200" />
+            <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded bg-gray-100" />
+          </div>
+          <div className="mt-6 pt-3 border-t border-gray-200/60 text-[10px] text-gray-500 font-mono">
+            Sample {index + 1} of {HERO_REPORT_EXAMPLES.length} · Auto-rotating
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ModelPickerLiveCard() {
   const [index, setIndex] = useState(0)
   const [fade, setFade] = useState(true)
@@ -225,73 +451,8 @@ export default function HomePage() {
             No manual entry needed. Real-time OCR &amp; Multi-model classification.
           </p>
 
-          {/* Mock Interactive Report Window */}
-          <div className="max-w-[1000px] mx-auto mt-16 border border-[rgba(23,30,25,0.1)] bg-white shadow-2xl rounded-xl overflow-hidden text-left">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[rgba(23,30,25,0.1)] bg-[#f8f9fa]">
-              <i className="w-2.5 h-2.5 rounded-full bg-[#b7c6c2]" />
-              <i className="w-2.5 h-2.5 rounded-full bg-[#b7c6c2]" />
-              <i className="w-2.5 h-2.5 rounded-full bg-[#b7c6c2]" />
-              <b className="mx-auto text-xs font-medium opacity-60 pr-10">arogyadrishti / sample-report.pdf</b>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-[180px_1fr_220px] min-h-[300px]">
-              {/* Left pane */}
-              <div className="border-r border-[rgba(23,30,25,0.1)] p-5 text-xs space-y-1 hidden md:block">
-                <p className="bg-[#ffe17c] font-bold p-2 rounded">sample-report.pdf</p>
-                <p className="p-2 opacity-70">Values read</p>
-                <p className="p-2 opacity-70">Model chosen</p>
-                <p className="p-2 opacity-70">Guidance</p>
-              </div>
-
-              {/* Middle preview card */}
-              <div className="bg-[#f8f9fa] p-6 relative flex items-center justify-center">
-                <div className="bg-white text-[#171e19] w-full max-w-[340px] p-5 rounded-lg shadow-md border border-gray-100">
-                  <div className="flex justify-between items-center pb-2 border-b border-gray-100 text-sm">
-                    <span>Fasting glucose</span>
-                    <span className="font-mono text-xs flex items-center gap-1.5">
-                      142 mg/dL <span className="chip-hi">HIGH</span>
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100 text-sm">
-                    <span>HbA1c</span>
-                    <span className="font-mono text-xs flex items-center gap-1.5">
-                      6.9 % <span className="chip-hi">HIGH</span>
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center pt-2 text-sm">
-                    <span>Hemoglobin</span>
-                    <span className="font-mono text-xs flex items-center gap-1.5">
-                      13.1 g/dL <span className="chip-ok">NORMAL</span>
-                    </span>
-                  </div>
-                </div>
-
-                <div className="absolute right-[8%] bottom-[12%] flex gap-1 items-start">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#171e19" stroke="#fff" strokeWidth="1.5">
-                    <path d="M4 3l16 7-7 2-2 7z" />
-                  </svg>
-                  <span className="bg-[#171e19] text-white text-[11px] font-bold px-2 py-0.5 rounded mt-3">
-                    Diabetes model
-                  </span>
-                </div>
-              </div>
-
-              {/* Right pane */}
-              <div className="border-l border-[rgba(23,30,25,0.1)] p-5 text-xs hidden md:block">
-                <h4 className="disp text-lg mb-3">Flag</h4>
-                <p className="opacity-75">Above range</p>
-                <div className="flex items-center gap-2 mt-3 font-mono text-xs">
-                  <i className="w-5 h-5 rounded bg-[#ffe17c] border border-[rgba(23,30,25,0.1)]" />
-                  #FFE17C
-                </div>
-                <div className="flex gap-1 mt-3">
-                  <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded bg-gradient-to-r from-[#171e19] to-[#171e19] bg-no-repeat bg-center" />
-                  <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded" />
-                  <i className="w-5 h-4 border border-[rgba(23,30,25,0.1)] rounded" />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Mock Interactive Report Window (Continuously cycling multi-disease examples) */}
+          <HeroInteractiveReportMockup />
         </div>
       </section>
 
