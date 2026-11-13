@@ -17,6 +17,10 @@ export default {
         ring: "hsl(var(--ring, 168 57% 24%))",
         background: "hsl(var(--background, 0 0% 100%))",
         foreground: "hsl(var(--foreground, 222.2 84% 4.9%))",
+        card: {
+          DEFAULT: "hsl(var(--card, 0 0% 100%))",
+          foreground: "hsl(var(--card-foreground, 222.2 84% 4.9%))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary, 168 57% 24%))",
           foreground: "hsl(var(--primary-foreground, 210 40% 98%))",
