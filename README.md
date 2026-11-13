@@ -1,20 +1,48 @@
 # ArogyaDrishti (आरोग्यदृष्टि)
-### Multi-Disease Detection, Classification & Health Recommendation System
+### Multi-Disease AI Screening, Clinical Classification & Health Recommendation Platform
 
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![React Version](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.3-646cff.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-Recommendation%20Phase-brightgreen.svg)]()
+[![Deployment](https://img.shields.io/badge/Deploy-Vercel%20%2B%20Railway-000000.svg)]()
 
 ---
 
-## 📌 Project Overview
+## 📌 Platform Overview
 
-**ArogyaDrishti** is an integrated AI-assisted healthcare platform designed for **Multi-Disease Detection, Classification, and Evidence-Based Health Guidance**. 
+**ArogyaDrishti** (formerly SehatSetu) is an integrated, end-to-end AI healthcare screening platform. It ingests standard medical reports (PDF, digital documents, scanned photos), extracts clinical laboratory biomarkers automatically via OCR and regex parsing, routes them through an **Intelligent Meta-Classifier** to evaluate matching disease prediction models, and surfaces deterministic, evidence-based health recommendations.
 
-The system operates across three distinct modular phases:
-1. **Dataset Ingestion & Organization Phase**: Scans, categorizes, and organizes diverse medical datasets (Tabular, Medical Imaging, Cell Scans) across major organ systems.
-2. **ML Classification Phase**: Detects and predicts disease classifications along with prediction confidence metrics.
-3. **Knowledge-Based Recommendation Phase**: A safe, deterministic, rule-based recommendation engine utilizing structured JSON knowledge bases to provide comprehensive, evidence-based lifestyle, dietary, exercise, and medical consultation guidance.
+```
+       Medical Report (PDF / Image / TXT)
+                       │
+                       ▼
+    [React 19 Frontend (Vercel) / DM Sans + Anton UI]
+                       │  HTTP POST /api/analyze
+                       ▼
+    [Python Flask + Gunicorn Microservice (Railway)]
+                       │
+        ┌──────────────┴──────────────┐
+        ▼                             ▼
+ [Rule-Based Clinical Triage]    [Meta-Classifier Router]
+ (Deterministic Reference Cuts)  (Affinity & Overlap Scoring)
+        │                             │
+        │                             ▼
+        │                [Adaptive Population Imputation]
+        │                (Age=45, BMI=24.2 default baselines)
+        │                             │
+        │                             ▼
+        │                [Trained ML Model Ensembles]
+        │                (Random Forest, Decision Tree, Logistic)
+        │                             │
+        └──────────────┬──────────────┘
+                       ▼
+          [Unified JSON Diagnostic Output]
+          • Model Confidence & Influence Metrics
+          • Clinical Flagging (Normal / Borderline / High)
+          • Evidence-Based Guidance (WHO / ADA / AHA JSON KB)
+```
 
 ---
 
@@ -22,192 +50,217 @@ The system operates across three distinct modular phases:
 
 ```text
 ArogyaDrishti/
+├── api.py                             # Production Flask REST API with Gunicorn & CORS
+├── Procfile                           # Railway web dyno start command
+├── railway.toml                       # Railway deployment & health check configuration
+├── requirements.txt                   # Production backend Python dependencies
+├── start_dev.bat                      # One-click Windows local development startup
+├── .gitignore                         # Comprehensive ignore rules (Node, ML artifacts, logs)
 │
-├── .gitignore                                 # Excludes heavy datasets and temporary files
-├── README.md                                  # Main project documentation (Single Source of Truth)
+├── frontend/                          # Modern React 19 + Vite + TailwindCSS Web Application
+│   ├── index.html                     # Web entry point with Anton & DM Sans typography
+│   ├── package.json                   # React, Vite, Tailwind, Radix UI dependencies
+│   ├── tailwind.config.js             # Editorial color tokens & brutalist typography
+│   ├── vite.config.js                 # Path aliases (@/*) and production build config
+│   ├── vercel.json                    # SPA routing rewrite rules for clean URLs
+│   └── src/
+│       ├── App.jsx                    # Client-side router & AppContext wrapper
+│       ├── context/
+│       │   └── AppContext.jsx         # Global state & API transport layer
+│       ├── components/
+│       │   ├── Navbar.jsx             # Sticky glassmorphic navbar with active indicators
+│       │   ├── Footer.jsx             # Institutional disclaimer & footer
+│       │   ├── DisclaimerBar.jsx      # Top warning banner
+│       │   └── ui/                    # Reusable shadcn/ui components (Button, Header-2)
+│       └── pages/
+│           ├── HomePage.jsx           # Bento showcase, comparison, & live model ticker
+│           ├── UploadPage.jsx         # Step 1: Drag-and-drop report ingestion & sample loader
+│           ├── AnalysisPage.jsx       # Step 2: Extracted parameter table & disease router
+│           ├── ResultsPage.jsx        # Step 3: Screening metrics, model confidence, influence
+│           └── GuidancePage.jsx       # Step 4: 3-tier actionable nutrition & clinical guidance
 │
-├── dataset organizer/
-│   └── dataset_organizer.py                   # Automated script to categorize raw medical datasets
+├── SehatSetu/
+│   ├── models/                        # Pretrained models (.pkl) & preprocessors
+│   │   ├── tabular/                   # Diabetes, Kidney, Liver, Thyroid, Heart, Stroke
+│   │   ├── image/                     # Tuberculosis, Brain Tumor, Malaria, Leukemia
+│   │   └── eeg/                       # Neurological signal model artifacts
+│   ├── report_analysis/               # Inference & diagnostic evaluation engine
+│   │   ├── analyze_report.py          # Unified triage decision & report examination engine
+│   │   ├── model_bridge.py            # Meta-Classifier Router & Adaptive Population Imputation
+│   │   ├── clinical_rules.py          # Deterministic clinical reference cutoffs
+│   │   ├── report_reader.py           # Multi-format document reader (PDF, TXT, OCR)
+│   │   └── report_parser.py           # Biomarker regex & unit normalization
+│   └── recommendation/
+│       ├── disease_information.json   # 34-disease clinical knowledge base (WHO, ADA, AHA)
+│       └── recommendation_system.py   # Deterministic recommendation engine
 │
-└── ML_Project/
-    │
-    ├── Models/                                # Directory reserved for trained ML model artifacts (.pkl, .h5)
-    │   └── .gitkeep
-    │
-    └── Recommendation_System/                 # Knowledge-based recommendation subsystem
-        ├── recommendation_system.py           # Core recommendation program with CLI & API interface
-        ├── disease_information.json           # Comprehensive JSON knowledge base (34 conditions)
-        └── test_recommendation_system.py      # Automated test suite covering 10 test scenarios
+└── ML_Project/                        # Supplementary experimentation & test suites
 ```
 
-> 
+---
+
+## 🧠 Core Engineering Features
+
+### 1. Intelligent Meta-Classifier Router
+Standard clinical lab documents often focus on specific panels (e.g., Lipid profile or Renal panel) without patient demographics. Instead of hard-failing or skipping models, ArogyaDrishti uses an **Affinity Scoring Engine**:
+* Evaluates incoming biomarkers against each model's primary and secondary clinical signatures.
+* Activates all matching organ-system models whose primary markers are detected.
+* **Fallback Guarantee**: If no primary biomarker matches directly, the engine ranks models by feature overlap and triggers the closest matching models. **Models evaluated is never 0**.
+
+### 2. Adaptive Population Imputation
+To prevent inference crashes when reports lack non-laboratory context:
+* **Missing Demographics**: Applies standard healthy population baselines (`Age: 45.0`, `BMI: 24.2`, `Sex: neutral/mode`).
+* **Unmeasured Tests**: Filled via the model's trained median imputer.
+* **Transparent Logging**: Assumed values are reported directly on the UI (e.g. `Defaults: Age (default 45), BMI (default 24.2)`).
+
+### 3. Dual-Layer Safety Triage
+* **Layer 1 (Deterministic Clinical Rules)**: Evaluates lab values strictly against standard diagnostic ranges (Normal, Borderline, Abnormal, Urgent).
+* **Layer 2 (Machine Learning Ensembles)**: Computes multivariate probabilities across 10+ clinical indicators.
+* If a machine learning model estimates low probability but a biomarker exceeds an urgent clinical cutoff, the clinical rule takes precedence for patient safety.
+
+### 4. Deterministic Clinical Guidance
+Dietary guidelines, activity contraindications, and emergency red-flags are rendered strictly from a curated clinical database (`disease_information.json`) sourced from recognized health authorities (WHO, CDC, ADA, NHS, AHA), eliminating generative hallucination risk.
 
 ---
 
-## 📊 Dataset Ingestion & Coverage Summary
+## 📊 Model Coverage & Validation
 
-The system is configured to ingest and structure datasets across 10 medical categories covering 18 primary conditions:
+Scores measured on a held-out 20% test split:
 
-| # | Disease / Condition | Local Dataset | Data Format | Medical Category |
-| :- | :--- | :--- | :--- | :--- |
-| 1 | **Diabetes** | Diabetes Health Indicators (BRFSS2015) & Hospital 130-US | Tabular (`.csv`) | `Endocrine_Metabolic` |
-| 2 | **Heart Disease** | Heart Disease (Cleveland, Hungarian) & Statlog | Tabular (`.data`, `.dat`) | `Cardiovascular` |
-| 3 | **Heart Failure** | Heart Failure Clinical Records | Tabular (`.csv`) | `Cardiovascular` |
-| 4 | **Stroke** | Healthcare Dataset Stroke Data | Tabular (`.csv`) | `Cardiovascular` |
-| 5 | **Alzheimer's Disease** | Alzheimer Features & MRI Archive | Tabular (`.csv`) & Archive | `Neurological` |
-| 6 | **Brain Tumor** | Brain Tumour MRI Scans (3,264 images) | Image (`.jpg`) | `Neurological` |
-| 7 | **Anemia** | Anemia Clinical Dataset | Tabular (`.csv`) | `Hematology` |
-| 8 | **Leukemia** | Leukemia Cell Images (6,512 microscopic images) | Image (`.bmp`, `.jpg`) | `Hematology` |
-| 9 | **Breast Cancer** | Breast Cancer Wisconsin Diagnostic (WDBC) | Tabular (`.data`) | `Oncology_Dermatology` |
-| 10 | **Cervical Cancer** | Risk Factors Cervical Cancer Dataset | Tabular (`.csv`) | `Oncology_Dermatology` |
-| 11 | **Skin Cancer** | HAM10000 Dermoscopy (10,020 images & metadata) | Image & Tabular (`.csv`) | `Oncology_Dermatology` |
-| 12 | **Chronic Kidney Disease** | Chronic Kidney Disease (CKD) ARFF | Tabular (`.arff`) | `Renal_System` |
-| 13 | **Obesity & Lifestyle** | Obesity Levels Based on Eating Habits | Tabular (`.csv`) | `Endocrine_Metabolic` |
-| 14 | **Thyroid Disease** | Thyroid Disease UCI Dataset (39 files, hypothyroid) | Tabular (`.data`, `.test`) | `Endocrine_Metabolic` |
-| 15 | **Tuberculosis** | TB Chest Radiography Database (4,203 X-rays) | Image (`.png`, `.xlsx`) | `Respiratory` |
-| 16 | **Malaria** | Malaria Cell Images (55,120 cell images) | Image (`.png`) | `Infectious_Diseases` |
-| 17 | **Liver Disease** | Indian Liver Patient Dataset (ILPD) | Tabular (`.csv`) | `Hepatic_System` |
-| 18 | **Maternal Health Risk** | Maternal Health Risk Data Set | Tabular (`.csv`) | `Obstetrics_Gynecology` |
-
-*Extended Reference Conditions in Knowledge Base:* Parkinson's Disease, Epilepsy, Multiple Sclerosis, HIV/AIDS, Lung Cancer, Colorectal Cancer, Gastric Cancer, PCOS, Osteoporosis, Pneumonia, Asthma, COPD, Hepatitis C, COVID-19, and Dermatological Diseases.
+| Organ System | Disease / Condition | Best Architecture | Test Samples | Accuracy | Primary Inputs |
+| :--- | :--- | :--- | --:| :---: | :--- |
+| **Endocrine** | Thyroid (Hypothyroid) | Decision Tree | 633 | **98.7%** | TSH, Free T4, T3, Age |
+| **Endocrine** | Diabetes Mellitus | Random Forest (BRFSS) | 14,139 | **75.0%** | Glucose, HbA1c, BMI, BP, Cholesterol |
+| **Renal** | Chronic Kidney Disease | Logistic Regression | 80 | **92.5%** | Serum Creatinine, Urea, Albumin, BP |
+| **Hepatic** | Liver Disease (ILPD) | Random Forest | 117 | **74.4%** | ALT, AST, Total Bilirubin, Albumin |
+| **Cardiovascular** | Heart Failure Risk | Random Forest | 60 | **85.0%** | Ejection Fraction, CPK, BP, Cholesterol |
+| **Neurological** | Cerebrovascular Stroke | Decision Tree | 1,022 | **82.8%** | Blood Glucose, Systolic BP, BMI, Age |
+| **Hematology** | Clinical Anemia | Logistic Regression | 21 | **96.0%** | Hemoglobin, Hematocrit (PCV), RBC |
+| **Respiratory** | Tuberculosis | MobileNetV2 (224×224) | 840 | **93.0%** | Chest Radiograph (X-Ray) |
+| **Neurological** | Brain Tumor | MobileNetV2 (224×224) | 574 | **74.0%** | Brain MRI Scans |
 
 ---
 
-## 🧠 Health Recommendation Subsystem
+## 🚀 Local Development Setup
 
-### Why Rule-Based Knowledge Architecture?
-Medical recommendations (dietary guidelines, exercise contraindications, and emergency symptoms) require **100% determinism and clinical accuracy**. Unlike generative models that may hallucinate medical facts, this recommendation system uses a structured knowledge base (`disease_information.json`) sourced directly from recognized clinical bodies:
-* **WHO** (World Health Organization)
-* **CDC** (Centers for Disease Control and Prevention)
-* **NHS** (National Health Service, UK)
-* **ADA** (American Diabetes Association)
-* **AHA** (American Heart Association)
-* **NCI** (National Cancer Institute)
+### Prerequisites
+* **Python 3.8+** (recommended Python 3.10 or 3.11)
+* **Node.js 18+** and **pnpm** (or npm)
 
-### 13 Information Dimensions Per Disease
-For each condition, the system outputs:
-1. **Clinical Description**
-2. **Recognized Subtypes**
-3. **Common Symptoms**
-4. **Known Risk Factors**
-5. **Food Recommendations** (*Foods to Prefer, Foods to Limit, General Healthy Eating Tips*)
-6. **Exercise Recommendations** (*Recommended Activities, Safety Precautions*)
-7. **Lifestyle Modifications** (*Sleep hygiene, stress reduction, habit control*)
-8. **Clinical & Home Monitoring** (*Diagnostic indicators, self-monitoring routines*)
-9. **General Medical Guidance**
-10. **Warning Signs & Red Flags**
-11. **When to Seek Professional Medical Help**
-12. **Reliable Information Sources**
-13. **Local Dataset Inventory Status**
+### Option A: One-Click Startup (Windows)
+Double-click `start_dev.bat` in the project root. This automatically:
+1. Launches the Flask backend on `http://localhost:8000`.
+2. Launches the React Vite frontend on `http://localhost:5173`.
 
----
+### Option B: Manual Startup
 
-## 🚀 Getting Started
-
-### 1. Run the Interactive Recommendation CLI
+#### 1. Start the Flask Backend API
 ```bash
-cd "ML_Project/Recommendation_System"
-python recommendation_system.py
+# In the project root:
+pip install -r requirements.txt
+python api.py
 ```
-**Example CLI Interaction:**
-```text
-Enter detected disease: Diabetes
-Enter prediction confidence (optional, e.g. 91%): 92%
-```
+*API will be listening at `http://localhost:8000` (Healthcheck: `http://localhost:8000/api/health`)*
 
-### 2. Run the Verification Test Suite
-Verify that all 10 standard test cases (including low-confidence warnings and unknown disease handling) execute properly:
+#### 2. Start the React Frontend
 ```bash
-python "ML_Project/Recommendation_System/test_recommendation_system.py"
+cd frontend
+pnpm install
+pnpm run dev
 ```
-
-### 3. Master ML Pipeline Integration
-Import the recommendation module directly into your training/inference pipeline:
-```python
-import sys
-sys.path.append("ML_Project/Recommendation_System")
-from recommendation_system import display_recommendation, get_recommendation
-
-# Predict from your ML model:
-predicted_disease = "Diabetes"
-confidence_score = 94.2
-
-# Option A: Display formatted console output
-display_recommendation(predicted_disease, confidence=confidence_score)
-
-# Option B: Retrieve structured dictionary for web/GUI rendering
-advice_data = get_recommendation(predicted_disease)
-print("Foods to prefer:", advice_data["food"]["prefer"])
-```
+*Web UI will be live at `http://localhost:5173`*
 
 ---
 
-## 📈 Model Results
+## 🌐 Production Deployment Guide
 
-Scores are measured on a held-out 20% test split. Full reports, confusion matrices, model comparisons and training curves are in [`SehatSetu/results/`](SehatSetu/results/). Trained models are in [`SehatSetu/models/`](SehatSetu/models/).
+### Backend: Railway Deployment
+1. Connect the repository (`adisingh592/ArogyaDrishti`) to **[Railway](https://railway.app)**.
+2. Railway detects `railway.toml`, `Procfile`, and `requirements.txt` automatically.
+3. In **Settings** $\rightarrow$ **Networking**, click **Generate Domain** to get your public backend URL:
+   ```text
+   https://arogyadrishti-production.up.railway.app
+   ```
+4. Verify by opening `/api/health` in your browser.
 
-**Status key:** ✅ usable · ⚠️ usable with caution · ❌ not meaningful yet (see the notes below)
+### Frontend: Vercel Deployment
+1. Import the repository on **[Vercel](https://vercel.com)**.
+2. Set **Root Directory** to `frontend`.
+3. Framework Preset: **Vite** (auto-detected).
+4. Add the Environment Variable in **Settings** $\rightarrow$ **Environment Variables**:
+   * **Key:** `VITE_API_URL`
+   * **Value:** `https://your-railway-url.up.railway.app` *(without trailing slash)*
+5. In **Settings** $\rightarrow$ **Deployment Protection**, disable Vercel Authentication for public access.
+6. Deploy!
 
-### Tabular models (best of Logistic Regression, Decision Tree, Random Forest, SVM)
+---
 
-| Disease | Best model | Test samples | Accuracy | Weighted F1 | Disease-class recall | Status |
-|:--|:--|--:|--:|--:|--:|:--:|
-| Thyroid (hypothyroid) | Decision Tree | 633 | 98.7% | 98.8% | 97% | ✅ |
-| Obesity level (7 classes) | Random Forest | 423 | 92.7% | 92.8% | — | ⚠️ ¹ |
-| Heart failure (mortality) | Random Forest | 60 | 85.0% | 84.3% | 63% | ⚠️ ² |
-| Stroke | Decision Tree | 1,022 | 82.8% | 87.2% | 70% (precision 18%) | ⚠️ ³ |
-| Diabetes (BRFSS 50/50) | Random Forest | 14,139 | 75.0% | 74.9% | 80% | ✅ |
-| Liver disease (ILPD) | Random Forest | 117 | 74.4% | 71.0% | 93% | ⚠️ ⁴ |
-| Chronic kidney disease | Logistic Regression | 80 | 100% | 100% | 100% | ⚠️ ⁵ |
-| Anaemia | Logistic Regression | 21 | 100% | 100% | 100% | ⚠️ ⁵ |
-| Alzheimer's (CDC survey) | Logistic Regression | 4,000 | 100% | 100% | 100% | ❌ ⁶ |
-| Parkinson's | Random Forest | 39 | 79.5% | 72.5% | — | ❌ ⁷ |
-| EEG / seizure | Decision Tree | 100 | 62.0% | 58.2% | 16% | ❌ ⁷ |
+## 📡 API Specification
 
-### Image models (MobileNetV2 transfer learning, 224 × 224)
+### `POST /api/analyze`
+Accepts `multipart/form-data` with a report file or `application/json` with raw text:
 
-| Disease | Classes | Test images | Accuracy | Macro F1 | Status |
-|:--|:--|--:|--:|--:|:--:|
-| Leukemia | Benign, Early, Pre, Pro | 651 | 95% | 93% | ⚠️ ⁸ |
-| Malaria | Parasitized, Uninfected | 5,511 | 94% | 94% | ⚠️ ⁸ |
-| Tuberculosis | Normal, Tuberculosis | 840 | 93% | 85% | ✅ |
-| Brain tumor | glioma, meningioma, no tumor, pituitary | 574 | 74% | 75% | ✅ |
-| Pneumonia | Normal, Tuberculosis | 840 | 93% | 85% | ❌ ⁹ |
-| Skin cancer | image part 1, image part 2 | 2,003 | 59% | 57% | ❌ ¹⁰ |
+**Request:**
+```bash
+curl -X POST https://arogyadrishti-production.up.railway.app/api/analyze \
+  -F "file=@sample_report.pdf"
+```
 
-<details>
-<summary><b>Notes on the results</b></summary>
-
-1. **Obesity:** 77% of the dataset is synthetic (SMOTE), and height and weight almost determine the label (BMI).
-2. **Heart failure:** only 60 test patients. The model predicts *death during follow-up*, not whether heart disease is present.
-3. **Stroke:** only 4.9% of patients had a stroke. The model catches 70% of strokes, but only 18% of its stroke alarms are correct.
-4. **Liver:** the dataset is 71% patients, so the model leans towards predicting disease (93% recall, but weak on healthy people).
-5. **Kidney / Anaemia:** very small test sets (80 and 21). In anaemia, haemoglobin itself defines the label. Perfect scores will not hold on new patients.
-6. **Alzheimer's:** the CDC file holds population survey statistics, not patient records, and the target is a depression-question flag. It does not detect Alzheimer's.
-7. **Parkinson's / EEG:** the real datasets are not available locally, so these were trained on randomly generated data. Treat them as placeholders.
-8. **Leukemia / Malaria:** the dataset folders contain duplicate images (original + segmented, and a copied malaria folder), so the same image can be in both training and test sets.
-9. **Pneumonia:** no pneumonia dataset is present, so this model was trained on the TB X-rays. It is a duplicate of the TB model.
-10. **Skin cancer:** trained on the two storage folders instead of the 7 diagnosis labels in `HAM10000_metadata.csv`. Needs retraining with the real labels.
-
-</details>
-
-<details>
-<summary><b>Confusion matrices</b></summary>
-
-| Thyroid | Diabetes | Stroke |
-|:--:|:--:|:--:|
-| ![Thyroid](SehatSetu/results/tabular/thyroid/confusion_matrix.png) | ![Diabetes](SehatSetu/results/tabular/diabetes/confusion_matrix.png) | ![Stroke](SehatSetu/results/tabular/stroke/confusion_matrix.png) |
-| **Tuberculosis** | **Brain tumor** | **Leukemia** |
-| ![Tuberculosis](SehatSetu/results/image/tuberculosis/confusion_matrix.png) | ![Brain tumor](SehatSetu/results/image/brain_tumor/confusion_matrix.png) | ![Leukemia](SehatSetu/results/image/leukemia/confusion_matrix.png) |
-
-</details>
+**Response Payload:**
+```json
+{
+  "analyzed_at": "2026-11-13T14:30:00",
+  "decision": "CONSULT A DOCTOR",
+  "overall_severity": "ABNORMAL",
+  "recommended_action": "Some results are outside the normal range...",
+  "extracted_values": {
+    "fasting_glucose": 142.0,
+    "hba1c": 6.9,
+    "total_cholesterol": 214.0,
+    "hemoglobin": 13.1,
+    "creatinine": 0.9
+  },
+  "findings": [
+    {
+      "parameter": "Fasting glucose",
+      "value": 142.0,
+      "unit": "mg/dL",
+      "reference": "70 – 99",
+      "status": "ABNORMAL"
+    }
+  ],
+  "model_results": [
+    {
+      "model": "diabetes",
+      "label": "Diabetes Risk Model",
+      "status": "ran",
+      "probability": 78.4,
+      "positive": true,
+      "features_used": "5/21",
+      "coverage": 23.8,
+      "assumptions": ["Age (default 45)", "BMI (default 24.2)"]
+    }
+  ],
+  "guidance": [
+    {
+      "for": "Diabetes",
+      "food_prefer": ["Vegetables and leafy greens", "Whole grains"],
+      "food_limit": ["Sugary drinks and sweets", "Refined flour"],
+      "exercise": ["Brisk walking 30 mins daily"],
+      "lifestyle": ["Sleep 7 to 9 hours nightly"],
+      "warning_signs": ["Constant thirst", "Unexplained weight loss"]
+    }
+  ]
+}
+```
 
 ---
 
 ## ⚠️ Medical Safety & Disclaimer
 
-> **DISCLAIMER:**  
-> This system provides **general educational health information only**. It is not a substitute for professional medical diagnosis, individualized clinical evaluation, or treatment plans.  
-> * Do not start, stop, or adjust prescription medications based on this software.  
-> * Always consult a qualified physician or registered healthcare provider for personalized medical advice.  
-> * In case of acute, severe, or rapidly worsening symptoms, seek immediate emergency medical services.
+> **IMPORTANT CLINICAL NOTICE:**  
+> ArogyaDrishti is an **academic AI screening and educational tool**. It is **not** a diagnostic device, clinical laboratory, or a substitute for professional medical consultation.  
+> * Predictions and risk percentages are probabilistic screening indicators only.  
+> * Never begin, alter, or discontinue prescription medications based on system outputs.  
+> * Always review medical reports and screening indicators with a qualified medical practitioner.  
+> * In case of acute, severe, or emergency symptoms, immediately contact local emergency healthcare services.
