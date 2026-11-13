@@ -18,7 +18,7 @@ export default function App() {
         <div className="min-h-screen bg-white text-[#171e19] flex flex-col font-body selection:bg-[#ffe17c] selection:text-[#171e19]">
           <DisclaimerBar />
           <Navbar />
-          <main className="flex-1 pt-20 pb-20 sm:pb-28">
+          <main className="flex-1 pt-20">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/upload" element={<UploadPage />} />

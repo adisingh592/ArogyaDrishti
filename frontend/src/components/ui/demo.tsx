@@ -25,9 +25,9 @@ export default function Demo() {
         <div className="my-8 w-full flex justify-center">
           <MagnificationDock 
             items={items}
-            panelHeight={68}
+            orientation="horizontal"
             baseItemSize={50}
-            magnification={80}
+            magnification={78}
           />
         </div>
 
