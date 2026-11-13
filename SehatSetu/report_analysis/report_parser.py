@@ -22,7 +22,7 @@ PARAMETERS = {
                    r"post\s*-?\s*prandial\s*(?:blood|plasma)?\s*(?:sugar|glucose)|\bppbs\b|\bppbg\b|glucose[\s,\-]*\(?(?:pp|post)",
                    None),
     "random_glucose": ("Random Blood Glucose", "mg/dL",
-                       r"random\s*(?:blood|plasma)?\s*(?:sugar|glucose)|\brbs\b|\brbg\b|^\s*(?:blood\s*|plasma\s*|serum\s*)?(?:sugar|glucose)\b",
+                       r"random\s*(?:blood|plasma)?\s*(?:sugar|glucose)|\brbs\b|\brbg\b|estimated\s*average\s*glucose|\beag\b|^\s*(?:blood\s*|plasma\s*|serum\s*)?(?:sugar|glucose)\b",
                        r"fasting|prandial|\bpp\b|urine|\bfbs\b|\bppbs\b"),
     "hemoglobin": ("Haemoglobin", "g/dL", r"ha?emoglobin|\bhgb\b|\bhb\b",
                    r"a1c|glyc|corpuscular|\bmch|urine"),
@@ -40,10 +40,10 @@ PARAMETERS = {
     "sodium": ("Sodium", "mmol/L", r"\bsodium\b|^\s*(?:serum\s*|s\.?\s*)?na\+?\b", None),
     "potassium": ("Potassium", "mmol/L", r"\bpotassium\b|^\s*(?:serum\s*|s\.?\s*)?k\+?\b", None),
     "total_bilirubin": ("Total Bilirubin", "mg/dL",
-                        r"total\s*bilirubin|bilirubin[\s,\-]*\(?total|^\s*(?:serum\s*)?bilirubin\b",
+                        r"total\s*bilirubin|bilirubin[\s,\-]*\(?total|bilirubin\s*total|^\s*(?:serum\s*)?bilirubin\b",
                         r"direct|indirect|conjugated|urine"),
     "direct_bilirubin": ("Direct Bilirubin", "mg/dL",
-                         r"direct\s*bilirubin|bilirubin[\s,\-]*\(?direct|conjugated\s*bilirubin",
+                         r"direct\s*bilirubin|bilirubin[\s,\-]*\(?direct|bilirubin\s*direct|conjugated\s*bilirubin",
                          r"indirect|unconjugated"),
     "alt": ("ALT (SGPT)", "U/L", r"\balt\b|\bsgpt\b|alanine\s*(?:amino)?\s*transferase|alanine\s*transaminase", None),
     "ast": ("AST (SGOT)", "U/L", r"\bast\b|\bsgot\b|aspartate\s*(?:amino)?\s*transferase|aspartate\s*transaminase", None),
@@ -185,6 +185,15 @@ def is_plausible(key, value):
 # -------------------------------------------------------------
 # 3. EXTRACTION
 # -------------------------------------------------------------
+# Major section breaks in lab reports where a lookahead should stop
+SECTION_HEADERS_RE = re.compile(
+    r"^(?:bio-?chemistry|haematology|hematology|liver profile|lipid profile|cardiac profile|"
+    r"diabetic screen|thyroid profile|iron profile|vitamin profile|urine examination|"
+    r"clinical pathology|test description|complete blood count|differential leucocyte)\b",
+    re.IGNORECASE,
+)
+
+
 def extract_numeric(lines):
     values, sources = {}, {}
 
@@ -192,19 +201,56 @@ def extract_numeric(lines):
         alias_re = re.compile(alias, re.IGNORECASE)
         exclude_re = re.compile(exclude, re.IGNORECASE) if exclude else None
 
-        for line in lines:
+        for idx, line in enumerate(lines):
             match = alias_re.search(line)
             if not match or (exclude_re and exclude_re.search(line)):
                 continue
+
+            # ── 1. Same-line extraction: "Fasting glucose 142 mg/dL" ──
             rest = line[match.end():]
             num = NUMBER_RE.search(rest)
-            if not num:
-                continue
-            value = convert_units(key, to_number(num.group(1)), rest[num.end():num.end() + 25])
-            if is_plausible(key, value):
-                values[key] = round(value, 2)
-                sources[key] = line.strip()
+            if num:
+                value = convert_units(key, to_number(num.group(1)), rest[num.end():num.end() + 25])
+                if is_plausible(key, value):
+                    values[key] = round(value, 2)
+                    sources[key] = line.strip()
+                    break
+
+            # ── 2. Multi-line table layout: Test name on line i, method on i+1, value on i+2 ──
+            # Standard in tabular lab reports (e.g., Olivhealth, Lal PathLabs, SRL)
+            found_val = False
+            for offset in range(1, 5):
+                if idx + offset >= len(lines):
+                    break
+                next_line = lines[idx + offset].strip()
+                if not next_line:
+                    continue
+
+                # Stop if hitting a major new section divider
+                if SECTION_HEADERS_RE.search(next_line):
+                    break
+
+                # Stop if hitting another known parameter name (to avoid stealing its value)
+                if any(re.search(other_alias, next_line, re.IGNORECASE)
+                       for other_key, (_, _, other_alias, _) in PARAMETERS.items()
+                       if other_key != key):
+                    break
+
+                # Look for the first numerical reading on this line
+                next_num = NUMBER_RE.search(next_line)
+                if next_num:
+                    candidate_num = to_number(next_num.group(1))
+                    unit_sub = next_line[next_num.end():next_num.end() + 30]
+                    value = convert_units(key, candidate_num, unit_sub)
+                    if is_plausible(key, value):
+                        values[key] = round(value, 2)
+                        sources[key] = f"{line.strip()} -> {next_line}"
+                        found_val = True
+                        break
+
+            if found_val:
                 break
+
     return values, sources
 
 
