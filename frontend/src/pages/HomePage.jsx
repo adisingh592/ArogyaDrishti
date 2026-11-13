@@ -1,6 +1,179 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Check, X } from 'lucide-react'
+import { Check, X, Cpu } from 'lucide-react'
+
+const CYCLING_MODELS = [
+  {
+    disease: 'Diabetes Mellitus',
+    modelName: 'Random Forest Classifier (BRFSS)',
+    parameters: ['Glucose', 'HbA1c', 'BMI', 'Blood Pressure'],
+    metric: '75.0% accuracy · 80% Recall',
+    barWidth: '88%',
+    category: 'Endocrine & Metabolic',
+  },
+  {
+    disease: 'Chronic Kidney Disease',
+    modelName: 'Logistic Regression & Tree Ensemble',
+    parameters: ['Serum Creatinine', 'Blood Urea', 'Urine Albumin', 'GFR'],
+    metric: '92.5% accuracy · Renal Panel',
+    barWidth: '94%',
+    category: 'Renal System',
+  },
+  {
+    disease: 'Liver Disease (Hepatic)',
+    modelName: 'Random Forest (ILPD Model)',
+    parameters: ['ALT (SGPT)', 'AST (SGOT)', 'Total Bilirubin', 'Albumin'],
+    metric: '74.4% accuracy · 93% Sensitivity',
+    barWidth: '78%',
+    category: 'Hepatic System',
+  },
+  {
+    disease: 'Hypothyroidism',
+    modelName: 'Decision Tree Classifier (UCI)',
+    parameters: ['TSH', 'Free T4 (FTI)', 'T3 Total', 'Patient Age'],
+    metric: '98.7% test accuracy · High Recall',
+    barWidth: '98%',
+    category: 'Endocrine / Thyroid',
+  },
+  {
+    disease: 'Heart Failure & Cardiac Risk',
+    modelName: 'Random Forest Mortality Model',
+    parameters: ['Total Cholesterol', 'Ejection Fraction', 'CPK', 'Systolic BP'],
+    metric: '85.0% accuracy · Cardiovascular',
+    barWidth: '85%',
+    category: 'Cardiovascular',
+  },
+  {
+    disease: 'Cerebrovascular Stroke',
+    modelName: 'Decision Tree & Ensemble Risk',
+    parameters: ['Avg Glucose Level', 'Systolic BP', 'BMI', 'Smoking Status'],
+    metric: '82.8% test accuracy · Stroke Alert',
+    barWidth: '83%',
+    category: 'Neurological',
+  },
+  {
+    disease: 'Clinical Anemia',
+    modelName: 'Logistic Regression CBC Classifier',
+    parameters: ['Hemoglobin', 'Hematocrit (PCV)', 'RBC Count', 'Platelets'],
+    metric: '96.0% accuracy · Hematology Panel',
+    barWidth: '92%',
+    category: 'Hematology',
+  },
+]
+
+function ModelPickerLiveCard() {
+  const [index, setIndex] = useState(0)
+  const [fade, setFade] = useState(true)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFade(false)
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % CYCLING_MODELS.length)
+        setFade(true)
+      }, 250)
+    }, 2800)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const current = CYCLING_MODELS[index]
+
+  return (
+    <div className="p-8 border border-[rgba(183,198,194,0.1)] rounded-2xl bg-[#171e19] text-white flex flex-col justify-between hover:-translate-y-1 transition-all min-h-[420px] relative overflow-hidden">
+      {/* Background glow accent */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#ffe17c]/5 rounded-full blur-2xl pointer-events-none" />
+
+      {/* Top Header */}
+      <div>
+        <div className="flex items-center justify-between mb-1">
+          <h3 className="disp text-3xl tracking-wide">Picks the model</h3>
+          <span className="flex items-center gap-1.5 text-[11px] font-mono text-[#ffe17c] bg-[#ffe17c]/10 px-2 py-0.5 rounded-full border border-[#ffe17c]/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ffe17c] animate-ping" />
+            LIVE ROUTER
+          </span>
+        </div>
+        <p className="mt-1.5 text-xs text-[#b7c6c2]/80 leading-relaxed min-h-[34px]">
+          <span className="text-[#ffe17c] font-medium">{current.parameters.slice(0, 2).join(' & ')}</span> route to the{' '}
+          <span className="text-white font-medium">{current.disease}</span> model.
+        </p>
+      </div>
+
+      {/* Middle: Dynamic Shifting Body */}
+      <div
+        className={`my-4 transition-all duration-300 ease-out ${
+          fade ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+        }`}
+      >
+        {/* Category tag */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#b7c6c2] bg-white/5 px-2 py-0.5 rounded">
+            {current.category}
+          </span>
+        </div>
+
+        {/* Disease Name Badge */}
+        <div className="inline-block bg-[#ffe17c] text-[#171e19] text-xs font-bold font-mono px-2.5 py-1 rounded shadow-sm">
+          DISEASE: {current.disease}
+        </div>
+
+        {/* Model Name */}
+        <div className="text-white font-disp text-2xl tracking-wide uppercase mt-2.5 flex items-center gap-2">
+          <Cpu size={18} className="text-[#ffe17c] flex-shrink-0" />
+          <span className="truncate">{current.modelName}</span>
+        </div>
+
+        {/* Main Parameters */}
+        <div className="mt-3">
+          <span className="text-[11px] uppercase tracking-wider text-[#b7c6c2]/70 font-semibold block mb-1.5">
+            Main Parameters Evaluated:
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {current.parameters.map((param, i) => (
+              <span
+                key={i}
+                className="bg-white/10 hover:bg-white/15 text-xs font-mono px-2.5 py-1 rounded text-[#ffe17c] border border-white/5 transition-colors"
+              >
+                {param}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: Progress Bar & Cycling Indicators */}
+      <div className="space-y-3 pt-3 border-t border-[rgba(183,198,194,0.12)]">
+        <div className="flex justify-between items-center text-[11px] font-mono text-[#b7c6c2]">
+          <span>{current.metric}</span>
+          <span className="text-[#ffe17c] font-bold">{index + 1} of {CYCLING_MODELS.length}</span>
+        </div>
+
+        {/* Dynamic Animated Meter */}
+        <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-[#ffe17c] transition-all duration-700 ease-out shadow-[0_0_8px_rgba(255,225,124,0.5)]"
+            style={{ width: current.barWidth }}
+          />
+        </div>
+
+        {/* Step dots */}
+        <div className="flex justify-center gap-1.5 pt-1">
+          {CYCLING_MODELS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`View ${CYCLING_MODELS[i].disease} model`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                index === i ? 'w-6 bg-[#ffe17c]' : 'w-1.5 bg-white/20 hover:bg-white/40'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(0)
@@ -222,18 +395,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Bento Card 2 */}
-            <div className="p-8 border border-[rgba(183,198,194,0.1)] rounded-2xl bg-[#171e19] text-white flex flex-col justify-between hover:-translate-y-1 transition-all">
-              <div>
-                <h3 className="disp text-3xl">Picks the model</h3>
-                <p className="mt-2 text-sm opacity-70">Meta-classifier selects matching disease-screening models.</p>
-              </div>
-              <div className="mt-8 space-y-2">
-                <div className="h-3.5 rounded-full bg-[#ffe17c] w-3/4 animate-pulse-soft" />
-                <div className="h-3.5 rounded-full bg-[#b7c6c2]/20 w-full animate-pulse-soft" />
-                <div className="h-3.5 rounded-full bg-[#b7c6c2]/20 w-1/2 animate-pulse-soft" />
-              </div>
-            </div>
+            {/* Bento Card 2: Continuous Model Ticker */}
+            <ModelPickerLiveCard />
 
             {/* Bento Card 3 */}
             <div className="p-8 border border-[rgba(23,30,25,0.1)] rounded-2xl bg-[#f8f9fa] flex flex-col justify-between hover:-translate-y-1 transition-all">
