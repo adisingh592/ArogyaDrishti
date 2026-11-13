@@ -1,169 +1,134 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { ArrowRight, AlertCircle } from 'lucide-react'
+import React, { useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-
-const SEVERITY_COLOR = {
-  'URGENT':     'badge-high',
-  'ABNORMAL':   'badge-high',
-  'BORDERLINE': 'bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded',
-  'NORMAL':     'badge-normal',
-}
-
-const STATUS_DOC_COLOR = {
-  'URGENT':     'bg-red-50 border border-red-200',
-  'ABNORMAL':   'bg-orange-50 border border-orange-200',
-  'BORDERLINE': 'bg-yellow-50 border border-yellow-200',
-  'NORMAL':     'bg-teal-50 border border-teal-100',
-}
 
 export default function AnalysisPage() {
   const navigate = useNavigate()
   const { analysis, uploadedFile, loading } = useApp()
 
-  // redirect to upload if no data
   useEffect(() => {
     if (!loading && !analysis) navigate('/upload')
   }, [analysis, loading, navigate])
 
   if (!analysis) return null
 
-  const findings    = analysis.findings || []
-  const conditions  = analysis.conditions || []
-  const values      = analysis.extracted_values || {}
+  const findings = analysis.findings || []
+  const conditions = analysis.conditions || []
   const modelResults = (analysis.model_results || []).filter(m => m.status === 'ran')
-
-  // Top condition for routing display
   const topCondition = conditions.find(c => c.severity > 0) || conditions[0]
+  const valuesCount = Object.keys(analysis.extracted_values || {}).length
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <p className="step-label">Step 2 of 4</p>
-      <h1 className="font-serif text-4xl font-bold text-gray-900 mb-3">What we found in your report</h1>
-      <p className="text-gray-500 mb-10">
-        Check the extracted values before screening. Anything misread can be corrected.
+    <div className="py-16 px-5 max-w-[1240px] mx-auto">
+      <span className="badge-tag">Step 2 of 3</span>
+      
+      <h1 className="disp text-[clamp(3.4rem,9vw,6.5rem)] mt-6">
+        Your report, <span className="hl">read</span>
+      </h1>
+      <p className="mt-4 text-lg opacity-70 max-w-xl">
+        Here is what ArogyaDrishti found in the report and where the clinical parameters were routed.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Document preview — extracted values */}
-        <div className="card p-5">
-          <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-            <span className="text-sm font-semibold text-gray-700 truncate">
-              {uploadedFile?.name || 'report'}
-            </span>
-            <span className="text-xs text-gray-400 ml-2 flex-shrink-0">EXTRACTED VALUES</span>
+      {/* Stepper */}
+      <ol className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+        <li className="p-5 border border-[rgba(23,30,25,0.1)] rounded-xl bg-white flex gap-3.5 items-center shadow-sm">
+          <div className="w-3 h-3 rounded-full bg-[#ffe17c] ring-2 ring-[#171e19] flex-shrink-0" />
+          <div>
+            <b className="block text-sm font-bold">Report received</b>
+            <small className="text-xs opacity-60 truncate block max-w-[200px]">{uploadedFile?.name || 'Uploaded document'}</small>
+          </div>
+        </li>
+        <li className="p-5 border border-[rgba(23,30,25,0.1)] rounded-xl bg-white flex gap-3.5 items-center shadow-sm">
+          <div className="w-3 h-3 rounded-full bg-[#ffe17c] ring-2 ring-[#171e19] flex-shrink-0" />
+          <div>
+            <b className="block text-sm font-bold">Values read</b>
+            <small className="text-xs opacity-60">{findings.length || valuesCount} parameters extracted</small>
+          </div>
+        </li>
+        <li className="p-5 border border-[rgba(23,30,25,0.1)] rounded-xl bg-white flex gap-3.5 items-center shadow-sm">
+          <div className="w-3 h-3 rounded-full bg-[#ffe17c] ring-2 ring-[#171e19] flex-shrink-0" />
+          <div>
+            <b className="block text-sm font-bold">Model chosen</b>
+            <small className="text-xs opacity-60">
+              {topCondition ? `${topCondition.condition} model` : 'General screening'}
+            </small>
+          </div>
+        </li>
+      </ol>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {/* Left: Extracted Parameters Table */}
+        <div className="bg-white border border-[rgba(23,30,25,0.1)] rounded-2xl p-8 shadow-sm">
+          <div className="flex justify-between text-xs font-bold uppercase tracking-wider opacity-60 pb-3 border-b border-[rgba(23,30,25,0.1)]">
+            <span>Extracted parameters</span>
+            <span>Status</span>
           </div>
 
-          {Object.keys(values).length === 0 ? (
-            <div className="flex items-center gap-2 text-amber-600 bg-amber-50 rounded p-3">
-              <AlertCircle size={16} />
-              <p className="text-sm">No standard values were recognised in this report.</p>
-            </div>
-          ) : (
-            <div className="space-y-1.5">
-              {Object.entries(values).map(([key, val]) => {
-                const finding = findings.find(f =>
-                  f.parameter?.toLowerCase().includes(key.toLowerCase()) ||
-                  key.toLowerCase().includes(f.parameter?.toLowerCase())
-                )
-                const sev = finding?.severity_label || finding?.status || 'NORMAL'
+          <div className="divide-y divide-[rgba(23,30,25,0.08)]">
+            {findings.length > 0 ? (
+              findings.map((f, i) => {
+                const isHigh = f.status === 'ABNORMAL' || f.status === 'URGENT' || f.status === 'BORDERLINE'
                 return (
-                  <div
-                    key={key}
-                    className={`flex justify-between items-center px-3 py-2 rounded text-sm ${STATUS_DOC_COLOR[sev] || STATUS_DOC_COLOR['NORMAL']}`}
-                  >
-                    <span className="text-gray-700 capitalize">{key.replace(/_/g, ' ')}</span>
-                    <span className="font-medium text-gray-800">{typeof val === 'number' ? val.toFixed(1) : val}</span>
+                  <div key={i} className="flex justify-between items-center py-3.5 text-sm">
+                    <span className="font-medium text-[#171e19]">{f.parameter}</span>
+                    <span className="font-mono text-xs flex items-center gap-2">
+                      {f.value} {f.unit}
+                      <span className={isHigh ? 'chip-hi' : 'chip-ok'}>
+                        {f.status}
+                      </span>
+                    </span>
                   </div>
                 )
-              })}
-            </div>
-          )}
-
-          {/* Model info */}
-          {modelResults.length > 0 && (
-            <div className="mt-4 pt-3 border-t border-gray-100 space-y-1">
-              {modelResults.map(m => (
-                <p key={m.model} className="text-xs text-gray-500">
-                  🤖 <span className="font-medium">{m.label}</span> — {m.probability}% probability
-                </p>
-              ))}
-            </div>
-          )}
+              })
+            ) : (
+              Object.entries(analysis.extracted_values || {}).map(([key, val], i) => (
+                <div key={i} className="flex justify-between items-center py-3.5 text-sm">
+                  <span className="font-medium text-[#171e19] capitalize">{key.replace(/_/g, ' ')}</span>
+                  <span className="font-mono text-xs flex items-center gap-2">
+                    {val}
+                    <span className="chip-ok">MEASURED</span>
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
         </div>
 
-        {/* Right panel */}
-        <div className="space-y-5">
-          {/* Findings table */}
-          <div className="card p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-serif font-bold text-gray-900">Extracted parameters</h3>
-              <span className="text-xs text-gray-400">
-                {findings.length} found · {findings.filter(f => f.status === 'URGENT' || f.status === 'ABNORMAL').length} flagged
-              </span>
-            </div>
-            {findings.length === 0 ? (
-              <p className="text-sm text-gray-400 italic">No flags raised for supported tests.</p>
-            ) : (
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-100">
-                    {['Parameter', 'Value', 'Reference', 'Status'].map(h => (
-                      <th key={h} className="text-left text-xs text-gray-400 font-semibold pb-2 uppercase tracking-wide">{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {findings.map((f, i) => (
-                    <tr key={i} className="border-b border-gray-50 last:border-0">
-                      <td className="py-2.5 text-gray-700 pr-2">{f.parameter}</td>
-                      <td className="py-2.5 text-gray-800 font-medium pr-2">{f.value} {f.unit}</td>
-                      <td className="py-2.5 text-gray-500 pr-2 text-xs">{f.reference || '—'}</td>
-                      <td className="py-2.5">
-                        <span className={SEVERITY_COLOR[f.status] || SEVERITY_COLOR['NORMAL']}>
-                          {f.status}
-                        </span>
-                      </td>
-                    </tr>
+        {/* Right: Dark Routing Panel */}
+        <div className="bg-[#171e19] text-white border border-[rgba(183,198,194,0.1)] rounded-2xl p-8 flex flex-col justify-between">
+          <div>
+            <h3 className="disp text-3xl mb-3">
+              Routed to {topCondition ? topCondition.condition : 'Clinical'} Model
+            </h3>
+            <p className="text-sm text-[#b7c6c2] leading-relaxed">
+              Your values match specific organ markers. The Meta-Classifier selects the disease-screening model matching these biomarkers and infers risk certainty.
+            </p>
+
+            {modelResults.length > 0 && (
+              <div className="mt-6 space-y-2">
+                <span className="text-xs uppercase tracking-wider text-[#b7c6c2]/70 font-semibold block">
+                  Active Models Evaluated:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {modelResults.map((m, idx) => (
+                    <span key={idx} className="bg-white/10 text-[#ffe17c] text-xs font-mono px-2.5 py-1 rounded">
+                      {m.label} ({m.probability}%)
+                    </span>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </div>
             )}
           </div>
 
-          {/* Disease routing */}
-          {topCondition && (
-            <div className="card p-5">
-              <p className="text-xs font-semibold tracking-widest text-[#1a5e52] uppercase mb-4">Disease Routing</p>
-              <div className="flex items-center gap-2 flex-wrap mb-4">
-                <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">
-                  {uploadedFile?.name?.endsWith('.pdf') ? 'PDF report' : 'Medical report'}
-                </span>
-                <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
-                <span className="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700">
-                  {conditions.length} condition{conditions.length !== 1 ? 's' : ''} evaluated
-                </span>
-                <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
-                <span className="btn-primary text-sm py-1.5 cursor-default">
-                  {topCondition.condition}
-                </span>
-              </div>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                {analysis.recommended_action || 'Review the findings above with your healthcare provider.'}
-              </p>
-            </div>
-          )}
+          <div className="flex flex-wrap gap-3 mt-8 items-center">
+            <Link to="/results" className="btn-y">
+              View results
+            </Link>
+            <Link to="/upload" className="btn-ghost">
+              Upload another
+            </Link>
+          </div>
         </div>
-      </div>
-
-      {/* Actions */}
-      <div className="flex items-center gap-3 mt-8">
-        <button onClick={() => navigate('/results')} className="btn-primary">
-          View screening result
-        </button>
-        <button onClick={() => navigate('/upload')} className="btn-outline">
-          Upload a different report
-        </button>
       </div>
     </div>
   )

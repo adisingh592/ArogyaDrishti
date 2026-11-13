@@ -13,10 +13,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <AppProvider>
-        <div className="min-h-screen bg-[#f0f4f2] flex flex-col">
+        <div className="min-h-screen bg-white text-[#171e19] flex flex-col font-body selection:bg-[#ffe17c] selection:text-[#171e19]">
           <DisclaimerBar />
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 pt-20">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/upload" element={<UploadPage />} />

@@ -2,32 +2,171 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --w: #ffffff;
+  --c: #171e19;
+  --d: #272727;
+  --s: #b7c6c2;
+  --y: #ffe17c;
+  --soft: #f8f9fa;
+  --line: rgba(23, 30, 25, 0.1);
+  --dline: rgba(183, 198, 194, 0.1);
+  --disp: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+  --body: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--body);
+    color: var(--c);
+    background-color: var(--w);
+    scroll-behavior: smooth;
   }
-  h1, h2, h3 {
-    font-family: Georgia, Cambria, serif;
+
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-[#1a5e52] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#154a40] transition-colors text-sm;
-  }
-  .btn-outline {
-    @apply border border-[#1a5e52] text-[#1a5e52] px-5 py-2.5 rounded-lg font-medium hover:bg-[#f0f4f2] transition-colors text-sm;
-  }
-  .badge-high {
-    @apply bg-orange-100 text-orange-600 text-xs font-semibold px-2 py-0.5 rounded;
-  }
-  .badge-normal {
-    @apply bg-teal-100 text-teal-700 text-xs font-semibold px-2 py-0.5 rounded;
-  }
-  .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
-  }
-  .step-label {
-    @apply text-xs font-semibold tracking-widest text-[#1a5e52] uppercase mb-2;
-  }
+.disp {
+  font-family: var(--disp);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  line-height: 0.9;
+}
+
+.hl {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  color: var(--c);
+}
+
+.hl::before {
+  content: "";
+  position: absolute;
+  inset: 6% -0.12em 0;
+  background: var(--y);
+  transform: skewX(-15deg);
+  z-index: -1;
+}
+
+.grid-bg {
+  background-image: linear-gradient(to right, #b7c6c220 1px, transparent 1px),
+                    linear-gradient(to bottom, #b7c6c220 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--c);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.btn-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(23, 30, 25, 0.25);
+}
+
+.btn-y {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--y);
+  color: var(--c);
+  font-family: var(--disp);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.btn-y:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 225, 124, 0.45);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  padding: 14px 28px;
+  border-radius: 8px;
+  opacity: 0.85;
+  font-weight: 700;
+  font-size: 15px;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.btn-ghost:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--w);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.badge-tag::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--y);
+  box-shadow: 0 0 0 2px var(--c);
+}
+
+.chip-hi {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: var(--y);
+  color: var(--c);
+}
+
+.chip-ok {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--line);
+  color: var(--c);
+}
+
+@keyframes pulse-soft {
+  50% { opacity: 0.45; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.8s ease-in-out infinite;
 }

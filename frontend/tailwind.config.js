@@ -7,6 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        themeDark: "#171e19",
+        themeCharcoal: "#272727",
+        themeYellow: "#ffe17c",
+        themeSage: "#b7c6c2",
+        themeSoft: "#f8f9fa",
         border: "hsl(var(--border, 214.3 31.8% 91.4%))",
         input: "hsl(var(--input, 214.3 31.8% 91.4%))",
         ring: "hsl(var(--ring, 168 57% 24%))",
@@ -46,8 +51,10 @@ export default {
         }
       },
       fontFamily: {
+        disp: ["'Anton'", "'Impact'", "'Arial Narrow'", "sans-serif"],
+        body: ["'DM Sans'", "'Helvetica Neue'", "sans-serif"],
         serif: ['Georgia', 'Cambria', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["'DM Sans'", 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
