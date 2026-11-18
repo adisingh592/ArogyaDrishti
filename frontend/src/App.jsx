@@ -9,7 +9,6 @@ import UploadPage from './pages/UploadPage'
 import AnalysisPage from './pages/AnalysisPage'
 import ResultsPage from './pages/ResultsPage'
 import GuidancePage from './pages/GuidancePage'
-import Demo from './components/ui/demo'
 
 export default function App() {
   return (
@@ -25,7 +24,6 @@ export default function App() {
               <Route path="/analysis" element={<AnalysisPage />} />
               <Route path="/results" element={<ResultsPage />} />
               <Route path="/guidance" element={<GuidancePage />} />
-              <Route path="/demo" element={<Demo />} />
             </Routes>
           </main>
           <WorkflowDock />

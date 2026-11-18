@@ -31,67 +31,18 @@ export default function UploadPage() {
     }
   }
 
-  // Fallback demo sample report
-  const handleTrySample = () => {
-    const samplePayload = {
-      decision: "CONSULT A DOCTOR",
-      overall_severity: "ABNORMAL",
-      recommended_action: "Some results are outside the normal range and suggest a metabolic condition that needs evaluation.",
-      extracted_values: {
-        fasting_glucose: 142.0,
-        hba1c: 6.9,
-        total_cholesterol: 214.0,
-        hemoglobin: 13.1,
-        creatinine: 0.9,
-      },
-      findings: [
-        { parameter: "Fasting glucose", value: 142.0, unit: "mg/dL", reference: "70 – 99", status: "ABNORMAL", severity_label: "ABNORMAL" },
-        { parameter: "HbA1c", value: 6.9, unit: "%", reference: "4.0 – 5.6", status: "ABNORMAL", severity_label: "ABNORMAL" },
-        { parameter: "Total cholesterol", value: 214.0, unit: "mg/dL", reference: "< 200", status: "BORDERLINE", severity_label: "BORDERLINE" },
-        { parameter: "Hemoglobin", value: 13.1, unit: "g/dL", reference: "12.0 – 15.5", status: "NORMAL", severity_label: "NORMAL" },
-        { parameter: "Serum creatinine", value: 0.9, unit: "mg/dL", reference: "0.6 – 1.2", status: "NORMAL", severity_label: "NORMAL" },
-      ],
-      model_results: [
-        {
-          model: "diabetes",
-          label: "Diabetes Risk Model",
-          status: "ran",
-          probability: 78.4,
-          positive: true,
-          features_used: "5/21",
-          coverage: 23.8,
-          assumptions: ["BMI (default 24.2)", "Age (default 45)"],
-        },
-        {
-          model: "kidney_disease",
-          label: "Chronic Kidney Disease Model",
-          status: "ran",
-          probability: 14.2,
-          positive: false,
-          features_used: "6/24",
-          coverage: 25.0,
-          assumptions: ["Age (default 45)"],
-        },
-      ],
-      conditions: [
-        { condition: "Diabetes", status: "ABNORMAL", severity: 2, evidence: ["Fasting glucose 142 mg/dL - High blood sugar", "HbA1c 6.9% - High glycemic index"] },
-        { condition: "Dyslipidemia", status: "BORDERLINE", severity: 1, evidence: ["Total cholesterol 214 mg/dL - Elevated"] },
-      ],
-      guidance: [
-        {
-          for: "Diabetes",
-          food_prefer: ["Vegetables and leafy greens", "Whole grains such as millets, oats and brown rice", "Lentils, beans and chickpeas", "Nuts, seeds and lean protein"],
-          food_limit: ["Sugary drinks and sweets", "Refined flour and white bread", "Deep-fried snacks"],
-          exercise: ["Brisk walking 30 mins daily", "Light strength training twice a week"],
-          lifestyle: ["Sleep 7 to 9 hours nightly", "Stress reduction routines", "Routine blood monitoring"],
-          warning_signs: ["Constant thirst or frequent urination", "Unexplained weight loss or tiredness", "Blurred vision"],
-          when_to_seek_help: ["Confusion or dizziness", "Persistent vomiting or fruity-smelling breath"],
-        }
-      ]
+  // Load and analyze the real laboratory sample report via backend API
+  const handleTrySample = async () => {
+    try {
+      const response = await fetch('/sample_clinical_report.txt')
+      const text = await response.text()
+      const sampleFile = new File([text], 'sample_clinical_report.txt', { type: 'text/plain' })
+      setUploadedFile(sampleFile)
+      await runAnalysis(sampleFile)
+      navigate('/analysis')
+    } catch (err) {
+      console.error('Failed to load sample report:', err)
     }
-    setUploadedFile({ name: "sample_clinical_report.pdf", size: 142 * 1024 })
-    setAnalysis(samplePayload)
-    navigate('/analysis')
   }
 
   return (
